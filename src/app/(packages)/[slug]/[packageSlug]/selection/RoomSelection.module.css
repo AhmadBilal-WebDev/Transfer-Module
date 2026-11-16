@@ -1,0 +1,475 @@
+.roomContainer {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.15rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.breadcrumb a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #e31c23;
+}
+
+.breadcrumbSep {
+  color: #d1d5db;
+}
+
+.breadcrumbCurrent {
+  color: #6b7280;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1.75rem;
+  padding: 1.05rem 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+}
+
+.titleBox h1 {
+  margin: 0;
+  font-family: crimson-pro, sans-serif;
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.roomCard {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background: #fff;
+  padding: 1.25rem 1.3rem 1.2rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.roomCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.selectedCard {
+  border-color: #f5c2c4;
+  box-shadow: 0 6px 20px rgba(227, 28, 35, 0.08);
+}
+
+.selectedBadge {
+  background: #e31c23;
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.roomTitle {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.roomSubtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.84rem;
+  color: #9ca3af;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.priceItem {
+  text-align: center;
+  padding: 0.7rem 0.45rem;
+  border-radius: 12px;
+  background: #fdf2f2;
+  border: 1px solid #fce7e7;
+}
+
+.priceItem span {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 0.2rem;
+}
+
+.priceItem strong {
+  color: #1a1a1a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.roomsCountRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0.35rem;
+}
+
+.roomsCountLabel {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.quantityControl button {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #1a1a1a;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantityControl button:hover:not(:disabled) {
+  background: #e31c23;
+  border-color: #e31c23;
+  color: #fff;
+}
+
+.quantityControl button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.quantityControl span {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: #1a1a1a;
+}
+
+.guestSection {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid #f0ede8;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.guestHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.65rem;
+  border-bottom: none;
+  margin-bottom: 0.55rem;
+}
+
+.guestHeader h6 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.guestHeader small {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.guestControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.guestRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.85rem;
+  background: #fdf2f2;
+  border-radius: 12px;
+  border: 1px solid #fce7e7;
+  transition: border-color 0.15s ease;
+}
+
+.guestRow:hover {
+  border-color: #f5c2c4;
+  box-shadow: none;
+}
+
+.guestRow p.fw-semibold,
+.guestRow .guestLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.guestRow .guestPrice,
+.guestRow p.text-muted {
+  margin: 0.1rem 0 0;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.withoutBedSection {
+  margin-top: 0.85rem;
+  padding: 0.9rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #1a1a1a;
+}
+
+.withoutBedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid #eceae5;
+}
+
+.withoutBedHeader span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.withoutBedRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0.8rem;
+  background: #fdf2f2;
+  border-radius: 12px;
+  border: 1px solid #fce7e7;
+  transition: border-color 0.15s ease;
+  margin-bottom: 0.5rem;
+}
+
+.withoutBedRow:last-child {
+  margin-bottom: 0;
+}
+
+.withoutBedRow:hover {
+  border-color: #f5c2c4;
+  box-shadow: none;
+}
+
+.toggleWithoutBtn {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid #e31c23;
+  background: #fff;
+  color: #e31c23;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggleWithoutBtnActive {
+  background: #e31c23;
+  color: #fff;
+}
+
+.toggleWithoutBtn:hover:not(:disabled) {
+  background: #e31c23;
+  color: #fff;
+}
+
+.toggleWithoutBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.selectedSummary {
+  background: #fdf2f2;
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem 1.25rem;
+  border: 1px solid #fce7e7;
+  box-shadow: none;
+  margin-top: 1.75rem;
+}
+
+.summaryHeading {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.summaryLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.summaryLine strong {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.summaryDivider {
+  border: none;
+  border-top: 1px solid #f5c2c4;
+  margin: 0.85rem 0 1rem;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.summaryTotalLabel {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.summaryTotalValue {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.summaryNote {
+  margin: 0;
+  text-align: right;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.checkoutActions {
+  margin-top: 1rem;
+}
+
+.btnCheckout {
+  width: 100%;
+  background: #e31c23;
+  border-radius: 12px;
+  padding: 0.95rem 1.5rem;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 8px 22px rgba(227, 28, 35, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btnCheckout:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(227, 28, 35, 0.32);
+  background: #b9151b;
+  color: #fff;
+}
+
+.btnCheckout:active {
+  transform: translateY(0);
+}
+
+.progressTrack {
+  height: 6px;
+  background: #f3f4f6;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: #e31c23;
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.progressFillComplete {
+  background: #16a34a;
+}
+
+@media (max-width: 991.98px) {
+  .titleBox {
+    margin-bottom: 1.35rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .roomCard {
+    padding: 1.1rem 1rem;
+  }
+
+  .selectedSummary {
+    padding: 1.15rem 1.05rem;
+  }
+
+  .roomsCountRow {
+    flex-wrap: wrap;
+  }
+}

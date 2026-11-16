@@ -1,0 +1,485 @@
+.flightList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.flightCard {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flightCard:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.includedBanner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    margin-bottom: 0.85rem;
+    border-radius: 10px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.includedBanner strong {
+    font-weight: 800;
+}
+
+.cardLayout {
+    display: grid;
+    grid-template-columns: 170px 1fr 190px;
+    gap: 1.15rem;
+    align-items: stretch;
+}
+
+/* ── Airline panel ── */
+.airlinePanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.airlinePanelInner {
+    background: #f5f5f5;
+    border-radius: 14px;
+    padding: 0.85rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+    flex: 1;
+}
+
+.airlineLogo {
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.airlineMetaBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.airlineName {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.25;
+}
+
+.airlineClass {
+    font-size: 0.72rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.promoBadge {
+    display: block;
+    text-align: center;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.promoBadge_save,
+.promoBadge_value,
+.promoBadge_premium {
+    background: #fef2f2;
+    color: #e31c23;
+    border: 1px solid #fecaca;
+}
+
+.promoBadge_ai {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+}
+
+/* ── Route panel ── */
+.routePanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.65rem;
+    min-width: 0;
+    border-right: 1px solid #D8CBC1;
+    padding: 0 1rem;
+}
+
+.legRoute {
+    min-width: 0;
+}
+
+.legRoute + .legRoute {
+    padding-top: 0.65rem;
+    border-top: 1px dashed #ececec;
+}
+
+.legRouteLabel {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #e31c23;
+    margin-bottom: 0.35rem;
+}
+
+.routeTop {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+
+.routeTimeBlock {
+    flex: 0 0 28%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.routeTimeBlockRight {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.routeTime {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.1;
+}
+
+.dayOffset {
+    font-size: 0.55em;
+    font-weight: 700;
+    color: #e31c23;
+    vertical-align: super;
+    margin-left: 1px;
+}
+
+.routeCode {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.routeAirport {
+    font-size: 0.72rem;
+    color: #5F524C;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.routeDate {
+    font-size: 0.68rem;
+    color: #5F524C;
+    margin-top: 0.1rem;
+}
+
+.routeMiddle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.35rem;
+    min-width: 90px;
+}
+
+.routeDuration {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 0.35rem;
+}
+
+.routeLineWrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.routeLine {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #e5e7eb, #e31c23, #e5e7eb);
+    border-radius: 2px;
+}
+
+.routePlane {
+    color: #e31c23;
+    flex-shrink: 0;
+    margin-left: -2px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: rotate(320deg);
+}
+
+.routeStops {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin-top: 0.35rem;
+    text-align: center;
+}
+
+.amenitiesRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.15rem;
+}
+
+.amenityPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: 999px;
+    background: #fef2f2;
+    color: #e31c23;
+    font-size: 0.68rem;
+    font-weight: 600;
+}
+
+.amenityPill svg {
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+/* ── Price panel ── */
+.pricePanel {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.priceBlock {
+    text-align: center;
+}
+
+.priceMain {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.priceSuffix {
+    font-size: 15px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.priceNote {
+    font-size: 12px;
+    color: #5F524C;
+    display: block;
+    margin-top: 0.45rem;
+}
+
+.actionStack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.selectBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: 100%;
+    min-height: 42px;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background: #e31c23;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(227, 28, 35, 0.28);
+}
+
+.selectBtn:hover {
+    background: #c41920;
+    transform: translateY(-1px);
+}
+
+.cancelNote {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    color: #6b7280;
+    margin-top: auto;
+}
+
+.cancelNote svg {
+    color: #e31c23;
+    font-size: 0.72rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.emptyStateTitle {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.emptyStateText {
+    color: #6b7280;
+    font-size: 0.9rem;
+    max-width: 420px;
+    margin: 0.5rem auto 0;
+}
+
+@media (max-width: 991px) {
+    .cardLayout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .routePanel {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 0.85rem 0;
+    }
+
+    .airlinePanel {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .airlinePanelInner {
+        flex-direction: row;
+        flex: 1;
+        text-align: left;
+        padding: 0.75rem 0.85rem;
+    }
+
+    .promoBadge {
+        flex-shrink: 0;
+    }
+
+    .pricePanel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .priceBlock {
+        text-align: left;
+    }
+
+    .actionStack {
+        flex-direction: row;
+        flex: 1;
+        min-width: 200px;
+        justify-content: flex-end;
+    }
+
+    .cancelNote {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 767px) {
+    .flightCard {
+        padding: 0.85rem;
+        border-radius: 14px;
+    }
+
+    .routeTop {
+        flex-wrap: wrap;
+    }
+
+    .routeTimeBlock {
+        flex: 0 0 38%;
+    }
+
+    .routeMiddle {
+        order: 3;
+        width: 100%;
+        padding-top: 0.5rem;
+    }
+
+    .routeTime {
+        font-size: 1.15rem;
+    }
+
+    .pricePanel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .priceBlock {
+        text-align: left;
+    }
+
+    .actionStack {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .airlinePanel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .airlineMetaBlock {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: .8rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .routeTimeBlock {
+        flex: 0 0 42%;
+    }
+
+    .routeAirport {
+        -webkit-line-clamp: 1;
+    }
+}

@@ -1,0 +1,113 @@
+.section {
+  background: #ffffff !important;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  padding: 0 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background: transparent;
+  color: #e31c23;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0;
+  margin-bottom: 0.85rem;
+}
+
+.section .title {
+  font-family: "Fraunces", Georgia, "Times New Roman", Times, serif;
+  font-size: clamp(1.85rem, 4vw, 2.65rem) !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.65rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  color: #6b7280;
+  margin: 0 auto;
+  max-width: 540px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.tabsWrap {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 1.75rem;
+  padding: 0 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.tabsWrap::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content;
+  max-width: none;
+  justify-content: flex-start !important;
+  margin: 0 auto;
+  padding: 0 0.25rem;
+}
+
+.tabs :global(.nav-item) {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 767px) {
+  .tabs {
+    /* Keep scroll start at the first tab (All) on small screens */
+    margin: 0;
+    padding-right: 1rem;
+  }
+}
+
+.tabBtn {
+  border: none !important;
+  background: transparent !important;
+  color: #4b5563 !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.15rem !important;
+  border-radius: 999px !important;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tabBtn:hover {
+  color: #111827 !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+.tabActive,
+.tabBtn.tabActive {
+  background: #e31c23 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(227, 28, 35, 0.28);
+}
+
+@media (max-width: 575px) {
+  .section .title {
+    font-size: 1.65rem !important;
+  }
+
+  .tabBtn {
+    font-size: 0.8rem !important;
+    padding: 0.45rem 0.9rem !important;
+  }
+}

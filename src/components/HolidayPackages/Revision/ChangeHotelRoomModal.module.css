@@ -1,0 +1,447 @@
+/* ChangeHotelRoomModal — payment summary + footer (Royalane) */
+
+.reviseSummaryCard {
+  margin-top: 1.35rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.reviseSummaryHeader {
+  padding: 1.15rem 1.25rem 1rem;
+  background: linear-gradient(135deg, #0F63BD 0%, #3e2f28 100%);
+  color: #fff;
+}
+
+.reviseSummaryEyebrow {
+  margin: 0 0 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.reviseSummaryTitle {
+  margin: 0 0 0.35rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.reviseSummaryText {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 36rem;
+}
+
+.reviseSummaryRows {
+  padding: 1rem 1.25rem 0;
+}
+
+.reviseSummaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+.reviseSummaryRowLabel {
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+
+.reviseSummaryRowValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.reviseSummaryTotal {
+  margin: 0.85rem 1.25rem 1.15rem;
+  padding: 0.95rem 1rem;
+  border-radius: 12px;
+  background: #faf7f2;
+  border: 1px solid #f0ede8;
+}
+
+.reviseSummaryTotalLabel {
+  display: block;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #1a1a1a;
+  margin-bottom: 0.2rem;
+}
+
+.reviseSummaryTotalValue {
+  display: block;
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 700;
+  color: #e31c23;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.reviseSummaryTotalNote {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.reviseSummaryPending {
+  margin: 0 1.25rem 1.2rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.reviseSummaryPendingLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b9151b;
+}
+
+.reviseSummaryPendingChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.reviseSummaryChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #fecaca;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #e31c23;
+  text-transform: capitalize;
+}
+
+.revisionFooterActions {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin-top: 1.15rem;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+  padding: 0.95rem 0.25rem 0.15rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 28%);
+}
+
+.footerError {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b9151b;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+
+.revisionFooterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid #f0ede8;
+}
+
+.applyBtn,
+.cancelBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 46px;
+  padding: 0.7rem 1.3rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.applyBtn {
+  border: none;
+  background: #e31c23;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(227, 28, 35, 0.22);
+  flex: 0 1 auto;
+  min-width: 180px;
+  width: auto;
+}
+
+.applyBtn:hover:not(:disabled) {
+  background: #b9151b;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(227, 28, 35, 0.28);
+}
+
+.applyBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.cancelBtn {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #6b7280;
+  font-weight: 600;
+  flex: 0 1 auto;
+  min-width: 120px;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: #faf7f2;
+  border-color: #d1d5db;
+  color: #1a1a1a;
+}
+
+.cancelBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .reviseSummaryHeader {
+    padding: 1rem 1rem 0.9rem;
+  }
+
+  .reviseSummaryTitle {
+    font-size: 1.15rem;
+  }
+
+  .reviseSummaryRows,
+  .reviseSummaryTotal,
+  .reviseSummaryPending {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .reviseSummaryRows {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .reviseSummaryRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .reviseSummaryRowValue {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .revisionFooterActions {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .revisionFooterButtons {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .applyBtn,
+  .cancelBtn {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+}
+
+/* ── Rooms Available section — responsive only ── */
+.roomsSectionResponsive {
+  min-width: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.roomInfoCol {
+  padding: 16px !important;
+  min-width: 0;
+}
+
+.roomName {
+  padding: 0.35rem 0.5rem;
+  margin: 0 0 0.35rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+.mealPlanCol {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.mealOptionResponsive :global([class*="revisionCancel"]) {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+.mealOptionPrice {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.roomPriceMain {
+  display: block;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal !important;
+  line-height: 1.25;
+}
+
+.mealOptionActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.qtySelect {
+  width: 72px;
+  min-width: 72px;
+}
+
+.rateActionBtn {
+  white-space: nowrap;
+}
+
+.priceColResponsive {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 16px !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  .roomInfoCol,
+  .mealPlanCol {
+    border-right: none !important;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.85rem !important;
+  }
+
+  .priceColResponsive {
+    align-items: flex-start !important;
+    text-align: left;
+  }
+
+  .priceColResponsive :global(button) {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .roomsSectionResponsive {
+    padding: 12px !important;
+  }
+
+  .roomInfoCol {
+    padding: 12px 14px !important;
+  }
+
+  .roomName {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.92rem;
+  }
+
+  .mealOptionResponsive {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 12px !important;
+  }
+
+  .mealOptionPrice {
+    display: block;
+    width: 100%;
+    margin-top: 0.35rem;
+    white-space: normal !important;
+    font-size: 0.78rem;
+    padding: 6px 8px;
+    line-height: 1.35;
+  }
+
+  .roomPriceMain {
+    font-size: 1.05rem !important;
+    width: 100%;
+  }
+
+  .mealOptionActions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .mealOptionActions .rateActionBtn,
+  .mealOptionActions :global(button) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .qtySelect {
+    flex: 0 0 72px;
+  }
+
+  .priceColResponsive {
+    align-items: stretch !important;
+    padding: 12px 14px !important;
+  }
+
+  .priceColResponsive :global(button) {
+    width: 100%;
+    max-width: none;
+  }
+}

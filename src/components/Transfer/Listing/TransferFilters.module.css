@@ -1,0 +1,591 @@
+/* Transfer listing filters — matches design (#014B95 / #F1F4F7) */
+
+.sidebar {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e8ecf0;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  padding: 14px;
+  position: sticky;
+  top: 1.25rem;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 12px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sidebarTitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #014b95;
+  font-style: normal;
+  font-family: inherit;
+}
+
+.sidebarReset {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.sidebarReset:hover {
+  color: #014b95;
+}
+
+.sidebarIcon {
+  display: none;
+}
+
+.filterSection {
+  padding: 10px 0;
+  border-bottom: none;
+}
+
+.filterSectionTitle {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #334155;
+}
+
+.filterOptionList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterOptionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.filterCheckbox {
+  flex: 1;
+  min-width: 0;
+}
+
+.filterCheckbox :global(.mantine-Checkbox-label) {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  padding-left: 0.45rem;
+}
+
+.filterCheckbox :global(.mantine-Checkbox-input) {
+  cursor: pointer;
+  border-color: #cbd5e1;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+}
+
+.filterCheckbox :global(.mantine-Checkbox-input:checked) {
+  background-color: #014b95 !important;
+  border-color: #014b95 !important;
+}
+
+/* Selected = solid blue square (no tick icon) */
+.filterCheckbox :global(.mantine-Checkbox-icon) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Search */
+.filterInput {
+  width: 100%;
+}
+
+.filterInput :global(.mantine-Autocomplete-input),
+.filterInput :global(.mantine-Input-input) {
+  border: none !important;
+  border-radius: 9.32px !important;
+  min-height: 36px !important;
+  height: auto !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  padding-right: 12px !important;
+  /* Leave room for leftSection search icon */
+  padding-left: 36px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #1e293b !important;
+  background: #f1f4f7 !important;
+  box-shadow: none !important;
+}
+
+.filterInput :global(.mantine-Input-section) {
+  color: #94a3b8;
+  width: 36px;
+  pointer-events: none;
+}
+
+.filterInput :global(.mantine-Input-section[data-position='left']) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterInput :global(.mantine-Autocomplete-input:focus),
+.filterInput :global(.mantine-Input-input:focus) {
+  border: none !important;
+  box-shadow: 0 0 0 2px rgba(1, 75, 149, 0.18) !important;
+  background: #f1f4f7 !important;
+}
+
+.filterInput :global(.mantine-Autocomplete-input::placeholder),
+.filterInput :global(.mantine-Input-input::placeholder) {
+  color: #94a3b8 !important;
+  font-weight: 400 !important;
+}
+
+/* Sort */
+.filterSelectWrap {
+  position: relative;
+  width: 100%;
+}
+
+.filterSelect {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 33px;
+  height: auto;
+  padding: 4.66px 32px 4.66px 9.32px;
+  border: none;
+  border-radius: 9.32px;
+  background: #f1f4f7;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.filterSelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(1, 75, 149, 0.18);
+}
+
+.filterSelectIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  pointer-events: none;
+  display: inline-flex;
+  font-size: 12px;
+}
+
+/* Transmission / type pills */
+.pillGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e9e9e9;
+  color: #1e293b;
+  cursor: pointer;
+  line-height: 1.2;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pill:hover {
+  background: #004b95;
+  color: #ffffff;
+}
+
+.pillActive {
+  background: #004b95;
+  color: #ffffff;
+}
+
+.desktopFilterOnly {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Capacity tiles */
+.capacityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.capacityTile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 9px;
+  background: #f1f4f7;
+  cursor: pointer;
+  text-align: left;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.capacityTileActive {
+  box-shadow: inset 0 0 0 1.5px #014b95;
+  background: #eef4fa;
+}
+
+.capacityCheck {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  border: 1.5px solid #cbd5e1;
+  background: #fff;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.capacityCheckActive,
+.capacityTileActive .capacityCheck {
+  background: #014b95;
+  border-color: #014b95;
+}
+
+/* Budget / price */
+.priceValue {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #014b95;
+}
+
+.priceSlider :global(.mantine-Slider-bar) {
+  background: #014b95;
+}
+
+.priceSlider :global(.mantine-Slider-thumb) {
+  border-color: #014b95;
+  background: #014b95;
+}
+
+.priceSlider :global(.mantine-Slider-track)::before {
+  background: #dbe3ea;
+}
+
+.priceMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 8px;
+}
+
+.priceMin,
+.priceMax {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.sidebarFooter {
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.applyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4.66px;
+  width: 100%;
+  min-height: 47px;
+  padding: 11.66px 12px;
+  border: none;
+  border-radius: 9.32px;
+  background: #ebeef1;
+  color: #014b95;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.applyBtn:hover {
+  background: #e2e7ec;
+  transform: none;
+  color: #013a75;
+}
+
+.applyBtnIcon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.resetLink {
+  display: block;
+  width: 100%;
+  margin-top: 0.7rem;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.resetLink:hover {
+  color: #014b95;
+}
+
+.fleetNote {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* Mobile pills (top filter bar) */
+.mobilePills {
+  padding-bottom: 4px;
+  gap: 8px !important;
+}
+
+.filterPill {
+  border: none;
+  background: #e9e9e9;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  cursor: pointer;
+}
+
+.filterPill:hover {
+  background: #004b95;
+}
+
+.filterPillActive {
+  border: none;
+  background: #004b95;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.filterPillActive .arrow {
+  color: #ffffff;
+}
+
+.arrow {
+  font-size: 12px;
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mobileChipScroll {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 2px 0 4px;
+}
+
+.mobileChipScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileChip {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  background: #e9e9e9;
+  color: #1e293b;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.mobileChip:hover {
+  background: #004b95;
+}
+
+.mobileChipActive {
+  background: #004b95;
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .desktopFilterOnly {
+    display: none !important;
+  }
+
+  .mobileChipScroll {
+    display: flex;
+  }
+
+  .capacityGrid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .capacityGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .capacityTile {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: max-content;
+    border-radius: 999px;
+    background: #e9e9e9;
+    box-shadow: 0px 1px 2px 0px #0000000d;
+    padding: 8px 14px;
+    font-weight: 600;
+  }
+
+  .capacityTileActive {
+    background: #004b95;
+    color: #ffffff;
+    box-shadow: 0px 1px 2px 0px #0000000d;
+  }
+
+  .capacityCheck {
+    display: none;
+  }
+
+  .pillGroup {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .pillGroup::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill {
+    flex-shrink: 0;
+  }
+}
+
+.drawerReset {
+  display: block;
+  width: 100%;
+  text-align: right;
+  margin-top: 0.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #014b95;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.drawerReset:hover {
+  text-decoration: underline;
+}
+
+.drawerFooter {
+  border-top: 1px solid #e8ecf0;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.drawerDone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 9.32px;
+  background: #014b95;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.drawerDone:hover {
+  background: #013a75;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    position: static;
+    padding: 12px;
+  }
+
+  .capacityGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .applyBtn {
+    min-height: 44px;
+    font-size: 12.5px;
+  }
+}

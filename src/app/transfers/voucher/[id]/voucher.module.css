@@ -1,0 +1,1147 @@
+﻿/* ─────────────────────────────────────────
+   TRANSFER VOUCHER — Royalane / ROYALANE
+   Palette: #0F5FC4 · #14213D · #667085 · #EAF1FB
+───────────────────────────────────────── */
+
+.pageWrapper {
+  background-color: #f6f1e9 !important;
+  min-height: 100vh;
+  padding: 2.5rem 0;
+}
+
+.confirmationWrapper {
+  max-width: 860px;
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.voucherCard {
+  --pad-x: 2.5rem;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.watermark {
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.08;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  rotate: -10deg;
+}
+
+/* ─── Brand Header ─── */
+.brandHeader {
+  background: #ffffff;
+  border: none;
+  margin: 0;
+  padding: 1.5rem var(--pad-x) 0;
+}
+
+.brandHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.brandIdentity {
+  min-width: 0;
+}
+
+.brandLogo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0f5fc4;
+  letter-spacing: 0.02em;
+}
+
+.brandTagline {
+  margin: 4px 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #667085;
+}
+
+.brandContact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brandContactPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 29px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #eaf1fb;
+  text-decoration: none;
+  color: #14213d;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11.3px;
+  font-weight: 400;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.brandContactIcon {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #141b34;
+  font-size: 11px;
+}
+
+.brandHeaderDivider {
+  height: 3px;
+  background: #0f5fc4;
+  width: 100%;
+}
+
+/* ─── Hero ─── */
+.voucherHero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.35rem var(--pad-x) 1.15rem;
+}
+
+.voucherHeroLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.voucherHeroEyebrow {
+  margin: 0 0 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 15.95px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f5fc4;
+}
+
+.voucherHeroTitle {
+  margin: 0 0 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f5fc4;
+}
+
+.voucherHeroText {
+  margin: 0 0 14px;
+  max-width: 460px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #667085;
+}
+
+.voucherHeroBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.statusPillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.statusPillSuccess {
+  background: #e3f6ea;
+  color: #1b7a3d;
+}
+
+.statusPillPending {
+  background: #fff4dd;
+  color: #c27a00;
+}
+
+.statusPillCancelled {
+  background: #fdecea;
+  color: #b42318;
+}
+
+.qrCard {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #eaf1fb;
+  box-sizing: border-box;
+}
+
+.qrCodeWrap {
+  width: 96px;
+  height: 96px;
+  padding: 6px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.qrLabel {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0f5fc4;
+}
+
+.qrHint {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #667085;
+  text-align: center;
+}
+
+/* ─── Meta strip ─── */
+.metaStrip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid #d9e6f7;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 var(--pad-x) 1.25rem;
+}
+
+.metaCell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-right: 1px solid #d9e6f7;
+}
+
+.metaCell:last-child {
+  border-right: none;
+}
+
+.metaCellAccent {
+  background: #0f5fc4;
+}
+
+.metaCellAccent .metaLabel,
+.metaCellAccent .metaValue {
+  color: #ffffff;
+}
+
+.metaLabel {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #667085;
+}
+
+.metaValue {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #14213d;
+  word-break: break-word;
+}
+
+/* ─── Sections ─── */
+.sectionBlock {
+  padding: 0.15rem var(--pad-x) 1.25rem;
+  background: #ffffff;
+}
+
+.sectionTitle {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  color: #0f5fc4;
+}
+
+.routeCard {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #d9e6f7;
+  border-radius: 12px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.routeSide {
+  min-width: 0;
+}
+
+.routeSideRight {
+  text-align: right;
+}
+
+.routeLabel {
+  margin: 0 0 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #667085;
+}
+
+.routePlace {
+  margin: 0 0 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.routeMeta {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f5fc4;
+}
+
+.routeCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+}
+
+.routeCarIcon {
+  color: #0f5fc4;
+  font-size: 22px;
+}
+
+.routeType {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f5fc4;
+  white-space: nowrap;
+}
+
+.infoChips {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.infoChip {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #eaf1fb;
+  box-sizing: border-box;
+}
+
+.infoChipLabel {
+  display: block;
+  margin-bottom: 3px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #667085;
+}
+
+.infoChipValue {
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.flightNote {
+  margin: 12px 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  color: #14213d;
+}
+
+.multiStops {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.multiStopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f7faff;
+  border: 1px solid #eaf1fb;
+  font-size: 13px;
+  color: #14213d;
+}
+
+.multiStopRow span {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.multiStopRow span:last-child {
+  text-align: right;
+}
+
+.multiStopRow svg {
+  color: #0f5fc4;
+  flex-shrink: 0;
+}
+
+/* ─── Tables ─── */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.dataTable thead tr {
+  background: #eaf1fb;
+}
+
+.dataTable th {
+  padding: 11px 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.4px;
+  color: #0f5fc4;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.dataTable td {
+  padding: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #14213d;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eaf1fb;
+  word-break: break-word;
+}
+
+.dataTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cellStrong {
+  font-weight: 700;
+}
+
+.colIndex {
+  width: 48px;
+}
+
+.colNarrow {
+  width: 90px;
+}
+
+.totalPax {
+  margin: 10px 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #667085;
+}
+
+/* ─── Cancel / special / important ─── */
+.cancelPolicySection {
+  padding: 0.15rem var(--pad-x) 1.25rem;
+}
+
+.cancelPolicyCard {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #f0d58a;
+  background: #fff6e0;
+}
+
+.cancelPolicyTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cancelPolicyIcon {
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 1;
+  color: #c27a00;
+}
+
+.cancelPolicyTitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20.3px;
+  color: #14213d;
+}
+
+.cancelPolicyBody {
+  margin: 4px 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.3px;
+  color: #14213d;
+}
+
+.cancelPolicyBody p {
+  margin: 0 0 4px;
+}
+
+.cancelPolicyBody p:last-child {
+  margin-bottom: 0;
+}
+
+.cancelPolicyBody strong {
+  font-weight: 700;
+}
+
+.specialRequestCard {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #eaf1fb;
+  background: #f7faff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.3px;
+  color: #14213d;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.importantList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.importantList li {
+  position: relative;
+  padding-left: 1rem;
+  margin: 0 0 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #667085;
+}
+
+.importantList li:last-child {
+  margin-bottom: 0;
+}
+
+.importantList li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #98a2b3;
+}
+
+/* ─── Footer ─── */
+.invoiceFooterCard {
+  margin: 0.35rem var(--pad-x) 1.5rem;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #0f5fc4;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.invoiceFooterTop {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invoiceFooterTitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.invoiceFooterSubtitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.invoiceFooterDivider {
+  height: 1px;
+  margin: 14px 0;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.invoiceFooterContacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.invoiceFooterContact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.invoiceFooterContact svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ─── Actions ─── */
+.actionRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btnPrimary,
+.btnGold,
+.btnHome {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.7rem 1.35rem;
+  border-radius: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  box-sizing: border-box;
+}
+
+.btnPrimary {
+  background: #0f5fc4;
+  color: #ffffff !important;
+  border: 1.5px solid #0f5fc4;
+  box-shadow: 0 8px 18px rgba(15, 95, 196, 0.24);
+}
+
+.btnPrimary:hover {
+  background: #0c4ea3;
+  border-color: #0c4ea3;
+  color: #ffffff !important;
+}
+
+.btnGold {
+  background: #ffffff;
+  color: #0f5fc4 !important;
+  border: 1.5px solid #0f5fc4;
+}
+
+.btnGold:hover {
+  background: #eaf1fb;
+  color: #0c4ea3 !important;
+}
+
+.btnHome {
+  background: #ffffff;
+  color: #14213d !important;
+  border: 1.5px solid #d0d5dd;
+}
+
+.btnHome:hover {
+  background: #f8fafc;
+  border-color: #98a2b3;
+}
+
+.errorBox {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.errorBox h2 {
+  margin: 0 0 10px;
+  color: #14213d;
+}
+
+.errorBox p {
+  margin: 0 0 20px;
+  color: #667085;
+}
+
+/* ─── Print ─── */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 12mm;
+  }
+
+  .pageWrapper {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .confirmationWrapper {
+    max-width: 100% !important;
+  }
+
+  .voucherCard {
+    --pad-x: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .brandHeader,
+  .voucherHero,
+  .sectionBlock,
+  .cancelPolicySection {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .metaStrip,
+  .invoiceFooterCard {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .actionRow {
+    display: none !important;
+  }
+
+  .brandHeader,
+  .brandHeaderDivider,
+  .brandContactPill,
+  .statusPillSuccess,
+  .statusPillPending,
+  .statusPillCancelled,
+  .qrCard,
+  .metaStrip,
+  .metaCellAccent,
+  .dataTable thead tr,
+  .infoChip,
+  .cancelPolicyCard,
+  .invoiceFooterCard {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .brandLogo,
+  .voucherHeroEyebrow,
+  .voucherHeroTitle,
+  .sectionTitle {
+    color: #0f5fc4 !important;
+  }
+
+  .brandHeaderDivider,
+  .metaCellAccent,
+  .invoiceFooterCard {
+    background: #0f5fc4 !important;
+  }
+
+  .statusPillSuccess {
+    background: #e3f6ea !important;
+    color: #1b7a3d !important;
+  }
+
+  .dataTable thead tr,
+  .infoChip,
+  .qrCard,
+  .brandContactPill {
+    background: #eaf1fb !important;
+  }
+
+  .cancelPolicyCard {
+    background: #fff6e0 !important;
+    border-color: #f0d58a !important;
+  }
+
+  .voucherHero {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .metaStrip {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .infoChips {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .routeCard {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+  }
+
+  .dataTable,
+  .dataTable thead,
+  .dataTable tbody,
+  .dataTable tr,
+  .dataTable th,
+  .dataTable td {
+    display: table !important;
+  }
+
+  .dataTable {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .dataTable thead {
+    display: table-header-group !important;
+  }
+
+  .dataTable tbody {
+    display: table-row-group !important;
+  }
+
+  .dataTable tr {
+    display: table-row !important;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    display: table-cell !important;
+  }
+
+  .dataTable td::before {
+    content: none !important;
+  }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 0.75rem 0.75rem 1.5rem;
+  }
+
+  .confirmationWrapper {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .voucherCard {
+    --pad-x: 1rem;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .brandHeader {
+    padding: 1rem var(--pad-x) 0;
+  }
+
+  .brandHeaderTop {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .brandContact {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .brandContactPill {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brandContactPill span:last-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .voucherHero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem var(--pad-x) 1rem;
+    gap: 1rem;
+  }
+
+  .voucherHeroTitle {
+    font-size: 24px;
+  }
+
+  .qrCard {
+    flex: none;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .metaStrip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 var(--pad-x) 1rem;
+  }
+
+  .metaCell {
+    border-right: 1px solid #d9e6f7;
+    border-bottom: 1px solid #d9e6f7;
+  }
+
+  .metaCell:nth-child(2n) {
+    border-right: none;
+  }
+
+  .metaCell:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+
+  .sectionBlock,
+  .cancelPolicySection {
+    padding: 0.15rem var(--pad-x) 1.1rem;
+  }
+
+  .routeCard {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .routeSideRight {
+    text-align: left;
+  }
+
+  .routeCenter {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .infoChips {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invoiceFooterCard {
+    margin: 0.2rem var(--pad-x) 1.15rem;
+  }
+
+  .invoiceFooterContacts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+
+  .dataTable thead {
+    display: none;
+  }
+
+  .dataTable,
+  .dataTable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .dataTable tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #eaf1fb;
+    box-sizing: border-box;
+  }
+
+  .dataTable tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .dataTable td {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1 1 calc(50% - 12px);
+    min-width: 120px;
+    max-width: 100%;
+    padding: 0;
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+
+  .dataTable td::before {
+    content: attr(data-label);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 17.4px;
+    color: #0f5fc4;
+  }
+
+  .colIndex {
+    flex: 0 0 52px;
+    min-width: 52px;
+    width: auto;
+  }
+
+  .colNarrow {
+    width: auto;
+    flex: 0 1 80px;
+    min-width: 70px;
+  }
+
+  .actionRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnPrimary,
+  .btnGold,
+  .btnHome {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .pageWrapper {
+    padding: 0.5rem 0.5rem 1.25rem;
+  }
+
+  .voucherCard {
+    --pad-x: 0.85rem;
+    border-radius: 10px;
+  }
+
+  .voucherHeroTitle {
+    font-size: 22px;
+  }
+
+  .infoChips,
+  .metaStrip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .invoiceFooterContacts {
+    grid-template-columns: 1fr;
+  }
+
+  .dataTable td {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 110px;
+  }
+}
+
+.brandLogoImg {
+  width: auto;
+  height: 42px;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+}

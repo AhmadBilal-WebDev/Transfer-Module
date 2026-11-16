@@ -1,0 +1,972 @@
+/* Vehicle detail modal — listing design */
+
+.modalOverlay {
+  background: #0c1c34b2 !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+
+.modalInner {
+  /* 5% top + 5% bottom breathing room */
+  padding: 5vh 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.modalInnerMobile {
+  padding: 0 !important;
+  align-items: flex-end !important;
+  justify-content: stretch !important;
+}
+
+.modalContent {
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  width: min(680px, calc(100vw - 48px)) !important;
+  max-width: min(680px, calc(100vw - 48px)) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  /* Full usable height: screen minus 5% top & 5% bottom */
+  max-height: 90vh !important;
+  max-height: calc(var(--vehicle-detail-vh, 100dvh) * 0.9) !important;
+  height: 90vh !important;
+  height: calc(var(--vehicle-detail-vh, 100dvh) * 0.9) !important;
+}
+
+.modalContentMobile {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 22px 22px 0 0 !important;
+  max-height: 90vh !important;
+  max-height: calc(var(--vehicle-detail-vh, 100dvh) * 0.9) !important;
+  height: 90vh !important;
+  height: calc(var(--vehicle-detail-vh, 100dvh) * 0.9) !important;
+}
+
+.modalBody {
+  padding: 0 !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: inherit;
+  background: #ffffff;
+}
+
+.scrollArea {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dragHandle {
+  width: 42px;
+  height: 4px;
+  border-radius: 999px;
+  background: #d0d7e2;
+  margin: 10px auto 8px;
+  flex-shrink: 0;
+}
+
+/* ── Mobile peek (context above sheet content) ─────────────── */
+.mobilePeek {
+  display: none;
+}
+
+.peekSearch,
+.peekVehicle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f1f4f7;
+}
+
+.peekSearchLeft {
+  min-width: 0;
+}
+
+.peekEyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.peekRoute {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.peekDate {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #014b95;
+  white-space: nowrap;
+}
+
+.peekVehicleLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.peekCarIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #e0eeff;
+  color: #014b95;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.peekVehicleText {
+  min-width: 0;
+}
+
+.peekVehicleName {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.peekVehicleModel {
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.peekPrice {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 256px;
+  min-height: 256px;
+  max-height: 256px;
+  background: #0c1c34;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover !important;
+  object-position: center;
+}
+
+.heroPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 3rem;
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(12, 28, 52, 0.95) 0%,
+    rgba(12, 28, 52, 0.4) 50%,
+    rgba(12, 28, 52, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroTop {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.escHint {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.closeBtn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0c1c34;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.closeBtn:hover {
+  background: #f3f6fa;
+}
+
+.heroContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 20px 18px;
+}
+
+.heroBadgesMobile {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+}
+
+.heroLeft {
+  min-width: 0;
+  flex: 1;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.heroBadgesMobile .badgeRow {
+  margin-bottom: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e0eeff;
+  color: #014b95;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.badgeRefund {
+  color: #014b95;
+}
+
+.badgeNonRefund {
+  background: #fdecea;
+  color: #b42318;
+}
+
+.heroTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  margin: 8px 0 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 42ch;
+}
+
+.heroPrice {
+  flex-shrink: 0;
+  text-align: right;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 180px;
+}
+
+.heroPriceStrong {
+  font-weight: 700;
+}
+
+/* ── Mobile intro (title + price under hero) ────────────────── */
+.mobileIntro {
+  display: none;
+}
+
+.mobileIntroLeft {
+  min-width: 0;
+  flex: 1;
+}
+
+.mobileTitle {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #0f172a;
+}
+
+.mobileSubtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #64748b;
+}
+
+.priceBlock {
+  flex-shrink: 0;
+  text-align: right;
+  max-width: 46%;
+}
+
+.priceFrom {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.priceValue {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #014b95;
+}
+
+.priceNote {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+/* ── Scroll body ────────────────────────────────────────────── */
+.body {
+  padding: 18px 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: #014b95;
+}
+
+.sectionTitleSerif {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.journeyMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: #e0eeff;
+  color: #014b95;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.journeyMeta svg {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Service detail cards */
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.detailCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 94px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #e0eeff;
+  box-sizing: border-box;
+}
+
+.detailIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #014b95;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.detailText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.detailLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.detailValue {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.detailHint {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* Journey timeline */
+.journeyCard {
+  padding: 18px 16px;
+  border-radius: 16px;
+  background: #e8f1fc;
+  box-sizing: border-box;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 14px;
+  position: relative;
+}
+
+.timelineItem + .timelineItem {
+  margin-top: 18px;
+}
+
+.timelineRail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.timelineDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #014b95;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px #014b95;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timelineDotEnd {
+  background: #0c1c34;
+  box-shadow: 0 0 0 1px #0c1c34;
+}
+
+.timelineLine {
+  flex: 1;
+  width: 0;
+  border-left: 2px dashed rgba(1, 75, 149, 0.45);
+  margin: 4px 0 -18px;
+  min-height: 28px;
+}
+
+.timelineBody {
+  min-width: 0;
+  flex: 1;
+  padding-bottom: 2px;
+}
+
+.timelineLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.timelineTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.timelineNote {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.timelineNoteCallout {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #d6e8ff;
+  font-size: 12px;
+  font-weight: 500;
+  color: #014b95;
+  line-height: 1.4;
+}
+
+/* Map */
+.mapCard {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1f4f7;
+  border: 1px solid #e2e8f0;
+}
+
+.mapFrame {
+  display: block;
+  width: 100%;
+  height: 180px;
+  border: 0;
+}
+
+/* Cancellation / Flexible terms */
+.policyStack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.policyCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.policyFree {
+  background: #e0eeff;
+}
+
+.policyPaid {
+  background: #fff6e0;
+}
+
+.policyIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.policyFree .policyIcon {
+  color: #014b95;
+}
+
+.policyPaid .policyIcon {
+  color: #d97706;
+}
+
+.policyTitle {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #014b95;
+  line-height: 1.35;
+}
+
+.policyPaid .policyTitle {
+  color: #92400e;
+}
+
+.policyText {
+  margin: 0;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.45;
+}
+
+/* Included */
+.includedCard {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+
+.includedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.includedItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.includedItem svg {
+  color: #014b95;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Footer — scrolls with content (not sticky) */
+.footer {
+  position: relative;
+  width: 100%;
+  min-height: 106px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-top: 1px solid #eef2f7;
+  background: #ffffff;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+.footerLeft {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footerLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: #424752;
+  line-height: 14px;
+}
+
+.footerPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footerPrice {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b1b33;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+.footerInclusive {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.footerNote {
+  margin: 2px 0 0;
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #424752;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.qtyWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.qtyLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.qtySelect {
+  min-height: 36px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.backBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: #cfe4ff;
+  color: #0b1b33;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.backBtn:hover {
+  background: #bdd9ff;
+}
+
+.bookBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  background: #004b95;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+.bookBtn:hover:not(:disabled) {
+  background: #003d7a;
+}
+
+.bookBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .mobilePeek {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 14px 0;
+    background: #f5f7fa;
+    flex-shrink: 0;
+  }
+
+  .hero {
+    height: 210px;
+    min-height: 210px;
+    max-height: 210px;
+    border-radius: 0;
+  }
+
+  .heroScrim {
+    background: linear-gradient(
+      0deg,
+      rgba(12, 28, 52, 0.55) 0%,
+      rgba(12, 28, 52, 0.12) 45%,
+      rgba(12, 28, 52, 0) 100%
+    );
+  }
+
+  .mobileIntro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .body {
+    padding: 16px 14px 18px;
+    gap: 20px;
+  }
+
+  .sectionTitle {
+    font-size: 11px;
+  }
+
+  .sectionTitleSerif {
+    font-size: 20px;
+  }
+
+  .detailGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .detailCard {
+    min-height: 88px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .detailValue {
+    font-size: 14px;
+  }
+
+  .footer {
+    position: relative;
+    min-height: 0;
+    gap: 12px;
+    padding: 14px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+    box-shadow: none;
+  }
+
+  .footerPrice {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  .footerNote {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .footerActions {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .bookBtn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 14px;
+    border-radius: 999px;
+  }
+}

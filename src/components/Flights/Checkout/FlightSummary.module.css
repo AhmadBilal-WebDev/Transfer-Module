@@ -1,0 +1,260 @@
+/* ── Flight Summary Sidebar — Royalane ─────────────────────────── */
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.summaryCard {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.heroWrap {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.summaryBody {
+    padding: 1.25rem 1.35rem 1.35rem;
+}
+
+.summaryTitle {
+    margin: 0 0 1rem;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+}
+
+.airlineBox {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.15rem;
+}
+
+.airlineName {
+    margin: 0 0 0.15rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.35;
+}
+
+.bookingRef {
+    margin: 0;
+    font-size: 0.78rem;
+    color: #6b7280;
+}
+
+.legBlock + .legBlock {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e5e7eb;
+}
+
+.legLabel {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e31c23;
+    margin-bottom: 0.65rem;
+}
+
+.detailList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+
+.detailIcon {
+    flex-shrink: 0;
+    font-size: 1.05rem;
+    color: #e31c23;
+    margin-top: 0.1rem;
+}
+
+.detailKey {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 0.12rem;
+}
+
+.detailVal {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.35;
+}
+
+.viewDetailsBtn {
+    display: inline-flex;
+    margin-top: 0.85rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #e31c23;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.viewDetailsBtn:hover {
+    color: #b9151b;
+}
+
+.priceDivider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 1.15rem 0 0.85rem;
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.55rem;
+    line-height: 1.4;
+}
+
+.priceLabel {
+    color: #6b7280;
+    flex: 1;
+}
+
+.priceValue {
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+
+.totalBlock {
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.totalLabel {
+    display: block;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #1a1a1a;
+    margin-bottom: 0.2rem;
+}
+
+.totalValue {
+    display: block;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: #e31c23;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.totalNote {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.policyCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 16px;
+    padding: 1rem 1.15rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.policyCardIcon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    color: #e31c23;
+    margin-top: 0.1rem;
+}
+
+.policyCardTitle {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.policyCardText {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    color: #6b7280;
+    line-height: 1.55;
+}
+
+.policyLink {
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #e31c23;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.policyLink:hover {
+    color: #b9151b;
+}
+
+@media (max-width: 575px) {
+    .summaryBody {
+        padding: 1.1rem 1.15rem;
+    }
+
+    .heroWrap {
+        height: 140px;
+    }
+
+    .totalValue {
+        font-size: 1.4rem;
+    }
+}

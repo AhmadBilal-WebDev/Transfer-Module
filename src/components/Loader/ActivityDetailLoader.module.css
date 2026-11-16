@@ -1,0 +1,372 @@
+/* Activity Detail Loader — Royalane skeleton matching detail page */
+
+.page {
+  --adl-cream: #f6f1e9;
+  --adl-red-soft: #fef2f2;
+  --adl-border: #ececec;
+  min-height: 70vh;
+  padding-bottom: 3rem;
+  background: #fff;
+}
+
+.skel {
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #f0ebe3 0%,
+    #f8f4ee 42%,
+    #f0ebe3 85%
+  );
+  background-size: 200% 100%;
+  animation: adlShimmer 1.35s ease-in-out infinite;
+}
+
+.returnLink {
+  margin: 0.75rem 0 0.85rem;
+}
+
+.skelReturn {
+  width: 200px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+/* Gallery — matches GalleryImages mosaic */
+.gallery {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 12px;
+  width: 100%;
+  min-height: 360px;
+  height: clamp(320px, 42vw, 460px);
+  margin-bottom: 1.5rem;
+}
+
+.galleryMain {
+  height: 100%;
+  border-radius: 20px;
+}
+
+.gallerySide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  min-height: 0;
+}
+
+.galleryThumb {
+  height: 100%;
+  min-height: 0;
+  border-radius: 18px;
+}
+
+/* Header card */
+.headerCard {
+  border: 1px solid var(--adl-cream);
+  border-radius: 24px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skelBadge {
+  width: 110px;
+  height: 28px;
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+  background: linear-gradient(
+    90deg,
+    #fce8e6 0%,
+    #fef2f2 45%,
+    #fce8e6 90%
+  );
+  background-size: 200% 100%;
+  animation: adlShimmer 1.35s ease-in-out infinite;
+}
+
+.skelTitle {
+  width: 78%;
+  height: 34px;
+  border-radius: 8px;
+  margin-bottom: 0.55rem;
+}
+
+.skelTitleShort {
+  width: 52%;
+  height: 28px;
+  margin-bottom: 1rem;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+}
+
+.skelMeta {
+  width: 130px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+.skelMetaSm {
+  width: 72px;
+  height: 14px;
+  border-radius: 999px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0 0 1.5rem;
+  padding: 0.35rem;
+  background: #f8f8f8;
+  border-radius: 14px;
+}
+
+.skelTab {
+  flex: 1;
+  height: 42px;
+  border-radius: 10px;
+  background: transparent;
+  animation: none;
+}
+
+.skelTabActive {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  animation: adlShimmer 1.35s ease-in-out infinite;
+  background-image: linear-gradient(
+    90deg,
+    #f8f4ee 0%,
+    #fff 45%,
+    #f8f4ee 90%
+  );
+  background-size: 200% 100%;
+}
+
+.skelSectionTitle {
+  width: 160px;
+  height: 22px;
+  margin-bottom: 0.85rem;
+}
+
+.skelLine {
+  width: 100%;
+  height: 12px;
+  margin-bottom: 0.55rem;
+}
+
+.skelLineWide {
+  width: 88%;
+  height: 12px;
+  margin-bottom: 0.55rem;
+}
+
+.skelLineShort {
+  width: 64%;
+  height: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.highlightCard {
+  background: #fdf6f4;
+  border-radius: 14px;
+  padding: 1rem 1.05rem;
+}
+
+.skelIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  margin-bottom: 0.55rem;
+  background: linear-gradient(
+    90deg,
+    #fce8e6 0%,
+    #fef2f2 45%,
+    #fce8e6 90%
+  );
+  background-size: 200% 100%;
+  animation: adlShimmer 1.35s ease-in-out infinite;
+}
+
+.skelHighlightTitle {
+  width: 70%;
+  height: 14px;
+  margin-bottom: 0.45rem;
+}
+
+.meetingCard {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.meetingInner {
+  background: var(--adl-red-soft);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+/* Sidebar booking card */
+.sidebarCard {
+  background: #fff;
+  border: 1px solid var(--adl-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  padding: 1.25rem;
+  position: sticky;
+  top: 1.25rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.skelPriceLabel {
+  width: 40px;
+  height: 10px;
+  margin-bottom: 0.35rem;
+  border-radius: 999px;
+}
+
+.skelPrice {
+  width: 110px;
+  height: 28px;
+}
+
+.skelRefund {
+  width: 88px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #fce8e6 0%,
+    #fef2f2 45%,
+    #fce8e6 90%
+  );
+  background-size: 200% 100%;
+  animation: adlShimmer 1.35s ease-in-out infinite;
+}
+
+.skelField {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+}
+
+.skelAlert {
+  width: 100%;
+  height: 40px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    #fce8e6 0%,
+    #fef2f2 45%,
+    #fce8e6 90%
+  );
+  background-size: 200% 100%;
+  animation: adlShimmer 1.35s ease-in-out infinite;
+}
+
+.summaryLines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.skelSummary {
+  width: 100%;
+  height: 14px;
+}
+
+.skelBookBtn {
+  width: 100%;
+  height: 48px;
+  border-radius: 999px;
+  margin-bottom: 1.1rem;
+  background: linear-gradient(
+    90deg,
+    #e8a0a3 0%,
+    #f0b8ba 45%,
+    #e8a0a3 90%
+  );
+  background-size: 200% 100%;
+  animation: adlShimmer 1.35s ease-in-out infinite;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.skelFeature {
+  width: 85%;
+  height: 12px;
+  border-radius: 999px;
+}
+
+@keyframes adlShimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (max-width: 991.98px) {
+  .sidebarCard {
+    position: static;
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .galleryMain {
+    height: 220px;
+  }
+
+  .gallerySide {
+    grid-template-rows: 100px 100px;
+  }
+
+  .skelTitle {
+    width: 92%;
+    height: 28px;
+  }
+
+  .skelTitleShort {
+    width: 70%;
+    height: 22px;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+}

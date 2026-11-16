@@ -1,0 +1,764 @@
+/* Activity detail — Royalane content sections */
+
+.detailPage {
+  background: #fff;
+}
+
+.headerBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.detail_section {
+  border: 1px solid #F6F1E9;
+  border-radius: 24px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: #fef2f2;
+  color: #e31c23;
+  font-size: 0.8rem;
+  font-weight: 600;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.badgeVerified {
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.25;
+  color: #111827;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.35rem;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  color: #6b7280;
+}
+
+.metaIcon {
+  color: #e31c23;
+  flex-shrink: 0;
+  font-size: 1.05rem;
+}
+
+.metaStars {
+  color: #e31c23;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.5rem;
+  padding: 0.35rem;
+  list-style: none;
+  background: #f8f8f8;
+  border-radius: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.tabItem {
+  flex: 1;
+  min-width: 120px;
+}
+
+.tabBtn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tabBtn:hover {
+  color: #111827;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.tabActive {
+  background: #fff !important;
+  color: #e31c23 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.sectionTitle {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 750;
+  color: #111827;
+}
+
+.sectionSubtitle {
+  margin: 0 0 1.15rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.panelTitle {
+  margin: 0 0 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+/* What to Expect — bordered panel with numbered cards */
+.expectPanel {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.expectCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.expectCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  background: #fdf2f2;
+}
+
+.expectNum {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8a090;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.expectCardBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.expectCardTitle {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.expectCardText {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #6b7280;
+  white-space: pre-line;
+}
+
+/* Legacy timeline kept unused */
+.expectSection {
+  margin: 0 0 2rem;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.timelineBullet {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fef2f2;
+  color: #e31c23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid #fecaca;
+  flex-shrink: 0;
+}
+
+.timelineBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.timelineTitle {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.timelineText {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Included / Exclusions — Royalane panel (peach + white cards) */
+.includeSection {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.includeSectionTitle {
+  margin: 0 0 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 750;
+  font-style: italic;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.includeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+  margin-bottom: 0;
+  align-items: stretch;
+}
+
+.includeCard,
+.excludeCard {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 1.2rem 1.25rem;
+}
+
+.includeCardWarm {
+  background: #fff9f8;
+  border-color: #e8cfc6;
+}
+
+.excludeCardPlain {
+  background: #fff;
+  border-color: #e5e7eb;
+}
+
+.includeHead,
+.excludeHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.includeHeadSerif,
+.excludeHeadSerif {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.25;
+}
+
+.includeHeadSerif em,
+.excludeHeadSerif em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.includeHeadIcon {
+  color: #16a34a;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.excludeHeadIcon {
+  color: #e31c23;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.includeList,
+.excludeList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.includeItem,
+.excludeItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+.includeItemIcon {
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+  font-size: 1.05rem;
+  color: #16a34a;
+}
+
+.excludeItemIcon {
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+  font-size: 1.05rem;
+  color: #e31c23;
+}
+
+/* Facilities / amenities — bordered panel + pills */
+.amenitiesPanel {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.amenitiesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0;
+}
+
+.amenityItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.85rem;
+  color: #374151;
+  line-height: 1.3;
+}
+
+.amenityIcon {
+  color: #e08a78;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+/* Experience highlights */
+.highlightsPanel {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.highlightCard {
+  background: #fdf6f4;
+  border-radius: 14px;
+  padding: 1rem 1.05rem;
+}
+
+.highlightIcon {
+  display: inline-block;
+  color: #e08a78;
+  font-size: 1.15rem;
+  margin-bottom: 0.55rem;
+  vertical-align: middle;
+}
+
+.highlightTitle {
+  margin: 0 0 0.3rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.highlightText {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #6b7280;
+  white-space: pre-line;
+}
+
+/* Meeting / arrival — outer white card + pink inner */
+.meetingSection {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.meetingTitle {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+.meetingInner {
+  background: #fdf2f2;
+  border-radius: 14px;
+  padding: 1.1rem 1.15rem;
+}
+
+.meetingAddressRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+
+.meetingIcon {
+  color: #e31c23;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  font-size: 1.05rem;
+}
+
+.meetingAddress {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.meetingNote {
+  margin: 0;
+  padding-left: 1.55rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+.meetingGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.meetingBlockTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.meetingText {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+  padding-left: 1.55rem;
+}
+
+.meetingCard {
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 2rem;
+}
+
+/* FAQs — bordered panel with pill question rows */
+.faqSection {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.faqTitle {
+  margin: 0 0 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.faqList {
+  border-top: none;
+}
+
+.faqAccordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 999px !important;
+  background: #f7f7f7 !important;
+  overflow: hidden;
+}
+
+.faqItem[data-active] {
+  border-radius: 18px !important;
+  background: #f7f7f7 !important;
+}
+
+.faqControl {
+  padding: 0.95rem 1.15rem !important;
+  background: transparent !important;
+}
+
+.faqControl:hover {
+  background: transparent !important;
+}
+
+.faqLabel {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  padding-right: 0.5rem;
+}
+
+.faqChevron {
+  color: #9ca3af;
+  width: 1rem;
+  min-width: 1rem;
+}
+
+.faqPanel {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.faqContent {
+  padding: 0 1.15rem 1rem !important;
+}
+
+/* Additional services */
+.servicesCard {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  padding: 0.85rem 0 0;
+}
+
+.servicesTitle {
+  margin: 0 0 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.servicesHint {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.serviceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  margin-bottom: 0.55rem;
+  background: #fafafa;
+}
+
+.serviceTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.serviceName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.servicePrice {
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e31c23;
+}
+
+.serviceMeta {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.descriptionContent {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+.descriptionCollapsed {
+  max-height: 8.25rem; /* ~5 lines */
+  overflow: hidden;
+  position: relative;
+}
+
+.descriptionCollapsed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+  pointer-events: none;
+}
+
+.descriptionToggle {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #e31c23;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.descriptionToggle:hover {
+  color: #b9151b;
+  text-decoration: underline;
+}
+
+.descriptionContent :global(h1),
+.descriptionContent :global(h2),
+.descriptionContent :global(h3),
+.descriptionContent :global(h4),
+.descriptionContent :global(h5) {
+  color: #111827;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.descriptionContent :global(ul) {
+  padding-left: 1.15rem;
+}
+
+.descriptionContent :global(li) {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 767px) {
+  .includeGrid,
+  .meetingGrid,
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .includeSection,
+  .expectPanel,
+  .amenitiesPanel,
+  .highlightsPanel,
+  .meetingSection {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .faqSection {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .faqItem,
+  .faqItem[data-active] {
+    border-radius: 14px !important;
+  }
+
+  .tabs {
+    position: static;
+  }
+
+  .tabItem {
+    min-width: calc(20% - 0.2rem);
+  }
+}
+
+@media (max-width: 470px) {
+
+  .tabItem {
+    min-width: calc(40% - 0.2rem);
+  }
+}

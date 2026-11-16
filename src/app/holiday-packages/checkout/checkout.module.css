@@ -1,0 +1,1176 @@
+/* ═══════════════════════════════════════════════════════════════
+   Holiday Package Checkout — Royalane Layout
+   Palette: red #e31c23 · cream #f6f1e9 · white cards · Georgia
+   ═══════════════════════════════════════════════════════════════ */
+
+.page {
+  --ck-red: #e31c23;
+  --ck-red-dark: #b9151b;
+  --ck-red-light: #fef2f2;
+  --ck-bg: #f6f1e9;
+  --ck-card: #ffffff;
+  --ck-border: #e5e7eb;
+  --ck-text: #1a1a1a;
+  --ck-muted: #6b7280;
+  --ck-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  --ck-shadow-md: 0 8px 28px rgba(0, 0, 0, 0.08);
+  --ck-radius: 16px;
+  --ck-serif: Georgia, "Times New Roman", Times, serif;
+
+  min-height: 100vh;
+  background: var(--ck-bg);
+  padding: 1.75rem 0 4rem;
+  color: var(--ck-text);
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.15rem;
+}
+
+/* ── Page header ── */
+.header {
+  margin-bottom: 1.75rem;
+  width: 100%;
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ck-red);
+}
+
+.headerTitle {
+  margin: 0 0 0.45rem;
+  font-family: var(--ck-serif);
+  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ck-text);
+}
+
+.headerSubtitle {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ck-muted);
+  max-width: 34rem;
+}
+
+/* Progress */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.progressStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.progressIndex {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #ece8e1;
+  color: var(--ck-muted);
+  flex-shrink: 0;
+}
+
+.progressLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ck-muted);
+}
+
+.progressActive .progressIndex {
+  background: var(--ck-red);
+  color: #fff;
+}
+
+.progressActive .progressLabel {
+  color: var(--ck-text);
+}
+
+.progressDone .progressIndex {
+  background: var(--ck-red);
+  color: #fff;
+}
+
+.progressDone .progressLabel {
+  color: var(--ck-text);
+}
+
+.progressRail {
+  flex: 1;
+  height: 2px;
+  background: #e5e0d8;
+  border-radius: 999px;
+  min-width: 28px;
+}
+
+.progressRailActive {
+  background: var(--ck-red);
+}
+
+.checkoutTimerWrap {
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.expiredActions {
+  background: var(--ck-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius);
+  padding: 1.5rem;
+  box-shadow: var(--ck-shadow);
+}
+
+.emptyState {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem 1.75rem;
+  text-align: center;
+  background: var(--ck-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius);
+  box-shadow: var(--ck-shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.emptyState::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e31c23 0%, #b9151b 55%, #3e2f28 100%);
+}
+
+.emptyStateIcon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 1.45rem;
+  color: #fff;
+  background: linear-gradient(135deg, #0F63BD 0%, #3e2f28 100%);
+  box-shadow: 0 10px 24px rgba(227, 28, 35, 0.22);
+}
+
+.emptyStateEyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ck-red);
+}
+
+.emptyStateTitle {
+  margin: 0 0 0.45rem;
+  font-family: var(--ck-serif);
+  font-size: clamp(1.35rem, 3vw, 1.6rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ck-text);
+  line-height: 1.25;
+}
+
+.emptyStateText {
+  margin: 0 auto 1.25rem;
+  max-width: 22rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ck-muted);
+}
+
+.emptyStateBtn {
+  background: var(--ck-red) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  min-height: 44px !important;
+  padding: 0 1.35rem !important;
+  box-shadow: 0 6px 16px rgba(227, 28, 35, 0.22) !important;
+}
+
+.emptyStateBtn:hover {
+  background: var(--ck-red-dark) !important;
+}
+
+/* ── Layout ── */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1.5rem;
+  align-items: stretch; /* sidebar must match mainCol height for sticky */
+}
+
+.mainCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  min-width: 0;
+}
+
+.sidebar {
+  /* stretch with the grid row so sticky child has room to travel */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ── Service cards ── */
+.serviceCard {
+  background: var(--ck-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius);
+  box-shadow: var(--ck-shadow);
+  overflow: hidden;
+}
+
+.cardBand {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem 1.15rem;
+  background: linear-gradient(135deg, #0F63BD 0%, #3e2f28 100%);
+  color: #fff;
+}
+
+.cardBandText {
+  min-width: 0;
+}
+
+.cardBandEyebrow {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.88;
+}
+
+.cardBandTitle {
+  margin: 0;
+  font-family: var(--ck-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.changeBtn {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  transition: background 0.15s ease !important;
+}
+
+.changeBtn:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+}
+
+.flightHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.flightHeaderActions > div button {
+  width: auto !important;
+  margin-top: 0 !important;
+  padding: 6px 12px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.serviceBody {
+  padding: 1.2rem 1.25rem 1.3rem;
+}
+
+.serviceTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ck-text);
+}
+
+.serviceMeta {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ck-muted);
+}
+
+/* ── Hotel split review ── */
+.hotelSplit {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 1.15rem;
+  align-items: start;
+}
+
+.hotelThumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.05;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ece8e1;
+}
+
+.hotelImage {
+  object-fit: cover;
+}
+
+.hotelThumbPlaceholder {
+  aspect-ratio: 1 / 1.05;
+  border-radius: 12px;
+  background: #ece8e1;
+  color: var(--ck-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.hotelInfo {
+  min-width: 0;
+}
+
+.reviewEyebrow {
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ck-red);
+}
+
+.hotelName {
+  margin: 0 0 0.45rem;
+  font-family: var(--ck-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ck-text);
+}
+
+.hotelAddress {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  font-size: 0.84rem;
+  color: var(--ck-muted);
+  line-height: 1.4;
+}
+
+.hotelAddressIcon {
+  color: var(--ck-red);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem 0.9rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.metaIcon {
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+  color: var(--ck-red);
+}
+
+.metaLabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ck-muted);
+  margin-bottom: 0.12rem;
+}
+
+.metaValue {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ck-text);
+  line-height: 1.3;
+}
+
+.roomsBlock {
+  margin-top: 1rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid #f0ede8;
+}
+
+.roomsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ck-muted);
+}
+
+.roomsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.roomsGroup {
+  display: contents;
+}
+
+.roomChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ck-red);
+  background: var(--ck-red-light);
+  border: 1px solid #fecaca;
+}
+
+/* ── Flight ── */
+.flightLeg {
+  padding: 1rem 0;
+}
+
+.flightLeg + .flightLeg {
+  border-top: 1px dashed var(--ck-border);
+}
+
+.flightLegTop {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.flightLegBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+}
+
+.flightLegBadgeOut {
+  background: var(--ck-red-light);
+  color: var(--ck-red);
+}
+
+.flightLegBadgeReturn {
+  background: #fce8e6;
+  color: var(--ck-red-dark);
+}
+
+.flightLegBadgeMulti {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.flightLegDate {
+  font-size: 0.8rem;
+  color: var(--ck-muted);
+  font-weight: 500;
+}
+
+.flightRow {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.9fr) minmax(0, 1.6fr) auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.airlineBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.airlineLogo {
+  border-radius: 8px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--ck-border);
+  flex-shrink: 0;
+}
+
+.airlineText {
+  min-width: 0;
+}
+
+.airlineName {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ck-text);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.airlineCabin {
+  font-size: 0.75rem;
+  color: var(--ck-muted);
+  margin-top: 0.1rem;
+}
+
+.routeBlock {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.65rem;
+  align-items: center;
+  min-width: 0;
+}
+
+.timeBlock {
+  text-align: center;
+}
+
+.timeValue {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ck-text);
+  letter-spacing: -0.02em;
+}
+
+.airportCode {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ck-muted);
+  letter-spacing: 0.04em;
+}
+
+.routeLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.routeTrack {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: #e5e0d8;
+  border-radius: 999px;
+}
+
+.routePlane {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ck-red-light);
+  color: var(--ck-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  border: 1px solid #fecaca;
+}
+
+.routeStops {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ck-muted);
+}
+
+.durationBlock {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.durationLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ck-muted);
+}
+
+.durationValue {
+  margin-top: 0.15rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ck-text);
+}
+
+/* ── Transfer ── */
+.transferGrid {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 1.15rem;
+  align-items: center;
+}
+
+.transferImageWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9fafb;
+  border: 1px solid var(--ck-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem;
+}
+
+.transferImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.transferInfo {
+  min-width: 0;
+}
+
+.transferName {
+  margin: 0 0 0.4rem;
+  font-family: var(--ck-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.transferDesc {
+  margin: 0 0 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--ck-muted);
+}
+
+.transferSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.specChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ck-text);
+  background: #f9fafb;
+  border: 1px solid var(--ck-border);
+}
+
+/* ── Sidebar summary ── */
+.priceSummary {
+  background: var(--ck-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius);
+  box-shadow: var(--ck-shadow-md);
+  overflow: hidden;
+  position: sticky;
+  top: 1.5rem;
+  z-index: 5;
+  width: 100%;
+}
+
+.priceSummaryBody {
+  padding: 1.25rem 1.3rem 1.35rem;
+}
+
+.priceSummaryTitle {
+  margin: 0 0 0.25rem;
+  font-family: var(--ck-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ck-text);
+}
+
+.priceSummarySubtitle {
+  margin: 0 0 1.15rem;
+  font-size: 0.8rem;
+  color: var(--ck-muted);
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.priceRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.priceRowIcon {
+  color: var(--ck-red);
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.priceRowLabel {
+  font-size: 0.88rem;
+  color: var(--ck-muted);
+}
+
+.priceRowValue {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ck-text);
+  white-space: nowrap;
+}
+
+.totalBlock {
+  margin-top: 0.85rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--ck-border);
+}
+
+.totalLabel {
+  display: block;
+  font-family: var(--ck-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ck-text);
+  margin-bottom: 0.2rem;
+}
+
+.totalValue {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--ck-red);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.totalNote {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+}
+
+.proceedBtn {
+  background: var(--ck-red) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  height: 48px !important;
+  box-shadow: 0 8px 20px rgba(227, 28, 35, 0.22) !important;
+  transition: background 0.15s ease, transform 0.15s ease !important;
+}
+
+.proceedBtn:hover {
+  background: var(--ck-red-dark) !important;
+  transform: translateY(-1px) !important;
+}
+
+.notChargedNote {
+  margin: -0.15rem 0 0.15rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ck-muted);
+}
+
+.cancelBtn {
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  height: 44px !important;
+}
+
+.secureNote {
+  margin: 0.15rem 0 0;
+  text-align: center;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #9ca3af;
+}
+
+/* ── Skeleton ── */
+.checkoutSkeletonPage {
+  position: relative;
+}
+
+.checkoutSkeletonHeader {
+  margin-bottom: 1.75rem;
+  max-width: 520px;
+}
+
+.checkoutSkeletonBrandText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.15rem;
+}
+
+.checkoutSkeletonIcon,
+.checkoutSkeletonLineLg,
+.checkoutSkeletonLineSm,
+.checkoutSkeletonLineMd,
+.checkoutSkeletonLineXs,
+.checkoutSkeletonStepCircle,
+.checkoutSkeletonStepText,
+.checkoutSkeletonBadge,
+.checkoutSkeletonButton,
+.checkoutSkeletonMedia,
+.checkoutSkeletonStat,
+.checkoutSkeletonItinerary,
+.checkoutSkeletonSummaryIcon,
+.checkoutSkeletonRow,
+.checkoutSkeletonTotal,
+.checkoutSkeletonCta {
+  background: linear-gradient(90deg, #ece8e1 25%, #f5f1ea 50%, #ece8e1 75%);
+  background-size: 200% 100%;
+  animation: ckShimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes ckShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.checkoutSkeletonLineLg {
+  height: 28px;
+  width: 72%;
+}
+
+.checkoutSkeletonLineSm {
+  height: 14px;
+  width: 88%;
+}
+
+.checkoutSkeletonLineMd {
+  height: 16px;
+  width: 55%;
+}
+
+.checkoutSkeletonLineXs {
+  height: 10px;
+  width: 36%;
+}
+
+.checkoutSkeletonStepper {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  max-width: 280px;
+}
+
+.checkoutSkeletonStep {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.checkoutSkeletonStepCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.checkoutSkeletonStepText {
+  width: 48px;
+  height: 12px;
+}
+
+.checkoutSkeletonStepConnector {
+  flex: 1;
+  height: 2px;
+  background: #e5e0d8;
+  min-width: 24px;
+}
+
+.checkoutSkeletonCard {
+  background: var(--ck-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius);
+  overflow: hidden;
+  box-shadow: var(--ck-shadow);
+}
+
+.checkoutSkeletonCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(135deg, #d4cbc0 0%, #b9aea3 100%);
+}
+
+.checkoutSkeletonHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.checkoutSkeletonHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.checkoutSkeletonBadge {
+  width: 70px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.checkoutSkeletonButton {
+  width: 64px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.checkoutSkeletonMedia {
+  margin: 1.2rem 1.25rem 0;
+  height: 150px;
+  border-radius: 12px;
+}
+
+.checkoutSkeletonStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding: 1.15rem 1.25rem 1.3rem;
+}
+
+.checkoutSkeletonStat {
+  height: 42px;
+}
+
+.checkoutSkeletonItinerary {
+  margin: 1rem 1.25rem;
+  height: 88px;
+  border-radius: 12px;
+}
+
+.checkoutSkeletonItinerary + .checkoutSkeletonItinerary {
+  margin-top: 0;
+}
+
+.checkoutSkeletonSummary {
+  background: var(--ck-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius);
+  box-shadow: var(--ck-shadow-md);
+  overflow: hidden;
+}
+
+.checkoutSkeletonSummaryHeader {
+  padding: 1.25rem 1.3rem 0;
+}
+
+.checkoutSkeletonSummaryIcon {
+  display: none;
+}
+
+.checkoutSkeletonSummaryText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.checkoutSkeletonSummaryBody {
+  padding: 0 1.3rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.checkoutSkeletonRow {
+  height: 18px;
+}
+
+.checkoutSkeletonTotal {
+  height: 56px;
+  margin-top: 0.35rem;
+}
+
+.checkoutSkeletonCta {
+  height: 48px;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .priceSummary {
+    position: static;
+  }
+
+  .mainCol {
+    order: 1;
+  }
+
+  .checkoutSkeletonSummary {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding: 1.15rem 0 2.75rem;
+  }
+
+  .headerTitle {
+    font-size: 1.7rem;
+  }
+
+  .hotelSplit,
+  .transferGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hotelThumb,
+  .hotelThumbPlaceholder {
+    aspect-ratio: 16 / 9;
+    max-height: 200px;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .flightRow {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .durationBlock {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .durationLabel {
+    margin: 0;
+  }
+
+  .durationValue {
+    margin: 0;
+  }
+
+  .transferImageWrap {
+    max-width: 200px;
+  }
+
+  .cardBand {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flightHeaderActions {
+    justify-content: flex-start;
+  }
+
+  .checkoutSkeletonStats {
+    grid-template-columns: 1fr;
+  }
+
+  .checkoutSkeletonMedia {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 0 0.9rem;
+  }
+
+  .serviceBody {
+    padding: 1rem;
+  }
+
+  .cardBand {
+    padding: 1rem;
+  }
+
+  .progressLabel {
+    font-size: 0.76rem;
+  }
+}

@@ -1,0 +1,67 @@
+.resultsHeader {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.resultsCount {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.sortSelect {
+    flex: 0 0 auto;
+}
+
+.sortSelect :global(.mantine-Select-root) {
+    width: 190px;
+}
+
+.sortSelect :global(.mantine-Select-input) {
+    border: 1px solid #e5e7eb !important;
+    background: #fff !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    color: #e31c23 !important;
+    min-height: unset !important;
+    cursor: pointer !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.sortSelect :global(.mantine-Select-section[data-position="right"]) {
+    display: flex;
+    color: #e31c23;
+    pointer-events: none;
+}
+
+@media (max-width: 575px) {
+    .resultsHeader {
+        align-items: stretch;
+    }
+
+    .resultsCount {
+        font-size: 0.85rem;
+    }
+
+    .headerActions {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .sortSelect {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .sortSelect :global(.mantine-Select-root) {
+        width: 100%;
+    }
+}

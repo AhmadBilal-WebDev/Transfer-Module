@@ -1,0 +1,251 @@
+/* ─── Section ─────────────────────────────────────────────── */
+.section {
+  background-color: #f7f7f5;
+  padding: 4rem 0;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 2.25rem;
+}
+
+.tag {
+  display: inline-block;
+  background: transparent;
+  color: #e31c23;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0;
+  margin-bottom: 0.7rem;
+}
+
+.title {
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-family: "Fraunces", "Playfair Display", serif;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.55rem;
+  line-height: 1.2;
+}
+
+.subtitleLink {
+  font-size: 0.95rem;
+  color: #2563eb;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+
+.subtitleLink:hover {
+  color: #1d4ed8;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: rgba(26, 26, 26, 0.6);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ─── Slider wrapper ──────────────────────────────────────── */
+.sliderWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ─── Swiper ──────────────────────────────────────────────── */
+.destSwiper {
+  touch-action: pan-y;
+  padding-bottom: 2.75rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.destSwiper :global(.swiper-wrapper) {
+  height: auto !important;
+  align-items: stretch;
+}
+
+.destSwiper :global(.swiper-slide) {
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.destSwiper :global(.swiper-pagination) {
+  bottom: 0;
+}
+
+.destSwiper :global(.swiper-pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background-color: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.destSwiper :global(.swiper-pagination-bullet-active) {
+  background-color: #e31c23;
+  width: 22px;
+  border-radius: 6px;
+}
+
+/* ─── Card link ───────────────────────────────────────────── */
+.cardLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+/* ─── Card ────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  min-height: 280px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.28s ease;
+  transform: none;
+  will-change: auto;
+}
+
+/* Inner hover ring — stays inside the card so Swiper overflow can't clip edges */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  pointer-events: none;
+  z-index: 4;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.cardLink:hover .card,
+.cardLink:focus-visible .card {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+}
+
+.cardLink:hover .card::after,
+.cardLink:focus-visible .card::after {
+  border-color: #0F63BD;
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.cardLink:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* ─── Black gradient overlay ──────────────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.45) 32%,
+    rgba(0, 0, 0, 0.12) 58%,
+    rgba(0, 0, 0, 0) 78%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Card body ───────────────────────────────────────────── */
+.cardBody {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.35rem 1.25rem 1.4rem;
+  z-index: 2;
+}
+
+.country {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.destName {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1199px) {
+  .card {
+    aspect-ratio: 4 / 5;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .destSwiper {
+    padding-bottom: 2.4rem;
+  }
+
+  .card {
+    border-radius: 20px;
+    min-height: 230px;
+  }
+
+  .cardBody {
+    padding: 1rem 0.9rem 1.05rem;
+  }
+
+  .destName {
+    font-size: 1.15rem;
+  }
+
+  .country {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    aspect-ratio: 5 / 4;
+    min-height: 240px;
+    border-radius: 22px;
+  }
+}

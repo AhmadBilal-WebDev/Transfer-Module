@@ -1,0 +1,435 @@
+/* ─── Section ─────────────────────────────────────────────── */
+.section {
+  background-color: #ffffff;
+  padding: 3.5rem 0 4rem;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+  padding: 0 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background: transparent;
+  color: #e31c23;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-family: "Fraunces", "Playfair Display", serif;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(0.92rem, 2vw, 1.02rem);
+  color: #6b7280;
+  margin: 0 auto;
+  max-width: 520px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ─── Slider wrapper ──────────────────────────────────────── */
+.sliderWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  color: #111827;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.navBtn:hover {
+  background: #111827;
+  border-color: #111827;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.navBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Swiper ──────────────────────────────────────────────── */
+.activitySwiper {
+  touch-action: pan-y;
+  padding-bottom: 2.75rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.activitySwiper :global(.swiper-wrapper) {
+  height: auto !important;
+  align-items: stretch;
+}
+
+.activitySwiper :global(.swiper-slide) {
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.activitySwiper :global(.swiper-pagination) {
+  bottom: 0;
+}
+
+.activitySwiper :global(.swiper-pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background-color: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.activitySwiper :global(.swiper-pagination-bullet-active) {
+  background-color: #e31c23;
+  width: 22px;
+  border-radius: 6px;
+}
+
+/* ─── Card ────────────────────────────────────────────────── */
+.card {
+  background: #F8F8F8;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid #E5E5E5;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ─── Image ───────────────────────────────────────────────── */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* ─── Card body ───────────────────────────────────────────── */
+.cardBody {
+  padding: 0.95rem 1rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.location {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #9ca3af;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activityTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.activityTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.activityTitle a:hover {
+  color: #e31c23;
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+.cardFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: 0.55rem;
+}
+
+.priceBlock {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.priceFrom {
+  font-size: 0.8rem;
+  color: #111827;
+  font-weight: 700;
+}
+
+.priceValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e31c23;
+  line-height: 1.2;
+}
+
+.priceUnit {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.taxNote {
+  display: block;
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  color: #e31c23;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.viewBtn:hover {
+  background: #fde8e8;
+  color: #c4181e;
+}
+
+.viewBtnIcon {
+  font-size: 0.85rem;
+  transition: transform 0.22s ease;
+}
+
+.card:hover .viewBtnIcon {
+  transform: translateX(3px);
+}
+
+.comingSoonBtn {
+  flex-shrink: 0;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #9ca3af;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+/* ─── Skeleton loading ────────────────────────────────────── */
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.skeletonCard {
+  pointer-events: none;
+}
+
+.skeletonBlock {
+  background: linear-gradient(90deg, #ececec 25%, #f5f5f5 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 6px;
+}
+
+.skeletonImage {
+  background: linear-gradient(90deg, #e0e0e0 25%, #ededed 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonTitle {
+  height: 24px;
+  width: 75%;
+}
+
+.skeletonLocation {
+  height: 14px;
+  width: 40%;
+}
+
+.skeletonPrice {
+  height: 20px;
+  width: 120px;
+}
+
+.skeletonTax {
+  height: 12px;
+  width: 130px;
+  margin-top: 4px;
+}
+
+.skeletonBtn {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1199px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .imageWrap {
+    height: 195px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 2.75rem 0 3.25rem;
+  }
+
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .controls {
+    margin-bottom: 1rem;
+  }
+
+  .navBtn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.8rem;
+  }
+
+  .activitySwiper {
+    padding-bottom: 2.4rem;
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+
+  .imageWrap {
+    height: 185px;
+  }
+
+  .cardBody {
+    padding: 0.9rem 0.95rem 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .skeletonGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .imageWrap {
+    height: 200px;
+  }
+
+  .activityTitle {
+    font-size: 1.02rem;
+  }
+
+  .cardFooter {
+    align-items: center;
+  }
+}

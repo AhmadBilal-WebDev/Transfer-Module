@@ -1,0 +1,523 @@
+.shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.chipLabel {
+  display: block;
+  margin: 0 0 0.7rem;
+  color: #e31c23;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #1a1714;
+}
+
+.sectionSubtitle {
+  margin: 0.75rem 0 0;
+  max-width: 34ch;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #6f6860;
+}
+
+.sectionHeader {
+  margin-bottom: clamp(1.25rem, 3vw, 1.85rem);
+}
+
+.brandMark {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #1a1714;
+}
+
+.accentBar {
+  width: 56px;
+  height: 3px;
+  margin-top: 1.25rem;
+  border-radius: 999px;
+  background: #e31c23;
+}
+
+/* ── Section Four: stats + story ── */
+.sectionFourWrapper {
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 90% 10%, rgba(227, 28, 35, 0.05), transparent 55%),
+    linear-gradient(180deg, #f7f4ef 0%, #fff 100%);
+}
+
+.statsRail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: clamp(1.35rem, 3vw, 2rem);
+}
+
+.statItem {
+  padding: 1.15rem 1rem;
+  background: #fff;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(26, 23, 20, 0.04);
+}
+
+.statIndex {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e31c23;
+}
+
+.statValue {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+  font-weight: 700;
+  color: #1a1714;
+  line-height: 1;
+}
+
+.statLabel {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #6f6860;
+}
+
+.storyPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  background: #fff;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(26, 23, 20, 0.06);
+}
+
+.storyMedia {
+  position: relative;
+  min-height: 320px;
+  background: #ebe5dc;
+}
+
+.storyImage {
+  object-fit: cover;
+}
+
+.storyBadge {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #1a1714;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid rgba(26, 23, 20, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.storyBody {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-left: 1px solid rgba(26, 23, 20, 0.1);
+}
+
+.storyTitle {
+  margin: 0 0 1rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1a1714;
+}
+
+.storyCopy {
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #6f6860;
+}
+
+.storyCopy:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Section Five: values rail ── */
+.sectionFiveWrapper {
+  padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 20%, rgba(227, 28, 35, 0.07), transparent 55%),
+    linear-gradient(160deg, #efe9e1 0%, #f4efe8 48%, #e4ddd3 100%);
+}
+
+.splitHeader {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.splitLead {
+  position: sticky;
+  top: 6.5rem;
+}
+
+.valuesRail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(26, 23, 20, 0.12);
+}
+
+.valueItem {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 1.15rem 0.25rem 1.15rem 0;
+  border-bottom: 1px solid rgba(26, 23, 20, 0.12);
+  transition: background 0.22s ease, padding-left 0.22s ease;
+}
+
+.valueItem:hover {
+  padding-left: 0.45rem;
+  background: linear-gradient(90deg, rgba(227, 28, 35, 0.05), transparent 70%);
+}
+
+.valueIndex {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #e31c23;
+  padding-top: 0.2rem;
+}
+
+.valueTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1714;
+}
+
+.valueDesc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #6f6860;
+}
+
+/* ── Section Six: steps ── */
+.sectionSixWrapper {
+  padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
+  background: #fff;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stepPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 100%;
+  padding: 1.35rem 1.2rem 1.4rem;
+  background: #f7f4ef;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  border-radius: 18px;
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.stepPanel:hover {
+  border-color: rgba(227, 28, 35, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.06);
+}
+
+.stepNumber {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e31c23;
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a1714;
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #6f6860;
+}
+
+/* ── Section Seven: contact ── */
+.sectionSevenWrapper {
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 0% 0%, rgba(227, 28, 35, 0.08), transparent 50%),
+    linear-gradient(180deg, #f7f4ef 0%, #fff 100%);
+}
+
+.contactPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.95fr);
+  gap: 1.15rem;
+  padding: clamp(1.25rem, 3vw, 1.85rem);
+  background: #fff;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 12px 34px rgba(26, 23, 20, 0.05);
+}
+
+.contactLead {
+  padding: 0.35rem 0.5rem 0.35rem 0.15rem;
+}
+
+.routeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(26, 23, 20, 0.12);
+  border-radius: 12px;
+  background: #f7f4ef;
+  color: #1a1714;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.routeChipLine {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e31c23, transparent);
+}
+
+.contactTitle {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1a1714;
+}
+
+.contactCopy {
+  margin: 0 0 1.25rem;
+  max-width: 36ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #6f6860;
+}
+
+.contactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contactList li {
+  margin-bottom: 0.7rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #1a1714;
+}
+
+.contactList a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactList a:hover {
+  color: #e31c23;
+}
+
+.contactForm {
+  padding: 1.2rem 1.15rem 1.25rem;
+  background: #f7f4ef;
+  border: 1px solid rgba(26, 23, 20, 0.08);
+  border-radius: 16px;
+}
+
+.formTitle {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1714;
+}
+
+.field {
+  margin-bottom: 0.9rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6f6860;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(26, 23, 20, 0.12);
+  border-radius: 12px;
+  padding: 0.8rem 0.95rem;
+  font-size: 0.92rem;
+  background: #fff;
+  color: #1a1714;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: rgba(227, 28, 35, 0.45);
+  box-shadow: 0 0 0 3px rgba(227, 28, 35, 0.1);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: #e31c23;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submitBtn:hover {
+  background: #c4181e;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(227, 28, 35, 0.25);
+}
+
+.submitBtn svg {
+  font-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepPanel,
+  .valueItem,
+  .submitBtn {
+    transition: none !important;
+  }
+
+  .stepPanel:hover,
+  .valueItem:hover {
+    transform: none;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .statsRail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .storyPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .storyMedia {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .storyBody {
+    border-left: none;
+    border-top: 1px solid rgba(26, 23, 20, 0.1);
+  }
+
+  .splitHeader {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .splitLead {
+    position: static;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .shell {
+    width: min(100%, calc(100% - 1.5rem));
+  }
+
+  .sectionFourWrapper,
+  .sectionFiveWrapper,
+  .sectionSixWrapper,
+  .sectionSevenWrapper {
+    padding-top: 1.85rem;
+    padding-bottom: 1.85rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .statsRail {
+    grid-template-columns: 1fr;
+  }
+
+  .statItem,
+  .stepPanel,
+  .contactPanel {
+    border-radius: 14px;
+  }
+
+  .storyPanel {
+    border-radius: 16px;
+  }
+
+  .valueItem {
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+  }
+}

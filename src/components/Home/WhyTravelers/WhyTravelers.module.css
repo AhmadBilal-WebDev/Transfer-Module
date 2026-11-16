@@ -1,0 +1,292 @@
+.section {
+  --wt-bg: #0b1730;
+  --wt-ink: #ffffff;
+  --wt-muted: rgba(245, 247, 250, 0.7);
+  --wt-accent: #9cc2ff;
+  --wt-blue: #1f63d6;
+  --wt-card-ink: #0e1626;
+  --wt-card-muted: #566176;
+
+  background: #0b1730;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  overflow: hidden;
+}
+
+.shell {
+  width: min(1240px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  align-items: start;
+}
+
+.lead {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+  color: var(--wt-accent);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.46px;
+  color: var(--wt-ink);
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  max-width: 28ch;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--wt-muted);
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  max-width: 337px;
+  aspect-ratio: 337 / 225;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 14px 34px -18px #0b173038;
+  background: #14233f;
+}
+
+.mediaImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.mediaCaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.mediaIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wt-blue);
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.mediaText {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(11, 23, 48, 0.45);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100%;
+  padding: 22px 22px 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0px 14px 34px -18px #0b173038,
+    0px 1px 2px 0px #0b17300a;
+}
+
+.cardFeatured {
+  background: linear-gradient(145deg, #3b86ff 0%, #1b54c2 100%);
+  box-shadow: 0px 18px 36px -16px rgba(27, 84, 194, 0.55);
+}
+
+.cardIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: #e8f0ff;
+  color: var(--wt-blue);
+  font-size: 20px;
+}
+
+.cardFeatured .cardIcon {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.cardTitle {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: var(--wt-card-ink);
+}
+
+.cardFeatured .cardTitle {
+  color: #ffffff;
+}
+
+.cardText {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--wt-card-muted);
+}
+
+.cardFeatured .cardText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .cards {
+    gap: 14px;
+  }
+
+  .card {
+    padding: 18px 18px 20px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .subtitle {
+    max-width: 42ch;
+  }
+
+  .media {
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .shell {
+    width: min(1240px, calc(100% - 1.25rem));
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .subtitle {
+    margin-bottom: 20px;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .media {
+    aspect-ratio: 5 / 3.4;
+    border-radius: 16px;
+  }
+
+  .mediaCaption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .mediaText {
+    font-size: 13px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 18px 16px 20px;
+    border-radius: 16px;
+  }
+
+  .cardIcon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 479px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .mediaText br {
+    display: none;
+  }
+}

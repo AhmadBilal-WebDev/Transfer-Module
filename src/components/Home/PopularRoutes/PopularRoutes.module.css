@@ -1,0 +1,368 @@
+.section {
+  --pr-ink: #0e1626;
+  --pr-muted: #6b7280;
+  --pr-blue: #1f63d6;
+  --pr-blue-soft: #e8f0fc;
+  --pr-border: #e8edf5;
+  --pr-card: #ffffff;
+  --pr-surface: #ffffff;
+  --pr-gap: 16px;
+  --pr-visible: 2;
+  --pr-card-w: calc((100% - ((var(--pr-visible) - 1) * var(--pr-gap))) / var(--pr-visible));
+
+  background: var(--pr-surface);
+  padding: clamp(3.25rem, 6vw, 5.25rem) 0;
+  overflow: hidden;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.lead {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+  color: var(--pr-blue);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--pr-ink);
+}
+
+.controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.navBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #d7e3f5;
+  background: #ffffff;
+  color: var(--pr-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--pr-blue);
+  border-color: var(--pr-blue);
+  color: #ffffff;
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.scroller {
+  display: flex;
+  align-items: stretch;
+  gap: var(--pr-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 var(--pr-card-w);
+  width: var(--pr-card-w);
+  max-width: var(--pr-card-w);
+  min-width: 0;
+  background: var(--pr-card);
+  border: 1px solid var(--pr-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.card:hover {
+  border-color: #d5e2f6;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+  transform: translateY(-1px);
+}
+
+.cardHit {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 18px 18px 16px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.codeBox {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  background: var(--pr-blue);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.codeText {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.codeIcon {
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.cardMain {
+  min-width: 0;
+}
+
+.routeTitle {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--pr-ink);
+}
+
+.routeMeta {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--pr-muted);
+}
+
+.metaIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.priceCol {
+  text-align: right;
+  flex-shrink: 0;
+  min-width: 4.5rem;
+}
+
+.fromLabel {
+  display: block;
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.priceValue {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--pr-blue);
+  white-space: nowrap;
+}
+
+.arrowBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--pr-blue-soft);
+  color: var(--pr-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.card:hover .arrowBtn {
+  background: var(--pr-blue);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* Skeletons */
+.skeletonCard {
+  pointer-events: none;
+}
+
+.skeletonBlock {
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #eef2f7 0%, #f7f9fc 50%, #eef2f7 100%);
+  background-size: 200% 100%;
+  animation: prShimmer 1.2s ease-in-out infinite;
+}
+
+.skeletonCode {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+}
+
+.skeletonTitle {
+  width: 78%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.skeletonMeta {
+  width: 58%;
+  height: 12px;
+}
+
+.skeletonFrom {
+  width: 36px;
+  height: 10px;
+  margin-left: auto;
+  margin-bottom: 8px;
+}
+
+.skeletonPrice {
+  width: 64px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.skeletonArrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+}
+
+@keyframes prShimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    --pr-visible: 1;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cardHit {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .routeTitle {
+    font-size: 14px;
+  }
+
+  .priceValue {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cardHit {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "code main arrow"
+      "code price arrow";
+  }
+
+  .codeBox {
+    grid-area: code;
+  }
+
+  .cardMain {
+    grid-area: main;
+  }
+
+  .priceCol {
+    grid-area: price;
+    text-align: left;
+    margin-top: 2px;
+  }
+
+  .arrowBtn {
+    grid-area: arrow;
+    align-self: center;
+  }
+
+  .fromLabel {
+    display: inline;
+    margin-right: 6px;
+  }
+
+  .priceValue {
+    display: inline;
+  }
+}

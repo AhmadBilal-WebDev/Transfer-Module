@@ -1,0 +1,264 @@
+.section {
+  --hiw-ink: #0e1626;
+  --hiw-muted: #566176;
+  --hiw-blue: #1f63d6;
+  --hiw-navy: #0b1730;
+
+  background: #ffffff;
+  padding: clamp(3.25rem, 6.5vw, 5.5rem) 0;
+  overflow: hidden;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 720px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.75rem);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--hiw-blue);
+}
+
+.title {
+  margin: 0 0 14px;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 51.52px;
+  letter-spacing: -0.46px;
+  text-align: center;
+  color: var(--hiw-ink);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 48ch;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 27.2px;
+  text-align: center;
+  color: var(--hiw-muted);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  position: relative;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px);
+  border-top: 1.5px dashed rgba(14, 22, 38, 0.18);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+.badge {
+  width: 84px;
+  height: 84px;
+  border-radius: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  background: var(--hiw-navy);
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  box-shadow: 0px 14px 30px -10px #0b173073;
+}
+
+.badgeAccent {
+  background: linear-gradient(145deg, #3b86ff 0%, #1b54c2 100%);
+  box-shadow: 0px 14px 30px -10px rgba(27, 84, 194, 0.55);
+}
+
+.stepTitle {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--hiw-ink);
+}
+
+.stepText {
+  margin: 0;
+  max-width: 22ch;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: var(--hiw-muted);
+}
+
+@media (max-width: 1100px) {
+  .title {
+    font-size: 40px;
+    line-height: 46px;
+  }
+
+  .steps {
+    gap: 18px;
+  }
+
+  .badge {
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .steps::before {
+    top: 38px;
+  }
+
+  .stepTitle {
+    font-size: 20px;
+  }
+
+  .stepText {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 991px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 28px;
+  }
+
+  .steps::before {
+    display: none;
+  }
+
+  .stepText {
+    max-width: 28ch;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .shell {
+    width: min(1180px, calc(100% - 1.25rem));
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .step {
+    position: relative;
+    padding-bottom: 28px;
+  }
+
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 1.5px;
+    height: 20px;
+    transform: translateX(-50%);
+    border-left: 1.5px dashed rgba(14, 22, 38, 0.18);
+  }
+
+  .step:last-child {
+    padding-bottom: 0;
+  }
+
+  .badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .stepTitle {
+    font-size: 20px;
+  }
+
+  .stepText {
+    max-width: 34ch;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 479px) {
+  .title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}

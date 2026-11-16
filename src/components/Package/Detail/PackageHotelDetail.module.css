@@ -1,0 +1,252 @@
+.hotelSection {
+  margin: 2rem 0 2.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #e31c23;
+}
+
+.sectionTitle {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.45rem, 2.8vw, 2rem);
+  font-weight: 500;
+  font-style: italic;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.hotelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.hotelCard {
+  background: #fff;
+  border: 1px solid #eceae5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.imageWrap {
+  position: relative;
+  height: 190px;
+  background: #ece8e1;
+  overflow: hidden;
+}
+
+.hotelImage {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hotelCard:hover .hotelImage {
+  transform: scale(1.04);
+}
+
+.popularBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  background: #e31c23;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(227, 28, 35, 0.28);
+}
+
+.galleryIndicator {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.72);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.placeholderBanner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3efe8 0%, #e8e2d8 100%);
+}
+
+.placeholderIcon {
+  font-size: 2.4rem;
+  color: #c4b8a8;
+}
+
+.cardBody {
+  padding: 0.95rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 16px;
+}
+
+.noRating {
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.hotelName {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.cityName {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  padding-top: 0.1rem;
+}
+
+.infoPill {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.55rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  background: #f3f6f8;
+  border: 1px solid #e8eef2;
+}
+
+.infoPillItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4b5563;
+  min-width: 0;
+}
+
+.infoPillItem svg {
+  color: #e31c23;
+  flex-shrink: 0;
+}
+
+.infoPillItem span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 160px;
+}
+
+.infoPillSep {
+  width: 1px;
+  height: 12px;
+  background: #d1d5db;
+  flex-shrink: 0;
+}
+
+.roomsBlock {
+  margin-top: 0.15rem;
+}
+
+.roomsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.roomsIcon {
+  color: #e31c23;
+}
+
+.roomsList {
+  background: #f0f5f8;
+  border: 1px solid #e2ebf0;
+  border-radius: 12px;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.roomRow {
+  background: #fff;
+  border: 1px solid #e8eef2;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.35;
+}
+
+@media (max-width: 991.98px) {
+  .hotelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrap {
+    height: 210px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .imageWrap {
+    height: 180px;
+  }
+
+  .infoPill {
+    border-radius: 14px;
+  }
+
+  .infoPillItem span {
+    max-width: 120px;
+  }
+
+  .titleRow {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

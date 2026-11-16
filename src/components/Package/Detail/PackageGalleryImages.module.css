@@ -1,0 +1,291 @@
+.gallery {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+/*
+  Desired desktop mosaic (second screenshot):
+  [======== MAIN (wide) ========] [ SIDE TOP ]
+  [ bottom1 ] [ bottom2 ]         [ SIDE MID ]
+  [ bottom3 ] [ bottom4 ]         [ VIEW ALL ]
+*/
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.15fr 0.9fr;
+  grid-template-rows: minmax(180px, 1.55fr) minmax(95px, 0.85fr) minmax(95px, 0.85fr);
+  gap: 10px;
+  width: 100%;
+  height: min(480px, 54vw);
+  min-height: 340px;
+}
+
+.gridCompact {
+  grid-template-columns: 1.7fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: min(380px, 52vw);
+  min-height: 280px;
+  position: relative;
+}
+
+.gridCompact .slotMain {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.gridCompact .slotSideTop {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gridCompact .slotSideTall {
+  grid-column: 2;
+  grid-row: 2;
+  display: block;
+}
+
+.gridSingle {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: min(360px, 55vw);
+  min-height: 240px;
+  position: relative;
+}
+
+.gridSingle .slotMain {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #e8e4dc;
+}
+
+.slotMain {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  border-radius: 16px;
+}
+
+.slotSideTop {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.slotSideTall {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.slotBottom1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.slotBottom2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.slotBottom3 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.slotBottom4 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.slotViewAll {
+  grid-column: 3;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e31c23;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(227, 28, 35, 0.28);
+  transition: background 0.15s ease, transform 0.15s ease;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.35;
+}
+
+.slotViewAll:hover {
+  background: #b9151b;
+  transform: translateY(-1px);
+}
+
+.gridCompact .slotViewAll,
+.gridSingle .slotViewAll {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: auto;
+  top: auto;
+  grid-column: unset;
+  grid-row: unset;
+  width: auto;
+  height: auto;
+  min-height: unset;
+  z-index: 3;
+  padding: 0.6rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  box-shadow: 0 6px 18px rgba(227, 28, 35, 0.3);
+}
+
+.slotExtra {
+  display: none;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.cell:hover .image {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: #e31c23;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(227, 28, 35, 0.28);
+  pointer-events: none;
+}
+
+.viewAllBtn,
+.viewAllPill {
+  display: none;
+}
+
+.modalImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .grid {
+    height: min(430px, 68vw);
+    gap: 8px;
+  }
+
+  .cell {
+    border-radius: 12px;
+  }
+
+  .slotMain {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid,
+  .gridCompact {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(200px, 42vw) 105px 105px auto;
+    height: auto;
+    min-height: unset;
+  }
+
+  .slotMain {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .slotSideTop {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .slotSideTall {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .slotBottom1 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .slotBottom2 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .slotBottom3,
+  .slotBottom4 {
+    display: none;
+  }
+
+  .slotViewAll {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    min-height: 52px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    padding: 0.75rem;
+  }
+
+  .gridCompact .slotViewAll,
+  .gridSingle .slotViewAll {
+    position: absolute;
+    left: 12px;
+    right: auto;
+    bottom: 12px;
+    grid-column: unset;
+    grid-row: unset;
+    width: auto;
+    min-height: unset;
+  }
+
+  .gridCompact .slotSideTall {
+    display: block;
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid,
+  .gridCompact {
+    grid-template-rows: minmax(180px, 48vw) 92px 92px auto;
+  }
+
+  .badge {
+    top: 10px;
+    left: 10px;
+    font-size: 0.62rem;
+    padding: 0.35rem 0.6rem;
+  }
+}

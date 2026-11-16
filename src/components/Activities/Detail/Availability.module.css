@@ -1,0 +1,739 @@
+.card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  padding: 1.25rem 1.25rem 1.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.priceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.priceGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 1.35rem;
+}
+
+.priceBlock {
+  min-width: 0;
+}
+
+.priceValue {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.1;
+}
+
+.priceValueChild {
+  font-size: 1.25rem;
+}
+
+.priceLabel {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.refundBadge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: #fef2f2;
+  color: #e31c23;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nonRefundBadge {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.field {
+  margin-bottom: 0.9rem;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.fieldControl {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  color: #111827;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fieldControl:hover,
+.fieldControlOpen {
+  border-color: #e31c23;
+  box-shadow: 0 0 0 1px #e31c23;
+}
+
+.fieldIcon {
+  color: #e31c23;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.fieldValue {
+  flex: 1;
+  min-width: 0;
+  color: #111827;
+}
+
+.fieldPlaceholder {
+  color: #9ca3af;
+  font-weight: 500;
+  width: 90%;
+}
+
+.fieldChevron {
+  color: #9ca3af;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.calendarPanel {
+  margin: 0.15rem 0 0.85rem;
+  padding: 0.85rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fafafa;
+}
+
+.monthNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.monthBtn {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #6b7280;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.monthBtn:hover {
+  border-color: #e31c23;
+  color: #e31c23;
+}
+
+.monthLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.weekHead {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.weekHead span {
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.weekRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.dayCell {
+  min-height: 42px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 4px 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d1d5db;
+  cursor: default;
+}
+
+.dayAvailable {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #111827;
+  cursor: pointer;
+}
+
+.dayAvailable:hover {
+  border-color: #e31c23;
+  background: #fee2e2;
+}
+
+.daySelected {
+  background: #e31c23 !important;
+  border-color: #e31c23 !important;
+  color: #fff !important;
+}
+
+.dayPast,
+.dayOutside {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.dayStatus {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #e31c23;
+  line-height: 1;
+}
+
+.daySelected .dayStatus {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid #eee;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotAvailable {
+  background: #e31c23;
+}
+
+.dotSelected {
+  background: #111827;
+}
+
+.guestControl {
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.45rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.guestLabel {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.guestBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.guestBtn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #f5ebe0;
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guestBtn:hover:not(:disabled) {
+  background: #eed9c4;
+}
+
+.guestBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.guestCount {
+  min-width: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 1rem 0;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.totalAmount {
+  color: #e31c23;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.bookBtn {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 999px;
+  background: #e31c23;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(227, 28, 35, 0.28);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.bookBtn:hover:not(:disabled) {
+  background: #c41820;
+  transform: translateY(-1px);
+}
+
+.bookBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.features {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.35;
+}
+
+.featureIcon {
+  color: #e31c23;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  font-size: 0.9rem;
+}
+
+.policyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.85rem 0 0;
+  border: none;
+  background: none;
+  color: #e31c23;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.alertBox {
+  margin: 0.65rem 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.alertInfo {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.alertWarn {
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+}
+
+/* Cancellation Policy Modal — Royalane */
+.policyModal {
+  border-radius: 18px !important;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e8e4de;
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18);
+  max-height: min(90vh, 780px);
+  display: flex;
+  flex-direction: column;
+}
+
+.policyModalHeader {
+  background: #f6f1e9;
+  border-bottom: 1px solid #ebe6de;
+  padding: 1rem 1.15rem;
+  flex-shrink: 0;
+}
+
+.policyModalTitle {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.policyModalClose {
+  color: #6b7280;
+}
+
+.policyModalClose:hover {
+  background: #fef2f2;
+  color: #e31c23;
+}
+
+.policyModalBody {
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.policyModalScroll {
+  overflow-y: auto;
+  max-height: min(calc(90vh - 4.25rem), 700px);
+  padding: 1.15rem 1.2rem 1.85rem;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.policyModalScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.policyModalScroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+.policyModalScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.policyEmpty {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 1.25rem 0.5rem;
+}
+
+.policyStatus {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  margin-bottom: 1.1rem;
+}
+
+.policyStatusIcon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  font-size: 1.35rem;
+}
+
+.policyStatusTitle {
+  margin: 0 0 0.2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.policyStatusText {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.policyStatusOk {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #7f1d1d;
+}
+
+.policyStatusOk .policyStatusIcon {
+  color: #e31c23;
+}
+
+.policyStatusOk .policyStatusTitle {
+  color: #991b1b;
+}
+
+.policyStatusDanger {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+}
+
+.policyStatusDanger .policyStatusIcon {
+  color: #6b7280;
+}
+
+.policyStatusDanger .policyStatusTitle {
+  color: #1f2937;
+}
+
+.policyTimelineTitle {
+  margin: 0 0 0.85rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.policyTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.15rem;
+}
+
+.policyCard {
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  border: 1px solid #e8e4de;
+  background: #faf7f3;
+}
+
+.policyCardPrimary {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.policyCardMuted {
+  background: #fff;
+  border-color: #ececec;
+}
+
+.policyCardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.45rem;
+}
+
+.policyCardTime {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.policyCardTimeIcon {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: #e31c23;
+}
+
+.policyCardMuted .policyCardTimeIcon {
+  color: #9ca3af;
+}
+
+.policyCardMuted .policyCardTime {
+  color: #374151;
+}
+
+.policyBadge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.policyBadgeFee {
+  background: #fee2e2;
+  color: #e31c23;
+}
+
+.policyBadgePct {
+  background: #f6f1e9;
+  color: #7c2d12;
+  border: 1px solid #e8d5c4;
+}
+
+.policyCardDesc {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.policyFeeLine {
+  margin-top: 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e31c23;
+}
+
+.policyFullRefund {
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #991b1b;
+}
+
+.policyNoRefund {
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.policyNote {
+  margin-top: 1rem;
+  margin-bottom: 0.15rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  background: #f6f1e9;
+  border: 1px solid #e8d5c4;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #7c2d12;
+}
+
+.policyNote strong {
+  color: #9a3412;
+}
+
+@media (max-width: 575px) {
+  .card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .priceValue {
+    font-size: 1.4rem;
+  }
+
+  .dayCell {
+    min-height: 38px;
+    font-size: 0.72rem;
+  }
+
+  .policyModalHeader {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+  }
+
+  .policyModalScroll {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+    padding-bottom: 1.65rem;
+    max-height: min(calc(90vh - 3.75rem), 700px);
+  }
+
+  .policyCardHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .policyBadge {
+    align-self: flex-start;
+  }
+}

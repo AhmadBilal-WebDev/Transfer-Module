@@ -1,0 +1,245 @@
+.section {
+  --cu-blue: #0f63bd;
+  --cu-ink: #141b2b;
+  --cu-muted: #424752;
+  --cu-soft: #e9edff;
+  background: #ffffff;
+  padding: 48px 24px 24px;
+}
+
+.shell {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  min-height: 350px;
+  border-radius: 20px;
+  padding: 32px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    0 5px 12px 0 rgba(0, 0, 0, 0.1),
+    0 22px 22px 0 rgba(0, 0, 0, 0.09),
+    0 49px 29px 0 rgba(0, 0, 0, 0.05),
+    0 86px 35px 0 rgba(0, 0, 0, 0.01);
+}
+
+.cardDesktop {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardMobile {
+  display: none;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--cu-soft);
+  color: var(--cu-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: var(--cu-ink);
+}
+
+.value {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.15px;
+  color: var(--cu-blue);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.value:hover {
+  text-decoration: underline;
+}
+
+.body {
+  margin: 0 0 24px;
+  flex: 1;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--cu-muted);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 46px;
+  padding: 14px 24px;
+  border-radius: 9999px;
+  background: var(--cu-soft);
+  color: var(--cu-blue) !important;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.26px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: auto;
+  transition: filter 0.15s ease;
+}
+
+.cta:hover {
+  filter: brightness(0.97);
+  color: var(--cu-blue) !important;
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding: 28px 20px 8px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .cardDesktop {
+    display: none;
+  }
+
+  .cardMobile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .mobileTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .iconRound {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background: var(--cu-soft);
+    color: var(--cu-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 9999px;
+    background: var(--cu-soft);
+    color: var(--cu-blue);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .category {
+    margin: 0 0 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  .valueMobile {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--cu-ink);
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .body {
+    margin-bottom: 20px;
+  }
+
+  .ctaMobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    background: var(--cu-soft);
+    color: var(--cu-blue) !important;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.26px;
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .ctaPrimary {
+    background: var(--cu-blue);
+    color: #ffffff !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .section {
+    padding: 20px 16px 4px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .valueMobile {
+    font-size: 22px;
+  }
+}

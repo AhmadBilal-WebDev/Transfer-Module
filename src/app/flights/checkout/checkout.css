@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════════════════════
+   Flight Checkout — Royalane Design
+   Palette: red #e31c23 · cream #f6f1e9 · white cards
+   ═══════════════════════════════════════════════════════════════ */
+
+.flight-checkout-container {
+    --ck-red: #e31c23;
+    --ck-red-dark: #b9151b;
+    --ck-red-light: #fef2f2;
+    --ck-red-muted: #fce8e6;
+    --ck-bg: #f6f1e9;
+    --ck-card: #ffffff;
+    --ck-border: #e5e7eb;
+    --ck-text: #1a1a1a;
+    --ck-muted: #6b7280;
+    --ck-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --ck-shadow-md: 0 8px 28px rgba(0, 0, 0, 0.08);
+    --ck-radius: 16px;
+    --ck-radius-sm: 10px;
+    --ck-serif: Georgia, "Times New Roman", Times, serif;
+
+    min-height: 100vh;
+    padding: 1.5rem 0 4rem;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ck-text);
+}
+
+.flight-checkout-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ck-muted);
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+    transition: color 0.15s ease;
+}
+
+.flight-checkout-back-link:hover {
+    color: var(--ck-red);
+}
+
+.flight-checkout-row {
+    align-items: flex-start;
+}
+
+.flight-checkout-sidebar {
+    position: sticky;
+    top: 1.5rem;
+}
+
+@media (max-width: 991px) {
+    .flight-checkout-sidebar {
+        position: static;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .flight-checkout-container {
+        padding: 1rem 0 2.5rem;
+    }
+}

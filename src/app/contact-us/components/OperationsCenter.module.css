@@ -1,0 +1,331 @@
+.section {
+  --cu-blue: #0f63bd;
+  --cu-ink: #141b2b;
+  --cu-muted: #424752;
+  --cu-navy: #001b3d;
+  background: #f7f9ff;
+  padding: 72px 24px 88px;
+}
+
+.shell {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--cu-blue);
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0;
+  color: var(--cu-ink);
+}
+
+.leadDesktop {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--cu-muted);
+  max-width: 46ch;
+  justify-self: end;
+}
+
+.leadMobile {
+  display: none;
+}
+
+.mapStage {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 420px;
+  background: var(--cu-navy);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+}
+
+.mapWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.mapFill {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.mapFill iframe,
+.mapWrap iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border: 0;
+  display: block;
+  filter: grayscale(0.15) contrast(1.05) brightness(0.82);
+}
+
+.mapDim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 27, 61, 0.18) 0%, rgba(0, 27, 61, 0.55) 100%),
+    radial-gradient(circle at 50% 45%, transparent 0%, rgba(0, 27, 61, 0.35) 70%);
+}
+
+.coordBadge,
+.liveBadge {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.coordBadge {
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 27, 61, 0.72);
+}
+
+.liveBadge {
+  display: none;
+}
+
+.coordDot,
+.liveDot,
+.openDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+
+.liveDot {
+  background: #60a5fa;
+}
+
+.infoCardDesktop {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+  width: min(360px, calc(100% - 40px));
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18);
+}
+
+.openLabel {
+  margin: 0 0 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cu-blue);
+}
+
+.openDot {
+  background: var(--cu-blue);
+}
+
+.cardTitle {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--cu-ink);
+}
+
+.address {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--cu-muted);
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+}
+
+.cardActions a {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cu-blue);
+  text-decoration: none;
+}
+
+.cardActions a:hover {
+  text-decoration: underline;
+}
+
+.infoCardMobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding: 48px 20px 56px;
+    background: #ffffff;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 18px;
+  }
+
+  .leadDesktop {
+    display: none;
+  }
+
+  .leadMobile {
+    display: block;
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--cu-muted);
+  }
+
+  .mapStage {
+    min-height: 380px;
+    border-radius: 20px;
+  }
+
+  .coordBadge {
+    top: 12px;
+    left: 12px;
+    right: auto;
+    background: rgba(20, 27, 43, 0.78);
+  }
+
+  .coordDesktop {
+    display: none;
+  }
+
+  .liveBadge {
+    display: inline-flex;
+    top: 12px;
+    right: 12px;
+    background: var(--cu-blue);
+  }
+
+  .infoCardDesktop {
+    display: none;
+  }
+
+  .infoCardMobile {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  }
+
+  .hubIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: #e9edff;
+    color: var(--cu-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .mobileCopy {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .mobileTitle {
+    margin: 0 0 2px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--cu-ink);
+  }
+
+  .mobileSub {
+    margin: 0;
+    font-size: 12px;
+    color: var(--cu-muted);
+  }
+
+  .navBtn {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: #e9edff;
+    color: var(--cu-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .section {
+    padding: 40px 16px 48px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .mapStage {
+    min-height: 340px;
+  }
+}

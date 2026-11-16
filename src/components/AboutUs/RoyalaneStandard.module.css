@@ -1,0 +1,525 @@
+.section {
+  --au-blue: #0f63bd;
+  --au-ink: #141b2b;
+  --au-muted: #424752;
+  --au-check-bg: #ceddfe;
+  --au-frame: #e1e8fd99;
+  --au-route: #cfe4ff;
+  background: #ffffff;
+  padding: 96px 24px;
+}
+
+.shell {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+.copyCol {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--au-blue);
+}
+
+.eyebrowMobile {
+  display: none;
+}
+
+.title {
+  margin: 0 0 14px;
+  max-width: 22ch;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -0.6px;
+  color: var(--au-ink);
+}
+
+.lead {
+  margin: 0 0 28px;
+  max-width: 42ch;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: var(--au-muted);
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #e8eef5;
+  background: #ffffff;
+}
+
+.check {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--au-check-bg);
+  color: var(--au-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.featureCopy {
+  min-width: 0;
+}
+
+.featureTitleDesktop,
+.featureTitleMobile {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.15px;
+  color: var(--au-ink);
+}
+
+.featureTitleMobile {
+  display: none;
+}
+
+.featureDesc {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--au-muted);
+}
+
+.mediaCol {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.quoteFrame {
+  width: min(100%, 384px);
+  border-radius: 28px;
+  padding: 18px;
+  background: var(--au-frame);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.quoteCard {
+  width: 100%;
+  min-height: 485px;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 24px;
+  box-shadow:
+    0 8px 16px -6px rgba(0, 0, 0, 0.08),
+    0 20px 28px -10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.quoteTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.quoteBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e8f1fb;
+  color: var(--au-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quoteBadgeMobile {
+  display: none;
+}
+
+.quoteStatusDesktop {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.quoteStatusMobile {
+  display: none;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e8f1fb;
+  color: var(--au-blue);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.quoteTitle {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--au-ink);
+}
+
+.quoteVehicle {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--au-blue);
+}
+
+.routeBox {
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--au-route);
+  margin-bottom: 16px;
+}
+
+.routeItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.routeItem + .routeItem {
+  margin-top: 14px;
+  position: relative;
+}
+
+.routeItem + .routeItem::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: -14px;
+  width: 0;
+  height: 14px;
+  border-left: 2px solid rgba(15, 99, 189, 0.35);
+}
+
+.routeDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.routeDotStart {
+  background: var(--au-blue);
+}
+
+.routeDotEnd {
+  background: #94a3b8;
+}
+
+.routeName,
+.routeNameDesktop,
+.routeNameMobile {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--au-ink);
+}
+
+.routeNameMobile {
+  display: none;
+}
+
+.metaDesktop {
+  margin-bottom: 18px;
+}
+
+.metaPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.metaPills span,
+.metaExtras span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.metaPills span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+}
+
+.metaExtras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.metaExtras span {
+  color: var(--au-blue);
+}
+
+.metaPills svg,
+.metaExtras svg,
+.metaMobileCounts svg {
+  color: var(--au-blue);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.quoteFooterDesktop {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.price {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--au-ink);
+}
+
+.detailBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: var(--au-blue);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.detailBtn:hover {
+  filter: brightness(0.95);
+  color: #ffffff !important;
+}
+
+.quoteFooterMobile,
+.metaMobileCounts {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .title {
+    font-size: clamp(32px, 3.5vw, 40px);
+    line-height: 1.2;
+    max-width: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding: 64px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .eyebrowDesktop {
+    display: none;
+  }
+
+  .eyebrowMobile {
+    display: inline;
+  }
+
+  .title {
+    max-width: none;
+  }
+
+  .lead {
+    display: none;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .feature {
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 9999px;
+    box-shadow:
+      0 4px 6px -2px rgba(15, 23, 42, 0.06),
+      0 10px 18px -8px rgba(15, 23, 42, 0.1);
+  }
+
+  .featureTitleDesktop,
+  .featureDesc {
+    display: none;
+  }
+
+  .featureTitleMobile {
+    display: block;
+    margin: 0;
+  }
+
+  .quoteFrame {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .quoteCard {
+    min-height: 0;
+    border: 1px solid #e8eef5;
+  }
+
+  .quoteBadgeDesktop,
+  .quoteStatusDesktop {
+    display: none;
+  }
+
+  .quoteBadgeMobile,
+  .quoteStatusMobile {
+    display: inline-flex;
+  }
+
+  .quoteBadge {
+    background: transparent;
+    padding: 0;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .quoteVehicle {
+    color: #64748b;
+  }
+
+  .routeBox {
+    background: var(--au-frame);
+  }
+
+  .routeNameDesktop {
+    display: none;
+  }
+
+  .routeNameMobile {
+    display: block;
+  }
+
+  .metaDesktop,
+  .quoteFooterDesktop {
+    display: none;
+  }
+
+  .quoteFooterMobile {
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .metaMobileCounts {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .metaMobileCounts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  .priceBlockMobile {
+    text-align: right;
+  }
+
+  .fixedFare {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  .priceMobile {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    color: var(--au-blue);
+  }
+}
+
+@media (max-width: 575px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -0.45px;
+  }
+
+  .quoteCard {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .quoteTitle {
+    font-size: 22px;
+  }
+}

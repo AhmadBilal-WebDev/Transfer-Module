@@ -1,0 +1,693 @@
+.listWrap {
+  width: 100%;
+}
+
+.transferGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.transferCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e8ecf0;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  min-width: 0;
+}
+
+.transferCard:hover {
+  border-color: #d7dee7;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.includedCard {
+  border: 2px solid #014b95;
+  box-shadow: 0 8px 24px rgba(1, 75, 149, 0.12);
+}
+
+.selectedCard {
+  border-color: #014b95;
+  box-shadow: 0 0 0 2px rgba(1, 75, 149, 0.2), 0 8px 24px rgba(1, 75, 149, 0.1);
+}
+
+.mediaPanel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 170px;
+  background: #f3f5f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.cardImage {
+  object-fit: cover !important;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.cardImagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #94a3b8;
+  font-size: 2.25rem;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 2px 2px;
+  min-width: 0;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.titleBlock {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardVehicleName {
+  margin: 0;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27.5px;
+  letter-spacing: 0;
+  color: #0f172a;
+  vertical-align: middle;
+}
+
+.serviceType {
+  margin: 4px 0 0;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.88px;
+  text-transform: uppercase;
+  color: #014b95;
+}
+
+.priceBlock {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.priceLabel {
+  display: block;
+  margin: 0 0 2px;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.88px;
+  text-align: right;
+  text-transform: uppercase;
+  color: #94a3b8;
+  vertical-align: middle;
+}
+
+.priceValue {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0;
+  text-align: right;
+  color: #0f172a;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.priceVatNote {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #64748b;
+  text-align: right;
+}
+
+.featureBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 30px;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #e0eeff;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.featureItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.featureItem svg {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: #014b95;
+}
+
+.featureDot {
+  color: #94a3b8;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.routeText {
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.detailBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.72px;
+  text-align: center;
+  color: #014b95;
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.detailBtn svg {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.detailBtn:hover {
+  text-decoration: underline;
+}
+
+.bookBtn {
+  flex-shrink: 0;
+  min-width: 72px;
+  height: 32px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #e0eeff;
+  color: #014b95;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.bookBtn svg {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.bookBtn:hover:not(:disabled) {
+  background: #d0e4ff;
+}
+
+.bookBtnSelected {
+  background: #004b95;
+  color: #ffffff;
+}
+
+.bookBtnSelected:hover:not(:disabled) {
+  background: #003d7a;
+  color: #ffffff;
+}
+
+.bookBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.includedAlert {
+  margin: 0 0 0.75rem;
+}
+
+.desktopOnly {
+  display: contents;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .cardVehicleName {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .priceValue {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 991px) {
+  .transferGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .transferGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .mobileOnly {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .transferCard {
+    padding: 0;
+    gap: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .selectedCard {
+    border-color: #004b95;
+    box-shadow: 0 0 0 1.5px rgba(0, 75, 149, 0.25), 0 8px 20px rgba(0, 75, 149, 0.1);
+    position: relative;
+  }
+
+  .selectedCard::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #004b95;
+    border-radius: 14px 0 0 14px;
+    z-index: 2;
+  }
+
+  .mobileOnly {
+    padding: 12px 12px 0;
+  }
+
+  .selectedCard .mobileOnly {
+    padding-left: 14px;
+    background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 48%);
+  }
+
+  .mobileTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .mobileTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .mobileTag,
+  .mobileTagMuted,
+  .mobileTagAccent {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .mobileTag {
+    background: #e0eeff;
+    color: #004b95;
+  }
+
+  .mobileTagMuted {
+    background: #f1f5f9;
+    color: #64748b;
+  }
+
+  .mobileSelectedBadge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #004b95;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .mobileMain {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .mobileThumb {
+    position: relative;
+    flex-shrink: 0;
+    width: 88px;
+    height: 72px;
+    border: none;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f1f5f9;
+    cursor: pointer;
+  }
+
+  .mobileThumbImg {
+    object-fit: cover !important;
+  }
+
+  .mobileThumbPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 1.4rem;
+  }
+
+  .mobileInfo {
+    flex: 1;
+    min-width: 0;
+    padding-top: 2px;
+  }
+
+  .mobileTitle {
+    margin: 0;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: 0;
+    color: #0f172a;
+  }
+
+  .mobileSubtitle {
+    margin: 2px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #64748b;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .mobileSpecs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+  }
+
+  .mobileSpec {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.72px;
+    color: #475569;
+  }
+
+  .mobileSpec svg {
+    color: #004b95;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .mobileAmenityRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .mobileAmenityPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 18px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #e0eeff;
+    color: #004b95;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .mobileFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 2px -12px 0;
+    padding: 12px;
+    background: #e6e6e666;
+  }
+
+  .selectedCard .mobileFooter {
+    margin-left: -14px;
+    padding-left: 14px;
+  }
+
+  .mobilePriceBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .mobileFareLabel {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .mobilePriceRow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .mobileCurrency {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: #004b95;
+  }
+
+  .mobileAmount {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: #0f172a;
+  }
+
+  .mobilePriceNote {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    line-height: 1.3;
+  }
+
+  .mobileFooterActions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .mobileSelectBtn {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 72px;
+    height: 32px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #e0eeff;
+    color: #1c1c17;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.72px;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .mobileSelectBtn svg {
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .mobileSelectBtnActive {
+    background: #0f63bd;
+    color: #ffffff;
+  }
+
+  .mobileDetailsLink {
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    color: #004b95;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .mobileDetailsLink svg {
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+}
+
+.emptyState {
+  --empty-ink: #1a1714;
+  --empty-muted: #6f6860;
+  --empty-line: rgba(26, 23, 20, 0.12);
+  --empty-accent: #014b95;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.15rem, 3vw, 1.75rem);
+  border-radius: 16px;
+  border: 1px solid var(--empty-line);
+  background: linear-gradient(180deg, #fff 0%, #f5f8fb 100%);
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(26, 23, 20, 0.04);
+}
+
+.emptyIcon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--empty-line);
+  color: var(--empty-accent);
+  font-size: 1.35rem;
+}
+
+.emptyEyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--empty-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.emptyTitle {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-weight: 600;
+  color: var(--empty-ink);
+}
+
+.emptyText {
+  margin: 0 auto;
+  max-width: 38ch;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--empty-muted);
+}

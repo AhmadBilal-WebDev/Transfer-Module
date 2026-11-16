@@ -1,0 +1,313 @@
+/* Hotel Location Selector Dropdown Styles — matched to FlightSearch popover */
+
+.customDropdown {
+    padding: 0 !important;
+    max-width: 350px !important;
+    min-width: 350px !important;
+    width: 350px !important;
+    position: absolute;
+    z-index: 999;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.clearButton {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+    background-color: #eff6ff;
+    color: #1f63d6;
+}
+
+.clearButton:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.searchWrapper {
+    padding: 12px !important;
+    border-bottom: 2px solid #e0e0e0 !important;
+    background-color: #fff !important;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.searchInput {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-height: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    /* 16px minimum — prevents iOS Safari zoom on focus */
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #212529 !important;
+    background-color: #fff !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+    border-color: #0F63BD !important;
+    box-shadow: 0 0 0 3px rgba(15, 99, 189, 0.12) !important;
+}
+
+.searchInput::placeholder {
+    color: #999 !important;
+    font-weight: 400 !important;
+    opacity: 1;
+}
+
+.dropdownContent {
+    max-height: 350px;
+    min-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+/* Section Styles — match flight countryHeader */
+.section {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.sectionHeader {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.sectionIcon {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Location Option — match flight airportOption */
+.locationOption {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f5f5f5;
+    position: relative;
+}
+
+.locationOption:hover {
+    background-color: #f8f9fa;
+}
+
+.locationOption:last-child {
+    border-bottom: none;
+}
+
+.selectedLocation {
+    background-color: #eff6ff !important;
+    border-left: 3px solid #1f63d6;
+    padding-left: 13px;
+}
+
+.selectedLocation:hover {
+    background-color: #eff6ff !important;
+}
+
+.checkIcon {
+    margin-left: auto;
+    padding-left: 12px;
+    color: #1f63d6;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.locationIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.locationEmoji {
+    font-size: 24px;
+}
+
+.locationIcon {
+    color: #666;
+    font-size: 20px;
+}
+
+.selectedLocation .locationIcon {
+    color: #1f63d6;
+}
+
+.selectedLocation .locationIconWrapper {
+    background-color: #dbeafe;
+}
+
+.locationDetails {
+    flex: 1;
+    min-width: 0;
+}
+
+.locationName {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.locationCountry {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.4;
+}
+
+/* Loading State */
+.loadingState {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 16px;
+    color: #666;
+    font-size: 14px;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e0e0e0;
+    border-top-color: #28a745;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty State */
+.emptyState {
+    padding: 24px 16px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Scrollbar styling */
+.dropdownContent::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdownContent::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dropdownContent::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.dropdownContent::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .customDropdown {
+        min-width: 320px !important;
+        max-width: 320px !important;
+        width: 320px !important;
+    }
+    
+    .locationOption {
+        padding: 12px 14px;
+    }
+    
+    .locationIconWrapper {
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    
+    .locationEmoji {
+        font-size: 22px;
+    }
+    
+    .locationName {
+        font-size: 15px;
+    }
+    
+    .locationCountry {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .customDropdown {
+        min-width: 300px !important;
+        max-width: 300px !important;
+        width: 300px !important;
+    }
+    
+    .locationIconWrapper {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+    }
+    
+    .locationEmoji {
+        font-size: 20px;
+    }
+}

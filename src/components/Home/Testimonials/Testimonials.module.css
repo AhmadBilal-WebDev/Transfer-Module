@@ -1,0 +1,218 @@
+/* ─── Section ─────────────────────────────────────────────── */
+.section {
+  background-color: #ffffff;
+  padding: 3.5rem 0 4rem;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.25rem;
+  padding: 0 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background: transparent;
+  color: #e31c23;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-family: "Fraunces", "Playfair Display", serif;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #6b7280;
+  margin: 0 auto;
+  max-width: 520px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ─── Slider wrapper ──────────────────────────────────────── */
+.sliderWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ─── Swiper ──────────────────────────────────────────────── */
+.testimonialSwiper {
+  touch-action: pan-y;
+  padding-bottom: 2.75rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.testimonialSwiper :global(.swiper-wrapper) {
+  height: auto !important;
+  align-items: stretch;
+}
+
+.testimonialSwiper :global(.swiper-slide) {
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.testimonialSwiper :global(.swiper-pagination) {
+  bottom: 0;
+}
+
+.testimonialSwiper :global(.swiper-pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background-color: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.testimonialSwiper :global(.swiper-pagination-bullet-active) {
+  background-color: #e31c23;
+  width: 22px;
+  border-radius: 6px;
+}
+
+/* ─── Card ────────────────────────────────────────────────── */
+.card {
+  background: #F8F8F8;
+  border: 1px solid #E5E5E5;
+  border-radius: 28px;
+  padding: 1.6rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  background: #f2f2ef;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 1rem;
+}
+
+.star {
+  color: #e31c23;
+  font-size: 0.78rem;
+}
+
+.quoteText {
+  font-size: 0.98rem;
+  color: #1f2937;
+  line-height: 1.65;
+  margin: 0 0 1.6rem;
+  flex: 1;
+  font-weight: 600;
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.location {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .quoteText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 2.75rem 0 3.25rem;
+  }
+
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .testimonialSwiper {
+    padding-bottom: 2.4rem;
+  }
+
+  .card {
+    padding: 1.4rem 1.25rem 1.3rem;
+    border-radius: 16px;
+  }
+
+  .quoteText {
+    margin-bottom: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quoteText {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .location {
+    white-space: normal;
+  }
+}

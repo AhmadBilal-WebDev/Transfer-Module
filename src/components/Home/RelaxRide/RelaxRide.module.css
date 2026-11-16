@@ -1,0 +1,211 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-height: clamp(520px, 68vw, 720px);
+  display: flex;
+  align-items: stretch;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.mediaImage {
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 16, 34, 0.58) 0%,
+      rgba(8, 16, 34, 0.28) 38%,
+      rgba(8, 16, 34, 0.45) 70%,
+      rgba(8, 16, 34, 0.72) 100%
+    );
+  pointer-events: none;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(1280px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(3rem, 10vw, 8rem);
+  min-height: inherit;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 75.6px;
+  letter-spacing: -1.44px;
+  color: #ffffff;
+}
+
+.titleMain {
+  font-style: normal;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.titleEm {
+  font-style: italic;
+  font-weight: 500;
+  color: #9cc2ff;
+}
+
+.card {
+  width: min(1119px, 100%);
+  min-height: 142px;
+  margin: 0 auto;
+  padding: 30px 36px;
+  border-radius: 20px;
+  border: 1px solid #ffffff40;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 0 20px 48px -24px rgba(8, 16, 34, 0.55);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.cardText {
+  margin: 0;
+  max-width: 58ch;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 25.6px;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 1199px) {
+  .title {
+    font-size: 56px;
+    line-height: 62px;
+    letter-spacing: -1.1px;
+  }
+
+  .card {
+    padding: 26px 28px;
+    min-height: 128px;
+  }
+
+  .cardText {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .section {
+    min-height: 520px;
+  }
+
+  .shell {
+    width: min(1280px, calc(100% - 2rem));
+    gap: 3.5rem;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.8px;
+  }
+
+  .card {
+    padding: 22px 22px;
+    min-height: 0;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+
+  .cardText {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    min-height: 460px;
+  }
+
+  .shell {
+    width: min(1280px, calc(100% - 1.25rem));
+    padding: 2.25rem 0 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -0.6px;
+  }
+
+  .card {
+    border-radius: 16px;
+    padding: 18px 16px;
+    gap: 8px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardText {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@media (max-width: 479px) {
+  .title {
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: -0.5px;
+  }
+
+  .titleMain,
+  .titleEm {
+    display: inline;
+  }
+
+  .cardTitle {
+    font-size: 17px;
+  }
+}

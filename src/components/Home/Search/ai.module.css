@@ -1,0 +1,411 @@
+/* AI Mode search — white card matching Transfers search */
+
+.aiSearchContainer {
+  --ai-ink: #0e1626;
+  --ai-muted: #566176;
+  --ai-placeholder: #8a94a8;
+  --ai-line: #e5eaf2;
+  --ai-blue: #1f63d6;
+  --ai-blue-grad: linear-gradient(111.13deg, #3b86ff 0%, #1b54c2 100%);
+
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 24px 14px;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0px 50px 100px -30px #000000b2;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.aiSearchRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 66px;
+  padding: 8px 8px 8px 10px;
+  border: 1px solid var(--ai-line);
+  border-radius: 14px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.aiSparkBtn {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: var(--ai-blue-grad);
+  color: #ffffff;
+  font-size: 18px;
+  box-shadow: 0px 10px 22px -10px #2e78f0d9;
+  cursor: default;
+  pointer-events: none;
+}
+
+.aiInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--ai-ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  padding: 0;
+  height: 40px;
+}
+
+.aiInput::placeholder {
+  color: var(--ai-placeholder);
+  font-weight: 500;
+  opacity: 1;
+}
+
+.aiInput:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.aiMicBtn {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ai-line);
+  border-radius: 12px;
+  background: #f8fafc;
+  color: var(--ai-muted);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.aiMicBtn:hover {
+  border-color: #c9d8f5;
+  color: var(--ai-blue);
+  background: #f3f7ff;
+}
+
+.aiMicBtn.listening {
+  background: var(--ai-blue-grad);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.aiSearchBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-width: 118px;
+  min-height: 52px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 14px;
+  background: var(--ai-blue-grad);
+  color: #ffffff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 12px 28px -10px #2e78f0d9;
+  transition: filter 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.aiSearchBtn:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.aiSearchBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.aiSearchBtnIcon {
+  font-size: 14px;
+}
+
+.aiTryRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-top: 14px;
+}
+
+.aiTryLabel {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a94a8;
+  flex-shrink: 0;
+}
+
+.aiTryChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.aiTryChip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  background: #f3f5f8;
+  color: var(--ai-ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.aiTryChip:hover {
+  background: #e8eef8;
+  color: var(--ai-blue);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 14px 0 10px;
+  background: #e8eef6;
+}
+
+.trustRow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.trustRow li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ai-muted);
+}
+
+.trustRow li svg {
+  color: var(--ai-blue);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Response / loading states */
+.aiResponseBox {
+  background: #f8fafc;
+  border: 1px solid var(--ai-line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: none;
+}
+
+.aiResponseHeader {
+  display: flex;
+  align-items: center;
+  color: var(--ai-blue);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+}
+
+.aiResponseContent {
+  color: var(--ai-ink);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.aiResponseContent p {
+  color: var(--ai-muted);
+}
+
+.aiLoadingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ai-muted);
+  font-size: 0.88rem;
+  gap: 8px;
+}
+
+.aiLoadingIcon {
+  animation: spin 1s linear infinite;
+  color: var(--ai-blue);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.aiErrorMessage {
+  color: #d92d20;
+  font-size: 0.88rem;
+}
+
+.aiSuggestionChip {
+  background: #f3f5f8;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ai-ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.aiSuggestionChip:hover {
+  background: #e8eef8;
+  color: var(--ai-blue);
+}
+
+.listeningPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 2px solid var(--ai-blue);
+  animation: pulseRing 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.75);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .aiSearchContainer {
+    padding: 16px 16px 12px;
+  }
+
+  .aiSearchRow {
+    flex-wrap: wrap;
+    min-height: 0;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .aiInput {
+    flex: 1 1 calc(100% - 52px);
+    height: 42px;
+  }
+
+  .aiSearchBtn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .aiSearchContainer {
+    padding: 14px 12px 12px;
+    border-radius: 18px;
+    box-shadow: 0px 28px 50px -24px #000000b2;
+  }
+
+  .aiSearchRow {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-template-areas:
+      "input mic"
+      "search search";
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .aiSparkBtn {
+    display: none;
+  }
+
+  .aiInput {
+    grid-area: input;
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .aiMicBtn {
+    grid-area: mic;
+  }
+
+  .aiSearchBtn {
+    grid-area: search;
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .aiTryRow {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .aiTryChip {
+    font-size: 12.5px;
+    padding: 7px 12px;
+    white-space: normal;
+  }
+
+  .trustRow {
+    gap: 8px 14px;
+  }
+
+  .trustRow li {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 479px) {
+  .aiTryChip {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

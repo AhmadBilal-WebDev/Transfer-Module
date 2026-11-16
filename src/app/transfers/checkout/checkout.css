@@ -1,0 +1,1165 @@
+/* ═══════════════════════════════════════════════════════════════
+   Transfer Checkout — Royalane Design
+   Palette: red #e31c23 · cream #f6f1e9 · white cards
+   ═══════════════════════════════════════════════════════════════ */
+
+.transfer-checkout-container {
+    --ck-red: #e31c23;
+    --ck-red-dark: #b9151b;
+    --ck-red-light: #fef2f2;
+    --ck-bg: #f6f1e9;
+    --ck-card: #ffffff;
+    --ck-border: #e5e7eb;
+    --ck-text: #1a1a1a;
+    --ck-muted: #6b7280;
+    --ck-blue: #014b95;
+    --ck-blue-soft: #e0eeff;
+    --ck-blue-line: #9fc0e8;
+    --ck-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --ck-shadow-md: 0 8px 28px rgba(0, 0, 0, 0.08);
+    --ck-radius: 16px;
+    --ck-serif: Georgia, "Times New Roman", Times, serif;
+
+    min-height: 100vh;
+    padding: 0 0 4rem;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ck-text);
+    background: #ffffff;
+}
+
+/* ── Checkout banner (stepper + hero) ────────────────────────── */
+.tc-checkout-banner {
+    width: 100%;
+    max-width: 1184px;
+    height: 198px;
+    min-height: 198px;
+    margin: 28px auto;
+    padding: 24px 32px;
+    background: linear-gradient(90deg, #1a6fd4 0%, #0f5fc4 48%, #0a4aa3 100%);
+    border: 1px solid #e2e2e2;
+    border-radius: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.tc-stepper {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    max-width: 720px;
+}
+
+.tc-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    flex: 0 1 auto;
+}
+
+.tc-step + .tc-step {
+    margin-left: 18px;
+    padding-left: 48px;
+}
+
+.tc-step + .tc-step::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 32px;
+    height: 1.5px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+}
+
+.tc-step--done + .tc-step--active::before,
+.tc-step--done + .tc-step--done::before {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.tc-step-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tc-step-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.tc-step--done .tc-step-icon {
+    background: rgba(255, 255, 255, 0.92);
+    color: #14213d;
+    font-size: 12px;
+}
+
+.tc-step--active .tc-step-icon {
+    background: #ffffff;
+    color: #14213d;
+}
+
+.tc-step--todo .tc-step-icon {
+    background: rgba(255, 255, 255, 0.28);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.tc-step-label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.tc-step-label-mobile {
+    display: none;
+}
+
+.tc-step--done .tc-step-label {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+}
+
+.tc-step--active .tc-step-label {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.tc-step--todo .tc-step-label {
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+}
+
+.tc-checkout-hero {
+    text-align: center;
+    padding: 0;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.tc-checkout-title {
+    margin: 0;
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+}
+
+.tc-checkout-subtitle {
+    margin: 10px auto 0;
+    max-width: 560px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #e4e4e4;
+}
+
+.transfer-checkout-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ck-muted);
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+    transition: color 0.15s ease;
+}
+
+.transfer-checkout-back-link:hover {
+    color: var(--ck-red);
+}
+
+.transfer-checkout-row {
+    align-items: flex-start;
+}
+
+.transfer-checkout-sidebar {
+    position: sticky;
+    top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Your Transfer Info summary ── */
+.tc-info-card {
+    background: #ffffff;
+    border: 1px solid #e8eef5;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    padding: 16px;
+}
+
+.tc-info-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.tc-info-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.25;
+    color: #0f172a;
+}
+
+.tc-info-trip-badge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #e0eeff;
+    color: #004b95;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.tc-route-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 12px;
+}
+
+.tc-route-item {
+    display: flex;
+    gap: 12px;
+}
+
+.tc-route-item + .tc-route-item {
+    margin-top: 10px;
+}
+
+.tc-route-rail {
+    width: 14px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3px;
+}
+
+.tc-route-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.tc-route-dot-start {
+    background: #004b95;
+}
+
+.tc-route-dot-end {
+    background: #0c1c34;
+}
+
+.tc-route-line {
+    flex: 1;
+    width: 0;
+    min-height: 22px;
+    margin: 4px 0 -10px;
+    border-left: 2px solid #c5d9f5;
+}
+
+.tc-route-body {
+    min-width: 0;
+    flex: 1;
+}
+
+.tc-route-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 2px;
+}
+
+.tc-route-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.tc-route-sub {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.35;
+    word-break: break-word;
+}
+
+.tc-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #efefef;
+    margin-bottom: 12px;
+}
+
+.tc-meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.tc-meta-chip svg {
+    color: #004b95;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.tc-vehicle-panel {
+    padding: 12px;
+    border-radius: 14px;
+    background: #f2f2f2;
+    margin-bottom: 12px;
+}
+
+.tc-vehicle-top {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.tc-vehicle-thumb {
+    width: 84px;
+    height: 64px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+    flex-shrink: 0;
+}
+
+.tc-vehicle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tc-vehicle-copy {
+    min-width: 0;
+    flex: 1;
+}
+
+.tc-vehicle-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.tc-vehicle-name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+}
+
+.tc-vehicle-tag {
+    display: inline-flex;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #e0eeff;
+    color: #004b95;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.tc-vehicle-desc {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+.tc-vehicle-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tc-vehicle-specs span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.tc-vehicle-specs svg {
+    color: #004b95;
+    flex-shrink: 0;
+}
+
+.tc-view-details {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #004b95;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.88px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.tc-view-details:hover {
+    text-decoration: underline;
+}
+
+.tc-cancel-box {
+    padding: 12px;
+    background: #fff6e0;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: #92400e;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.tc-cancel-box svg {
+    color: #d97706;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.tc-cancel-fees {
+    margin-top: 0.55rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tc-cancel-fee {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #92400e;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 0.45rem 0.6rem;
+}
+
+.tc-price-block {
+    padding-top: 4px;
+}
+
+.tc-price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.tc-price-row span:last-child {
+    font-weight: 600;
+    color: #0f172a;
+    text-align: right;
+}
+
+.tc-price-included {
+    color: #004b95 !important;
+    font-weight: 700 !important;
+}
+
+.tc-price-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid #e8eef5;
+}
+
+.tc-price-total-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #0f172a;
+}
+
+.tc-price-total-sub {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.tc-price-total-right {
+    text-align: right;
+}
+
+.tc-price-total-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #004b95;
+    letter-spacing: 0;
+}
+
+.tc-price-note {
+    margin: 2px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #004b95;
+}
+
+.tc-trust-list {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 12px 0 0;
+    border-top: 1px solid #e8eef5;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tc-trust-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.tc-trust-list svg {
+    color: #004b95;
+    flex-shrink: 0;
+}
+
+.tc-help-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #0c1c34;
+    color: #ffffff;
+}
+
+.tc-help-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.tc-help-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: #004b95;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tc-help-title {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.tc-help-phone {
+    display: block;
+    margin-top: 2px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tc-help-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: #ffffff;
+    color: #004b95;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* ── Form cards ── */
+.tc-form-card {
+    background: var(--ck-card);
+    border: 1px solid var(--ck-border);
+    border-radius: var(--ck-radius);
+    box-shadow: var(--ck-shadow-sm);
+    padding: 1.35rem 1.5rem;
+    margin-bottom: 1.15rem;
+}
+
+.tc-form-title {
+    margin: 0 0 0.35rem;
+    font-family: var(--ck-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--ck-text);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.tc-form-title svg {
+    color: var(--ck-red);
+    font-style: normal;
+}
+
+.tc-form-subtitle {
+    margin: 0 0 1.1rem;
+    font-size: 0.82rem;
+    color: var(--ck-muted);
+}
+
+.tc-welcome-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-top: 0.85rem;
+}
+
+.tc-welcome-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem;
+    border: 1.5px solid var(--ck-border);
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.tc-welcome-option:hover {
+    border-color: #fca5a5;
+}
+
+.tc-welcome-option.active {
+    border-color: var(--ck-red);
+    background: var(--ck-red-light);
+}
+
+.tc-welcome-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--ck-red-light);
+    color: var(--ck-red);
+    font-size: 1.15rem;
+}
+
+.tc-welcome-option.active .tc-welcome-icon {
+    background: var(--ck-red);
+    color: #fff;
+}
+
+.tc-welcome-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.tc-welcome-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ck-text);
+    line-height: 1.3;
+}
+
+.tc-welcome-desc {
+    font-size: 0.78rem;
+    color: var(--ck-muted);
+    line-height: 1.35;
+}
+
+.tc-form-card .form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ck-text);
+    margin-bottom: 0.35rem;
+}
+
+.tc-form-card .form-control,
+.tc-form-card .form-select,
+.tc-form-card .mantine-Select-input,
+.tc-form-card .mantine-Input-input,
+.tc-form-card .mantine-DateInput-input,
+.tc-form-card .mantine-Autocomplete-input,
+.tc-form-card input:not([type="checkbox"]):not([type="radio"]),
+.tc-form-card select,
+.tc-form-card textarea {
+    border: 1px solid var(--ck-border) !important;
+    border-radius: 10px !important;
+    min-height: 44px;
+    /* 16px minimum — prevents iOS Safari zoom on focus */
+    font-size: 16px !important;
+}
+
+.tc-form-card .form-control:focus,
+.tc-form-card .form-select:focus,
+.tc-form-card .mantine-Select-input:focus,
+.tc-form-card .mantine-Input-input:focus {
+    border-color: var(--ck-red) !important;
+    box-shadow: 0 0 0 3px rgba(227, 28, 35, 0.1) !important;
+}
+
+.tc-form-card input[type="checkbox"],
+.tc-form-card input[type="radio"],
+.tc-form-card .form-check-input,
+.tc-terms input[type="checkbox"] {
+    min-height: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0;
+    border-radius: 0.25em !important;
+}
+
+.tc-form-card .form-check-input:checked {
+    background-color: var(--ck-red);
+    border-color: var(--ck-red);
+}
+
+.tc-form-card .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(227, 28, 35, 0.15);
+}
+
+.tc-add-guest {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border: 1.5px dashed #d1d5db;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ck-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.tc-add-guest:hover {
+    background: var(--ck-red-light);
+    border-color: var(--ck-red);
+    color: var(--ck-red);
+}
+
+.tc-payment-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.tc-payment-option {
+    position: relative;
+    display: flex;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    border: 1.5px solid var(--ck-border);
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.tc-payment-option:hover {
+    border-color: #fca5a5;
+}
+
+.tc-payment-option.active {
+    border-color: var(--ck-red);
+    background: var(--ck-red-light);
+}
+
+.tc-payment-option-check {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--ck-red);
+}
+
+.tc-payment-option-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.tc-payment-option.active .tc-payment-option-icon {
+    background: var(--ck-red);
+    color: #fff;
+}
+
+.tc-payment-option-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ck-text);
+}
+
+.tc-payment-option-desc {
+    font-size: 0.75rem;
+    color: var(--ck-muted);
+    line-height: 1.4;
+}
+
+.tc-payment-panel {
+    border-radius: 12px;
+    background: #fafafa;
+    border: 1px solid var(--ck-border);
+    padding: 1.15rem;
+}
+
+.tc-secure-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+}
+
+.tc-secure-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    background: var(--ck-red-light);
+    color: var(--ck-red);
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.tc-terms {
+    margin: 1rem 0;
+}
+
+.tc-terms a {
+    color: var(--ck-red);
+    font-weight: 600;
+}
+
+.tc-submit-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 50px;
+    padding: 0.85rem 1.25rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--ck-red);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(227, 28, 35, 0.28);
+    transition: background 0.2s, transform 0.15s;
+}
+
+.tc-submit-btn:hover:not(:disabled) {
+    background: var(--ck-red-dark);
+    transform: translateY(-1px);
+}
+
+.tc-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.tc-bank-alert {
+    font-size: 0.8rem;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    color: #92400e;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 991px) {
+    .transfer-checkout-sidebar {
+        position: static;
+        margin-top: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .tc-info-card {
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .tc-info-title {
+        font-size: 20px;
+    }
+
+    .tc-vehicle-specs {
+        grid-template-columns: 1fr;
+    }
+
+    .tc-price-total {
+        flex-wrap: wrap;
+    }
+
+    .tc-price-total-value {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .tc-help-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tc-help-btn {
+        width: 100%;
+    }
+
+    .tc-meta-row {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 767px) {
+    .transfer-checkout-container {
+        padding: 0 0 2.5rem;
+    }
+
+    /* Mobile: same banner UI as desktop image */
+    .tc-checkout-banner {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        margin: 12px auto 16px;
+        padding: 20px 16px 22px;
+        border: 1px solid #e2e2e2;
+        border-radius: 24px;
+        gap: 16px;
+        background: linear-gradient(90deg, #1a6fd4 0%, #0f5fc4 48%, #0a4aa3 100%);
+        box-sizing: border-box;
+    }
+
+    .tc-stepper {
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0;
+        overflow: hidden;
+    }
+
+    .tc-step {
+        gap: 5px;
+        flex: 0 1 auto;
+        min-width: 0;
+        justify-content: center;
+    }
+
+    .tc-step + .tc-step {
+        margin-left: 4px;
+        padding-left: 14px;
+    }
+
+    .tc-step + .tc-step::before {
+        width: 8px;
+        left: 2px;
+        height: 1.5px;
+        background: rgba(255, 255, 255, 0.45);
+    }
+
+    .tc-step--done + .tc-step--active::before,
+    .tc-step--done + .tc-step--done::before {
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    .tc-step-link {
+        gap: 5px;
+        min-width: 0;
+    }
+
+    .tc-step-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .tc-step--done .tc-step-icon {
+        background: rgba(255, 255, 255, 0.92);
+        color: #14213d;
+        font-size: 9px;
+    }
+
+    .tc-step--active .tc-step-icon {
+        background: #ffffff;
+        color: #14213d;
+    }
+
+    .tc-step--todo .tc-step-icon {
+        background: rgba(255, 255, 255, 0.28);
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 600;
+    }
+
+    .tc-step-label {
+        font-size: 10px;
+        letter-spacing: -0.01em;
+        color: #ffffff;
+        white-space: nowrap;
+    }
+
+    /* Shorter labels so all 3 steps stay on one row */
+    .tc-step-label-desktop {
+        display: none;
+    }
+
+    .tc-step-label-mobile {
+        display: inline;
+    }
+
+    .tc-step--done .tc-step-label {
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 500;
+    }
+
+    .tc-step--active .tc-step-label {
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .tc-step--todo .tc-step-label {
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 500;
+    }
+
+    .tc-checkout-hero {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 4px;
+    }
+
+    .tc-checkout-title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #ffffff;
+    }
+
+    .tc-checkout-subtitle {
+        margin: 10px auto 0;
+        max-width: 320px;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: center;
+        color: #e4e4e4;
+    }
+
+    .transfer-checkout-back-link {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tc-welcome-options,
+    .tc-payment-options {
+        grid-template-columns: 1fr;
+    }
+
+    .tc-form-card {
+        padding: 1.1rem 1.15rem;
+    }
+}

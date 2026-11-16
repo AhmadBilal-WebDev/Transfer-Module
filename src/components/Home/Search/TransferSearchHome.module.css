@@ -1,0 +1,431 @@
+/* Home transfer search — white card */
+
+.wrapper {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%;
+  min-height: 0;
+  padding: 18px 24px 14px;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0px 50px 100px -30px #000000b2;
+  box-sizing: border-box;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.toolbarPassengers {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.passengersBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0e1626;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease;
+}
+
+.passengersBtn:hover {
+  border-color: #c5d0e0;
+}
+
+.passengersBtnIcon {
+  font-size: 15px;
+  color: #1f63d6;
+  flex-shrink: 0;
+}
+
+.passengersBtnText {
+  line-height: 1.2;
+}
+
+.passengersBtnChevron {
+  color: #8a94a8;
+  flex-shrink: 0;
+}
+
+.toggleGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.toggleItem {
+  position: relative;
+  padding: 4px 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #8a94a8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.toggleItem:hover:not(.toggleActive) {
+  color: #566176;
+}
+
+.toggleActive {
+  color: #1f63d6;
+}
+
+.toggleActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #1f63d6;
+}
+
+.searchBar {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.fieldsRow {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 0;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 66px;
+  background: #ffffff;
+  border: 1px solid #e5eaf2 !important;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.fieldIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a94a8;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.fieldBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12px;
+  line-height: 1;
+  color: #566176;
+}
+
+.swapBtn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  align-self: center;
+  border-radius: 999px;
+  border: 1px solid #e5eaf2;
+  background: #ffffff;
+  color: #1f63d6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.swapBtn:hover {
+  background: #f3f7ff;
+  border-color: #c9d8f5;
+}
+
+.fieldPickup,
+.fieldDrop {
+  flex: 1.1 1 0;
+  min-width: 160px;
+}
+
+.fieldDate {
+  flex: 1.05 1 0;
+  min-width: 170px;
+}
+
+.fieldBody :global(.form-control),
+.fieldBody :global(button.form-control),
+.fieldBody :global(.form-select),
+.fieldBody :global(.transfer-compact-input),
+.fieldBody :global(input[class*="compactInput"]),
+.fieldBody :global(.mantine-Input-input),
+.fieldBody :global(.mantine-DateTimePicker-input),
+.fieldBody :global(.mantine-DatePickerInput-input),
+.fieldBody :global(.mantine-DateInput-input),
+.fieldBody :global(.hotel-date-range input) {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  min-height: 0 !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #0e1626 !important;
+  line-height: 1.2 !important;
+  width: 100% !important;
+}
+
+.fieldBody :global(.form-floating > label),
+.fieldBody :global(.mantine-Input-section),
+.fieldBody :global(.mantine-DateTimePicker-section),
+.fieldBody :global(.royalaneFieldIconRight) {
+  display: none !important;
+}
+
+.fieldBody :global(input::placeholder),
+.fieldBody :global(.transfer-compact-input::placeholder) {
+  color: #8a94a8 !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  opacity: 1 !important;
+}
+
+.fieldBody :global(.transfer-mobile-datetime-listing),
+.fieldBody :global(button.transfer-mobile-datetime-listing),
+.fieldBody :global(button.hotel-date-range) {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0e1626;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fieldBody :global(.transfer-mobile-datetime-empty) {
+  color: #8a94a8 !important;
+  font-weight: 500 !important;
+}
+
+.searchBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 118px;
+  min-width: 118px;
+  min-height: 66px;
+  padding: 0 16px;
+  background: linear-gradient(111.13deg, #3b86ff 0%, #1b54c2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  box-shadow: 0px 12px 28px -10px #2e78f0d9;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.searchBtn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.searchBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.searchBtnIcon {
+  font-size: 14px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 12px 0 10px;
+  background: #e8eef6;
+}
+
+.trustRow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.trustRow li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: #566176;
+}
+
+.trustRow li svg {
+  color: #1f63d6;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1199px) {
+  .searchBar {
+    flex-direction: column;
+  }
+
+  .fieldsRow {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    gap: 10px;
+  }
+
+  .fieldPickup { grid-column: 1; }
+  .swapBtn { grid-column: 2; justify-self: center; }
+  .fieldDrop { grid-column: 3; }
+  .fieldDate { grid-column: 1 / -1; }
+
+  .searchBtn {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    min-height: 0;
+    padding: 14px 12px 12px;
+    border-radius: 18px;
+    box-shadow: 0px 28px 50px -24px #000000b2;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .toggleGroup {
+    width: 100%;
+    gap: 14px;
+    overflow-x: auto;
+  }
+
+  .toggleItem {
+    font-size: 14px;
+  }
+
+  .toolbarPassengers {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .passengersBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fieldsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldPickup,
+  .swapBtn,
+  .fieldDrop,
+  .fieldDate {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .swapBtn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    justify-self: center;
+  }
+
+  .field {
+    min-height: 60px;
+  }
+
+  .trustRow {
+    gap: 10px 14px;
+  }
+
+  .trustRow li {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 479px) {
+  .trustRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

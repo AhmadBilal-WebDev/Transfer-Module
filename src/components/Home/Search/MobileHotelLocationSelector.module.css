@@ -1,0 +1,347 @@
+.pageMask {
+    position: fixed;
+    inset: 0;
+    z-index: 9999998;
+    background: #ffffff;
+}
+
+/* Mobile Hotel / Transfer Location Selector — match airport modal (iOS-safe) */
+.mobileLocationSelector {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    height: -webkit-fill-available !important;
+    background-color: #ffffff !important;
+    z-index: 9999999 !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.stickyTop {
+    flex-shrink: 0;
+    background: #ffffff;
+    z-index: 100;
+}
+
+/* Header Section */
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.closeButton {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+    background-color: #f5f5f5;
+}
+
+.closeButton:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+}
+
+/* Search Container */
+.searchContainer {
+    padding: 16px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+    z-index: 99;
+}
+
+.searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 16px;
+    color: #999;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    /* 16px minimum — prevents iOS Safari zoom on focus */
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #f8f9fa;
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+
+.searchInput::-webkit-search-cancel-button,
+.searchInput::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.searchInput:focus {
+    border-color: #0F63BD;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(15, 99, 189, 0.12);
+}
+
+/* Location List Container — only scrollable area */
+.locationListContainer {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    z-index: 1;
+}
+
+/* Section */
+.section {
+    margin-bottom: 0;
+}
+
+/* Section Header */
+.sectionHeader {
+    position: sticky;
+    top: 0;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sectionIcon {
+    font-size: 14px;
+    color: #1f63d6;
+}
+
+/* Location Option */
+.locationOption {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.locationOption:active {
+    background-color: #f0f0f0;
+}
+
+.selectedLocation {
+    background-color: #eff6ff !important;
+    border-left: 3px solid #1f63d6;
+    padding-left: 17px;
+}
+
+.selectedLocation:active {
+    background-color: #eff6ff !important;
+}
+
+.checkIcon {
+    margin-left: auto;
+    padding-left: 12px;
+    color: #1f63d6;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.locationIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #f0f2f5;
+    border-radius: 12px;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+
+.locationIcon {
+    color: #666;
+    font-size: 22px;
+}
+
+.selectedLocation .locationIcon {
+    color: #1f63d6;
+}
+
+.selectedLocation .locationIconWrapper {
+    background-color: #dbeafe;
+}
+
+.locationDetails {
+    flex: 1;
+    min-width: 0;
+}
+
+.locationName {
+    font-size: 16px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.locationCountry {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.4;
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    min-height: 300px;
+}
+
+.emptyIcon {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 16px;
+}
+
+.emptyText {
+    font-size: 16px;
+    color: #999;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive - Tablets */
+@media (max-width: 768px) and (min-width: 481px) {
+    .header {
+        padding: 18px 24px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .searchContainer {
+        padding: 18px 24px;
+    }
+
+    .locationOption {
+        padding: 18px 24px;
+    }
+
+    .sectionHeader {
+        padding: 14px 24px;
+    }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 360px) {
+    .header {
+        padding: 14px 16px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .searchContainer {
+        padding: 14px 16px;
+    }
+
+    .searchInput {
+        padding: 12px 16px 12px 44px;
+        font-size: 16px;
+    }
+
+    .locationOption {
+        padding: 14px 16px;
+    }
+
+    .locationIconWrapper {
+        width: 44px;
+        height: 44px;
+        margin-right: 12px;
+    }
+
+    .locationName {
+        font-size: 15px;
+    }
+
+    .locationCountry {
+        font-size: 13px;
+    }
+
+    .sectionHeader {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,245 @@
+/* Listing page — modify transfer search (white card on #F3F3F3) */
+
+.card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.toggleGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toggleItem {
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2937;
+  background: #eceff3;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  border: none;
+  line-height: 1.2;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.toggleItem:hover:not(.toggleActive) {
+  background: #e2e6ec;
+}
+
+.toggleActive {
+  background: #004B95;
+  color: #ffffff;
+}
+
+.fieldsRow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+
+.field {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  min-height: 64px;
+}
+
+.fieldDisabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.fieldIcon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.fieldBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+}
+
+.fieldLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.fieldValue {
+  width: 100%;
+  min-width: 0;
+}
+
+.fieldValue :global(input),
+.fieldValue :global(button.transfer-mobile-datetime-listing),
+.fieldValue :global(.mantine-Input-input),
+.fieldValue :global(.mantine-DateTimePicker-input),
+.fieldValue :global(.hotel-date-range),
+.fieldValue :global(.hotel-date-range input),
+.fieldValue :global(input[class*="compactInput"]) {
+  width: 100% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  color: #111827 !important;
+  text-align: left !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fieldValue :global(input::placeholder),
+.fieldValue :global(button.transfer-mobile-datetime-empty),
+.fieldValue :global(.mantine-Input-input::placeholder) {
+  color: #9ca3af !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+.fieldValue :global(button.transfer-mobile-datetime-listing) {
+  cursor: pointer;
+  display: block;
+  background: transparent;
+}
+
+.fieldGuests {
+  flex: 0.85 1 0;
+  cursor: pointer;
+}
+
+.guestsTrigger {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searchBtn {
+  flex: 0 0 auto;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 12px;
+  background: #004B95;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.searchBtn:hover:not(:disabled) {
+  background: #0a2550;
+}
+
+.searchBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.searchBtnIcon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1199px) {
+  .fieldsRow {
+    flex-wrap: wrap;
+  }
+
+  .field {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .fieldGuests {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .searchBtn {
+    flex: 1 1 100%;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  }
+
+  .fieldsRow {
+    flex-direction: column;
+  }
+
+  .field,
+  .fieldGuests {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .searchBtn {
+    width: 100%;
+    min-height: 52px;
+  }
+}

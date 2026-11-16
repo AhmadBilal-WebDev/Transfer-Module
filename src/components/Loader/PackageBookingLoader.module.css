@@ -1,0 +1,271 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(11, 27, 51, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.card {
+  width: min(100%, 440px);
+  border-radius: 20px;
+  border: 1px solid #e5ebf2;
+  background: #ffffff;
+  box-shadow:
+    0 6px 13px rgba(0, 0, 0, 0.1),
+    0 23px 23px rgba(0, 0, 0, 0.09);
+  overflow: hidden;
+  animation: pblIn 0.28s ease-out;
+}
+
+@keyframes pblIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.header {
+  padding: 22px 22px 16px;
+  background: linear-gradient(180deg, #f4f8fd 0%, #ffffff 100%);
+  border-bottom: 1px solid #eef2f7;
+  text-align: center;
+}
+
+.brandMark {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0eeff;
+  color: #0f63bd;
+}
+
+.brandMarkPulse {
+  animation: pblPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pblPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(15, 99, 189, 0.25);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 10px rgba(15, 99, 189, 0);
+  }
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0b1b33;
+  line-height: 1.25;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.body {
+  padding: 18px 20px 20px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #e5ebf2;
+  background: #f7f9fc;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stepActive {
+  border-color: #c9def5;
+  background: #f4f8fd;
+  box-shadow: 0 0 0 3px rgba(15, 99, 189, 0.08);
+}
+
+.stepDone {
+  border-color: #cdeedc;
+  background: #f3fbf6;
+}
+
+.stepFailed {
+  border-color: #f1c0c0;
+  background: #fdf4f4;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #fff;
+  background: #94a3b8;
+}
+
+.iconPending {
+  background: #dce3ec;
+  color: #64748b;
+}
+
+.iconActive {
+  background: #0f63bd;
+  box-shadow: 0 6px 14px rgba(15, 99, 189, 0.28);
+}
+
+.iconDone {
+  background: #0e6b40;
+}
+
+.iconFailed {
+  background: #b42318;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  animation: pblSpin 0.7s linear infinite;
+}
+
+@keyframes pblSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.copy {
+  min-width: 0;
+  flex: 1;
+  text-align: left;
+}
+
+.stepLabel {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0b1b33;
+  line-height: 1.3;
+}
+
+.stepStatus {
+  margin: 3px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.stepStatusActive {
+  color: #0f63bd;
+}
+
+.stepStatusDone {
+  color: #0e6b40;
+}
+
+.stepStatusFailed {
+  color: #b42318;
+}
+
+.progressTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: #eef2f7;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0f63bd, #3b82f6);
+  transition: width 0.45s ease;
+}
+
+.progressFillError {
+  background: linear-gradient(90deg, #b42318, #ef4444);
+}
+
+.progressFillSuccess {
+  background: linear-gradient(90deg, #0e6b40, #22c55e);
+}
+
+.meta {
+  margin: 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.errorBox {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #f1c0c0;
+  background: #fdf4f4;
+  color: #b42318;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .card {
+    width: 100%;
+    border-radius: 18px 18px 14px 14px;
+  }
+
+  .header {
+    padding: 18px 16px 14px;
+  }
+
+  .body {
+    padding: 14px 14px 16px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+}

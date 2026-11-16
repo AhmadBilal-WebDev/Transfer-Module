@@ -1,0 +1,526 @@
+.section {
+  --tt-ink: #0e1626;
+  --tt-muted: #566176;
+  --tt-blue: #1f63d6;
+  --tt-surface: #f5f7fa;
+  --tt-card-gap: 20px;
+  --tt-visible: 4;
+  --tt-card-w: calc((100% - ((var(--tt-visible) - 1) * var(--tt-card-gap))) / var(--tt-visible));
+
+  position: relative;
+  background: var(--tt-surface);
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(2.75rem, 5vw, 4.5rem);
+  overflow: hidden;
+}
+
+.shell {
+  width: min(1240px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.lead {
+  min-width: 0;
+  flex: 1 1 auto;
+  max-width: 640px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+  color: var(--tt-blue);
+  vertical-align: middle;
+}
+
+.title {
+  margin: 0;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 51.52px;
+  letter-spacing: -0.46px;
+  color: var(--tt-ink);
+  vertical-align: middle;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex: 0 1 420px;
+  max-width: 420px;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26.4px;
+  letter-spacing: 0;
+  color: var(--tt-muted);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(14, 22, 38, 0.12);
+  background: #ffffff;
+  color: var(--tt-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--tt-ink);
+  border-color: var(--tt-ink);
+  color: #ffffff;
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.scroller {
+  display: flex;
+  align-items: stretch;
+  gap: var(--tt-card-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 6px;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 var(--tt-card-w);
+  width: var(--tt-card-w);
+  max-width: var(--tt-card-w);
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(14, 22, 38, 0.05);
+  box-shadow: 0 10px 30px rgba(14, 22, 38, 0.06);
+  overflow: hidden;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e8edf3;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cardImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 28px);
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(14, 22, 38, 0.1);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e1626;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 20px 20px;
+  min-width: 0;
+  gap: 0;
+}
+
+.vehicleName {
+  margin: 0 0 6px;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 27.6px;
+  letter-spacing: 0;
+  color: var(--tt-ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vehicleAlt {
+  margin: 0 0 14px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #8a939e;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-bottom: 16px;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--tt-muted);
+  white-space: nowrap;
+}
+
+.metaIcon {
+  font-size: 15px;
+  color: var(--tt-muted);
+  flex-shrink: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0 0 16px;
+  background: rgba(14, 22, 38, 0.08);
+  border: 0;
+}
+
+.priceBlock {
+  margin-bottom: 16px;
+}
+
+.priceLabel {
+  margin: 0 0 4px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a939e;
+}
+
+.priceValue {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 29.7px;
+  letter-spacing: 0;
+  color: var(--tt-blue);
+  white-space: nowrap;
+}
+
+.priceFrom {
+  font-weight: 600;
+}
+
+.priceNote {
+  margin: 6px 0 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: #8a939e;
+}
+
+.bookBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 43px;
+  min-height: 43px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(111.13deg, #3b86ff 0%, #1b54c2 100%);
+  color: #ffffff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.bookBtn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.bookBtn:active {
+  transform: translateY(0);
+}
+
+/* Skeletons */
+.skeletonCard {
+  pointer-events: none;
+}
+
+.skeletonMedia,
+.skeletonBlock {
+  background: linear-gradient(90deg, #e8ebf0 25%, #f3f5f8 50%, #e8ebf0 75%);
+  background-size: 200% 100%;
+  animation: ttShimmer 1.2s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+.skeletonTitle {
+  width: 78%;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.skeletonAlt {
+  width: 92%;
+  height: 14px;
+  margin-bottom: 14px;
+}
+
+.skeletonMeta {
+  width: 96px;
+  height: 14px;
+}
+
+.skeletonPriceLabel {
+  width: 88px;
+  height: 11px;
+  margin-bottom: 8px;
+}
+
+.skeletonPrice {
+  width: 110px;
+  height: 28px;
+}
+
+.skeletonBtn {
+  width: 100%;
+  height: 43px;
+  border-radius: 12px;
+}
+
+@keyframes ttShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 1199px) {
+  .section {
+    --tt-visible: 3;
+    --tt-card-gap: 16px;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 46px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 991px) {
+  .section {
+    --tt-visible: 2.15;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .lead {
+    max-width: 100%;
+  }
+
+  .headerRight {
+    align-items: flex-start;
+    max-width: 100%;
+    flex: none;
+    width: 100%;
+  }
+
+  .controls {
+    align-self: flex-end;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 40px;
+    letter-spacing: -0.34px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    --tt-visible: 1.18;
+    --tt-card-gap: 14px;
+    padding: 2.25rem 0 2.5rem;
+  }
+
+  .shell {
+    width: min(1240px, calc(100% - 1.25rem));
+  }
+
+  .eyebrow {
+    margin-bottom: 10px;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .cardBody {
+    padding: 16px 16px 18px;
+  }
+
+  .vehicleName {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .vehicleAlt {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .metaRow {
+    margin-bottom: 14px;
+    gap: 8px 12px;
+  }
+
+  .metaItem {
+    font-size: 12px;
+  }
+
+  .divider {
+    margin-bottom: 14px;
+  }
+
+  .priceBlock {
+    margin-bottom: 14px;
+  }
+
+  .priceValue {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .bookBtn {
+    height: 44px;
+    min-height: 44px;
+  }
+
+  .categoryBadge {
+    top: 12px;
+    left: 12px;
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 479px) {
+  .section {
+    --tt-visible: 1.08;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .navBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .priceValue {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

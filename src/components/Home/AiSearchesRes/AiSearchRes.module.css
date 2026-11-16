@@ -1,0 +1,24 @@
+.aihoteldaterange section {
+    background: linear-gradient(180deg, #fff 0%, #faf7f3 100%) !important;
+    color: #1a1714;
+    border: 1px solid rgba(26, 23, 20, 0.12);
+}
+
+.aihoteldaterange section header h2 {
+    color: #1a1714 !important;
+}
+
+.aihoteldaterange section button:active,
+.aihoteldaterange section button:hover {
+    background-color: #e31c23 !important;
+    color: #fff !important;
+}
+
+.aihoteldaterange .mantine-focus-auto:focus-visible {
+    border-color: #e31c23 !important;
+}
+
+.aihoteldaterange td button:where([data-selected]) {
+    background-color: #e31c23;
+    color: #fff;
+}

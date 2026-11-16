@@ -1,0 +1,3294 @@
+/* ─────────────────────────────────────────
+   TRANSFER INVOICE — Royalane
+   Palette: red #e31c23 · cream #fef2f2 · white
+───────────────────────────────────────── */
+
+.pageWrapper {
+  background-color: #f6f1e9 !important;
+  min-height: 100vh;
+  padding: 2.5rem 0;
+}
+
+.confirmationWrapper {
+  max-width: 860px;
+  margin: auto;
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+.voucherCard {
+  --pad-x: 2.5rem;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.watermark {
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.08;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  rotate: -10deg;
+}
+
+/* ─── Brand Header ─── */
+.brandHeader {
+  background: #ffffff;
+  border: none;
+  margin: 0;
+  padding: 1.5rem var(--pad-x) 0;
+}
+
+.brandHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0 0 1.15rem;
+}
+
+.brandHeaderBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.95rem 0 1.15rem;
+}
+
+.brandIdentity {
+  min-width: 0;
+}
+
+.brandLogo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.8px;
+  letter-spacing: -0.5px;
+  color: #0f5fc4;
+  text-transform: uppercase;
+}
+
+.brandLogoDark,
+.brandLogoRed {
+  color: inherit;
+}
+
+.brandTagline {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 11.6px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #667085;
+}
+
+.brandContact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brandContactPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 29px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #eaf1fb;
+  text-decoration: none;
+  color: #14213d;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11.3px;
+  font-weight: 400;
+  line-height: 17.4px;
+  white-space: nowrap;
+}
+
+.brandContactIcon {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #141b34;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.brandPhone,
+.brandEmail {
+  text-decoration: none;
+  color: inherit;
+}
+
+.brandHeaderDivider {
+  height: 3px;
+  background: #0f5fc4;
+  margin: 0;
+  border-radius: 2px;
+}
+
+.mainTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e31c23;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mainSubtitle {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #9ca3af;
+  margin: 0;
+  text-align: right;
+}
+
+.titleBand,
+.titleLeft,
+.titleRight,
+.qrWrapper,
+.qrLabel,
+.goldDivider {
+  display: none;
+}
+
+/* ─── Invoice hero (Transfer booking / Billed to) ─── */
+.invoiceHero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.35rem var(--pad-x) 1.5rem;
+  background: #ffffff;
+}
+
+.invoiceHeroLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.invoiceHeroEyebrow {
+  margin: 0 0 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 15.95px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f5fc4;
+}
+
+.invoiceHeroTitle {
+  margin: 0 0 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 49.3px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.invoiceMetaRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 18px;
+  max-width: 420px;
+}
+
+.invoiceMetaItem {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.invoiceMetaLabel {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17.4px;
+  color: #667085;
+}
+
+.invoiceMetaValue {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13.8px;
+  font-weight: 700;
+  line-height: 20.3px;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.billedToCard {
+  flex: 0 0 280px;
+  max-width: 100%;
+  background: #eaf1fb;
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-sizing: border-box;
+}
+
+.billedToLabel {
+  margin: 0 0 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10.8px;
+  font-weight: 700;
+  line-height: 15.71px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f5fc4;
+}
+
+.billedToName {
+  margin: 0 0 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15.8px;
+  font-weight: 700;
+  line-height: 23.2px;
+  color: #14213d;
+}
+
+.billedToMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.billedToMeta p {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.billedToBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.statusPillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.statusPillSuccess {
+  background: #e3f6ea;
+  color: #1b7a3d;
+}
+
+.statusPillPending {
+  background: #fff4dd;
+  color: #c27a00;
+}
+
+.statusPillCancelled {
+  background: #fdecea;
+  color: #b42318;
+}
+
+.transferDetailsSection {
+  padding: 0.15rem var(--pad-x) 1.35rem;
+  background: #ffffff;
+}
+
+.transferDetailsTitle {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.transferDetailsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.transferDetailsRow {
+  display: grid;
+  grid-template-columns: minmax(132px, 200px) minmax(0, 1fr);
+  gap: 10px 28px;
+  align-items: start;
+  padding: 13px 0;
+  border-bottom: 1px solid #eaf1fb;
+}
+
+.transferDetailsRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.transferDetailsLabel {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #667085;
+}
+
+.transferDetailsValue {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18.85px;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.guestDetailsSection {
+  padding: 0.15rem var(--pad-x) 1.5rem;
+  background: #ffffff;
+}
+
+.guestDetailsTitle {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.guestTableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.guestTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.guestTable thead tr {
+  background: #eaf1fb;
+}
+
+.guestTable th {
+  padding: 11px 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.4px;
+  color: #0f5fc4;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.guestTable td {
+  padding: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #14213d;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eaf1fb;
+  word-break: break-word;
+}
+
+.guestTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.guestColIndex {
+  width: 48px;
+}
+
+.guestColName {
+  width: 26%;
+}
+
+.guestColContact {
+  width: 32%;
+}
+
+.guestColGender {
+  width: 14%;
+}
+
+.guestColCountry {
+  width: 18%;
+}
+
+.guestNameCell {
+  font-size: 12.9px;
+  font-weight: 700;
+  line-height: 18.85px;
+  color: #14213d;
+}
+
+.guestContactCell span {
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.vehicleDetailsSection {
+  padding: 0.15rem var(--pad-x) 1.5rem;
+  background: #ffffff;
+}
+
+.vehicleDetailsTitle {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.vehicleFields {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px 14px;
+  width: 100%;
+  padding: 4px 0 2px;
+  box-sizing: border-box;
+}
+
+.vehicleField {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vehicleFieldLabel {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.4px;
+  color: #0f5fc4;
+}
+
+.vehicleFieldValue {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12.9px;
+  font-weight: 700;
+  line-height: 18.85px;
+  color: #14213d;
+  word-break: break-word;
+}
+
+.pricingDetailsSection {
+  padding: 0.15rem var(--pad-x) 1.5rem;
+  background: #ffffff;
+}
+
+.pricingDetailsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.pricingDetailsTitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.pricingCurrencyBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eaf1fb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: #0f5fc4;
+  white-space: nowrap;
+}
+
+.pricingTableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricingTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.pricingTable thead tr {
+  background: #eaf1fb;
+}
+
+.pricingTable th {
+  padding: 11px 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17.4px;
+  color: #0f5fc4;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.pricingTable td {
+  padding: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #14213d;
+  vertical-align: middle;
+  border-bottom: 1px solid #eaf1fb;
+  word-break: break-word;
+}
+
+.pricingTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pricingColItem {
+  width: 42%;
+  text-align: left;
+}
+
+.pricingColQty {
+  width: 12%;
+  text-align: right;
+}
+
+.pricingColUnit,
+.pricingColTotal {
+  width: 23%;
+  text-align: right;
+}
+
+.pricingTable th.pricingColQty,
+.pricingTable th.pricingColUnit,
+.pricingTable th.pricingColTotal,
+.pricingTable td.pricingColQty,
+.pricingTable td.pricingColUnit,
+.pricingTable td.pricingColTotal {
+  text-align: right;
+}
+
+.pricingItemName {
+  text-align: left;
+  color: #14213d;
+}
+
+.pricingTable td.pricingColUnit {
+  font-weight: 400;
+}
+
+.pricingTotalCell,
+.pricingTable td.pricingTotalCell {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18.85px;
+  color: #14213d;
+  text-align: right;
+}
+
+.pricingSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 4px 0 14px;
+}
+
+.pricingBreakdown {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17.4px;
+  color: #667085;
+  text-align: right;
+}
+
+.pricingSubtotal {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18.85px;
+  color: #14213d;
+  text-align: right;
+}
+
+.pricingSubtotal strong {
+  font-weight: 700;
+}
+
+.pricingTotalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: fit-content;
+  min-width: 280px;
+  max-width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #0f5fc4;
+  color: #ffffff;
+}
+
+.pricingTotalLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pricingTotalLabel {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.pricingTotalNote {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.pricingTotalAmount {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* legacy overview band (kept for older class refs) */
+.voucherDetailsBand {
+  background: #fff;
+  border-bottom: 1px solid #0f63bd;
+  overflow: hidden;
+  margin: 0 1.5rem;
+}
+
+.voucherBandInner {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.voucherSectionLabel {
+  display: none;
+}
+
+.voucherDetailsRow {
+  display: flex;
+  align-items: stretch;
+  gap: 1.75rem;
+}
+
+.voucherDetailsLeft {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.voucherForLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e31c23;
+  margin: 0 0 0.35rem;
+}
+
+.voucherNoLabel {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 0.15rem;
+}
+
+.voucherNumber {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.55rem;
+  line-height: 1.2;
+  word-break: break-all;
+}
+
+.customerName {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+
+.customerMeta {
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+}
+
+.overviewRoute {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0 0 0.85rem;
+}
+
+.overviewRouteEnd {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+}
+
+.overviewRouteCity {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #6b7280;
+  line-height: 1.35;
+}
+
+.overviewRouteArrow {
+  font-size: 1.2rem;
+  color: #e31c23;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem 1.25rem;
+}
+
+.statusBadgeGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.bookingDetailSmallLabel {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 0.12rem;
+}
+
+.bookingDateValue {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.confirmedBadge,
+.paidBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #E6F7EC;
+  color: #0F7A3A;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px ;
+  border-radius: 4px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.cancelledBadge,
+.nonRefundBadge {
+  background: #e31c23 !important;
+  color: #fff !important;
+}
+
+.tentativeBadge,
+.pendingBadge {
+  background: #e67e22 !important;
+  color: #fff !important;
+}
+
+.voucherDetailsDivider { display: none; }
+
+.voucherDetailsRight {
+  flex: 0 0 250px;
+  background: #fcf8f7;
+  border: 1px solid #f3d6d6;
+  border-radius: 0 0 10px 10px;
+  padding: 1rem 1.15rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.6rem;
+}
+
+.qrInline {
+  margin-top: 0.35rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f0e4e4;
+}
+
+.bookingDetailsTitle {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e31c23;
+  margin: 0 0 0.15rem;
+}
+
+.summaryLine {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.bookingDetailLine {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+.bookingDetailLabel {
+  font-weight: 600;
+  color: #9ca3af;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bookingDetailValue {
+  color: #111827;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+/* ─── Section Blocks ─── */
+.sectionBlock {
+  border-bottom: none;
+}
+
+.sectionHeader {
+  background: #ffffff;
+  color: #e31c23;
+  padding: 0.85rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin: 0 1.5rem;
+  gap: 0.7rem;
+  border-bottom: 1.5px solid #e31c23;
+}
+
+.sectionHeader::after {
+  content: none;
+}
+
+.sectionIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #e31c23;
+  color: #fff;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.sectionBody {
+  padding: 1.1rem var(--pad-x) 1.25rem;
+}
+
+/* ─── Package Info ─── */
+.packageInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.25rem;
+  padding: 1.15rem var(--pad-x) 1.3rem;
+  align-items: flex-start;
+}
+
+.packageInfoMain {
+  padding-right: 0;
+  border-right: none;
+}
+
+.packageTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.starRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.starLabel {
+  font-size: 0.8rem;
+  color: #4A5260;
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+.packageInfoDates {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(235, 0, 0, 0.16);
+  background: rgba(255, 249, 245, 1);
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+  border-radius: 6px;
+}
+
+.hotelDateRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0;
+  border-bottom: none;
+  font-size: 0.82rem;
+}
+
+.hotelDateLabel {
+  color: #9ca3af;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hotelDateValue {
+  font-weight: 700;
+  color: #111827;
+  font-size: 0.88rem;
+}
+
+.boldValue { font-weight: 800 !important; }
+
+/* ─── Key / value person list ─── */
+.kvGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 1.5rem;
+  padding: 1.1rem var(--pad-x) 1.25rem;
+}
+
+.kvItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.kvList {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.45rem 1rem;
+  padding: 1.1rem var(--pad-x) 1.25rem;
+}
+
+.kvLabel {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.kvValue {
+  font-size: 0.88rem;
+  color: #111827;
+  font-weight: 700;
+}
+
+/* ─── Tables ─── */
+.premiumTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.82rem;
+}
+
+.premiumTable thead tr {
+  background: #fcf8f7;
+  color: #6b7280;
+}
+
+.premiumTable thead th {
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: 1px solid #f0e4e4;
+}
+
+.premiumTable tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.premiumTable tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.premiumTable tbody td {
+  padding: 0.7rem 1rem;
+  color: #333;
+  vertical-align: middle;
+  border: none;
+}
+
+.srCell {
+  width: 40px;
+  text-align: center;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ─── Guest rows ─── */
+.guestList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem var(--pad-x) 1.2rem;
+}
+
+.guestRow {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  background: #f7f7f8;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+}
+
+.guestIndex {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.guestName {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.guestMeta {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.typeBadge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #e8f4ff;
+  color: #1d4ed8;
+}
+
+.typeBadgeChild {
+  background: #fff4e5;
+  color: #c05600;
+}
+
+.typeBadgeInfant {
+  background: #fef2f2;
+  color: #e31c23;
+}
+
+.addressRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: #fcf8f7;
+  border-radius: 8px;
+  font-size: 0.82rem;
+}
+
+.addressLabel {
+  font-weight: 700;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.addressValue { color: #333; }
+
+/* ─── Segment Cards ─── */
+.segmentsWrapper {
+  padding: 1rem var(--pad-x) 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flightSegmentCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.airlineRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-bottom: 1px solid #f3f4f6;
+  position: relative;
+}
+
+.airlineRow > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.airlineNameText {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cityChip {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.1rem 0.5rem;
+  border-radius: 20px;
+}
+
+.flightNumberText {
+  font-size: 0.74rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.stayBadge {
+  margin-left: auto;
+  background: #e31c23;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.28rem 0.7rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.routeGrid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.1rem 1rem 1rem;
+  gap: 0.5rem;
+}
+
+.routeFlex {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.1rem 1rem 1rem;
+}
+
+.routeStation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.routeStationRight {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.routeCity {
+  font-size: 10px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.routeAirport {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.routeTime {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e31c23;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.routeArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 1.2rem;
+}
+
+.durationLabel {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.arrowLine {
+  width: 90px;
+  height: 2px;
+  background: #e31c23;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planeIcon {
+  font-size: 1.35rem;
+  color: #e31c23;
+  background: #fff;
+  padding: 0 3px;
+}
+
+.innerTableWrap {
+  border-top: 1px solid #f3f4f6;
+  overflow: scroll;
+}
+
+.hotelMeta {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  color: #6b7280;
+  font-size: 0.76rem;
+  margin: 0.15rem 0 0;
+}
+
+.hotelMeta svg {
+  color: #e31c23;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── Transfer / visa extras ─── */
+.visaCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem var(--pad-x) 1.2rem;
+}
+
+.visaType {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.visaDesc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+
+/* ─── Transfer excursions ─── */
+.excursionsSection {
+  border-top: 1px solid #f3f4f6;
+  padding: 1rem 1rem 1.1rem;
+  background: #fcf8f7;
+}
+
+.excursionsHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #e31c23;
+  margin-bottom: 0.85rem;
+}
+
+.excursionsHeaderIcon {
+  flex-shrink: 0;
+  color: #e31c23;
+}
+
+.excursionsCityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.excursionCityGroup {
+  border: 1px solid #f3d6d6;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.excursionCityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: #e31c23;
+  color: #fff;
+}
+
+.excursionCityName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.excursionCityCount {
+  font-size: 0.68rem;
+  font-weight: 500;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.12rem 0.45rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.excursionList {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.6rem 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.excursionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.35rem 0.4rem;
+  border-radius: 6px;
+  background: #fcf8f7;
+  border: 1px solid #f3e8e8;
+}
+
+.excursionIndex {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #e31c23;
+  background: #fef2f2;
+  border-radius: 50%;
+}
+
+.excursionName {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  line-height: 1.35;
+  padding-top: 0.1rem;
+}
+
+/* ─── Policy / notes ─── */
+.policyList {
+  list-style: none;
+  margin: 0;
+  padding: 1.1rem var(--pad-x) 1.25rem;
+}
+
+.policyList li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.84rem;
+  color: #374151;
+  line-height: 1.75;
+}
+
+.policyList li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #e31c23;
+}
+
+.policyList strong {
+  color: #e31c23;
+  font-weight: 800;
+}
+
+.nonRefundNote {
+  color: #e31c23;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 1.1rem var(--pad-x) 1.25rem;
+}
+
+.cancelPolicySection {
+  padding: 0.15rem var(--pad-x) 1.35rem;
+  background: #ffffff;
+}
+
+.cancelPolicyCard {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #f0d58a;
+  background: #fff6e0;
+}
+
+.cancelPolicyTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cancelPolicyIcon {
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 1;
+  color: #c27a00;
+}
+
+.cancelPolicyTitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20.3px;
+  letter-spacing: 0;
+  color: #14213d;
+}
+
+.cancelPolicyBody {
+  margin: 4px 0 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.3px;
+  letter-spacing: 0;
+  color: #14213d;
+}
+
+.cancelPolicyBody p {
+  margin: 0 0 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.3px;
+  color: #14213d;
+}
+
+.cancelPolicyBody p:last-child {
+  margin-bottom: 0;
+}
+
+.cancelPolicyBody strong {
+  font-weight: 700;
+  color: #14213d;
+}
+
+.requestBox {
+  margin: 1rem var(--pad-x) 1.2rem;
+  padding: 0.9rem 1rem;
+  background: #fcf8f7;
+  border: 1px solid #f3d6d6;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  color: #111827;
+  line-height: 1.6;
+}
+
+.specialRequestSection {
+  padding: 0.15rem var(--pad-x) 1.35rem;
+  background: #ffffff;
+}
+
+.specialRequestTitle {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.specialRequestCard {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #eaf1fb;
+  background: #f7faff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.3px;
+  color: #14213d;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.importantInfoSection {
+  padding: 0.15rem var(--pad-x) 1.5rem;
+  background: #ffffff;
+}
+
+.importantInfoTitle {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e7ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21.75px;
+  letter-spacing: 0;
+  color: #0f5fc4;
+}
+
+.importantInfoList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.importantInfoList li {
+  position: relative;
+  padding-left: 1rem;
+  margin: 0 0 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #667085;
+}
+
+.importantInfoList li:last-child {
+  margin-bottom: 0;
+}
+
+.importantInfoList li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #98a2b3;
+}
+
+.invoiceClosingRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 1.35rem;
+  padding-top: 0.35rem;
+}
+
+.invoiceClosingNote {
+  margin: 0;
+  max-width: 360px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #667085;
+}
+
+.invoiceClosingSignoff {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.invoiceClosingSignoff span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #667085;
+}
+
+.invoiceClosingSignoff strong {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #0f5fc4;
+}
+
+/* ─── Important Information (legacy) ─── */
+.importantSection {
+  padding: 0 0 0.4rem;
+}
+
+.importantTitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e31c23;
+  margin: 0;
+}
+
+.importantDivider {
+  display: none;
+}
+
+.importantList {
+  list-style: none;
+  margin: 0;
+  padding: 1.1rem var(--pad-x) 1.35rem;
+}
+
+.importantList li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+  color: #4b5563;
+  line-height: 1.75;
+}
+
+.importantList li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #e31c23;
+}
+
+/* ─── Voucher Footer ─── */
+.voucherFooter {
+  background: #fefafa;
+  border: 1px solid #e31c23;
+  padding: 1.25rem var(--pad-x) 1.35rem;
+  margin: 1.5rem;
+}
+
+.voucherFooterTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.voucherFooterThanks {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e31c23;
+}
+
+.voucherFooterBrand {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.voucherFooterDivider {
+  height: 1px;
+  background: #ece7e7;
+  margin: 0.85rem 0 0.9rem;
+}
+
+.voucherFooterBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.voucherFooterMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.voucherFooterMeta a {
+  color: #374151;
+  text-decoration: none;
+}
+
+.voucherFooterAddress {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: right;
+}
+
+.invoiceFooterCard {
+  margin: 0.35rem var(--pad-x) 1.5rem;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #0f5fc4;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.invoiceFooterTop {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invoiceFooterTitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.invoiceFooterSubtitle {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.invoiceFooterDivider {
+  height: 1px;
+  margin: 14px 0;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.invoiceFooterContacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.invoiceFooterContact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.invoiceFooterContact svg {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+}
+
+/* ─── Action Buttons ─── */
+.actionRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btnPrimary,
+.btnGold,
+.btnHome {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.7rem 1.35rem;
+  border-radius: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  box-sizing: border-box;
+}
+
+.btnPrimary {
+  background: #0f5fc4;
+  color: #ffffff !important;
+  border: 1.5px solid #0f5fc4;
+  box-shadow: 0 8px 18px rgba(15, 95, 196, 0.24);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  background: #0c4ea3;
+  border-color: #0c4ea3;
+  color: #ffffff !important;
+  box-shadow: 0 10px 22px rgba(15, 95, 196, 0.32);
+}
+
+.btnGold {
+  background: #ffffff;
+  color: #0f5fc4 !important;
+  border: 1.5px solid #0f5fc4;
+  box-shadow: none;
+}
+
+.btnGold:hover {
+  transform: translateY(-1px);
+  background: #eaf1fb;
+  color: #0c4ea3 !important;
+}
+
+.btnHome {
+  background: #ffffff;
+  color: #14213d !important;
+  border: 1.5px solid #d0d5dd;
+  box-shadow: none;
+}
+
+.btnHome:hover {
+  transform: translateY(-1px);
+  background: #f8fafc;
+  color: #14213d !important;
+  border-color: #98a2b3;
+}
+
+/* ─── Print ─── */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 12mm;
+  }
+
+  .pageWrapper {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .confirmationWrapper {
+    max-width: 100% !important;
+  }
+
+  .voucherCard {
+    --pad-x: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .brandHeader,
+  .invoiceHero,
+  .transferDetailsSection,
+  .guestDetailsSection,
+  .vehicleDetailsSection,
+  .pricingDetailsSection,
+  .cancelPolicySection,
+  .specialRequestSection,
+  .importantInfoSection {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .invoiceFooterCard {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .invoiceHero {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+  }
+
+  .invoiceHeroLeft {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .invoiceMetaRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  .billedToCard {
+    flex: 0 0 230px !important;
+    width: 230px !important;
+    max-width: 38% !important;
+  }
+
+  .transferDetailsList {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .transferDetailsRow {
+    display: grid !important;
+    grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) !important;
+    flex-direction: row !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #eaf1fb !important;
+  }
+
+  .transferDetailsRow:last-child {
+    border-bottom: none !important;
+  }
+
+  .transferDetailsLabel,
+  .transferDetailsValue {
+    width: auto !important;
+  }
+
+  .pricingTable tr,
+  .guestTable tr {
+    display: table-row !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .pricingTable td,
+  .guestTable td {
+    display: table-cell !important;
+    flex: none !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    order: initial !important;
+  }
+
+  .vehicleFields {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 10px 12px !important;
+  }
+
+  .guestTable,
+  .pricingTable {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .guestTable thead,
+  .pricingTable thead {
+    display: table-header-group !important;
+  }
+
+  .guestTable tbody,
+  .pricingTable tbody {
+    display: table-row-group !important;
+  }
+
+  .guestTable tr,
+  .pricingTable tr {
+    display: table-row !important;
+  }
+
+  .guestTable th,
+  .guestTable td,
+  .pricingTable th,
+  .pricingTable td {
+    display: table-cell !important;
+    width: auto !important;
+  }
+
+  .guestTable td::before,
+  .pricingTable td::before {
+    content: none !important;
+  }
+
+  .pricingSummary {
+    align-items: flex-end !important;
+  }
+
+  .pricingTotalBar {
+    width: fit-content !important;
+    min-width: 260px !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+  }
+
+  .invoiceClosingRow {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+  }
+
+  .invoiceClosingSignoff {
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+
+  .invoiceFooterContacts {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+
+  .brandHeader,
+  .voucherFooter,
+  .brandHeaderDivider,
+  .voucherFooterThanks,
+  .brandLogo,
+  .brandContactPill,
+  .brandContactIcon,
+  .mainTitle {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .brandHeader {
+    padding: 0 0 0 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .brandHeaderTop {
+    padding-bottom: 10px !important;
+    align-items: center !important;
+  }
+
+  .brandLogo {
+    color: #0f5fc4 !important;
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+  }
+
+  .brandTagline {
+    color: #667085 !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .brandContactPill {
+    background: #eaf1fb !important;
+    color: #14213d !important;
+    border-radius: 20px !important;
+  }
+
+  .brandHeaderDivider {
+    background: #0f5fc4 !important;
+    height: 2.5px !important;
+  }
+
+  .invoiceHero,
+  .billedToCard,
+  .statusPillSuccess,
+  .statusPillPending,
+  .statusPillCancelled,
+  .transferDetailsSection,
+  .guestDetailsSection,
+  .vehicleDetailsSection,
+  .pricingDetailsSection,
+  .cancelPolicySection,
+  .cancelPolicyCard,
+  .specialRequestSection,
+  .specialRequestCard,
+  .importantInfoSection,
+  .invoiceFooterCard,
+  .vehicleFields,
+  .guestTable thead tr,
+  .pricingTable thead tr,
+  .pricingCurrencyBadge,
+  .pricingTotalBar {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .invoiceHero {
+    padding: 12px 0 14px !important;
+    gap: 14px !important;
+  }
+
+  .invoiceHeroTitle {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+
+  .billedToCard {
+    background: #eaf1fb !important;
+    border-radius: 12px !important;
+  }
+
+  .statusPillSuccess {
+    background: #e3f6ea !important;
+    color: #1b7a3d !important;
+  }
+
+  .transferDetailsTitle {
+    color: #0f5fc4 !important;
+    border-bottom-color: #e4e7ec !important;
+  }
+
+  .transferDetailsLabel {
+    color: #667085 !important;
+  }
+
+  .transferDetailsValue {
+    color: #14213d !important;
+  }
+
+  .transferDetailsRow {
+    border-bottom-color: #eaf1fb !important;
+  }
+
+  .guestDetailsTitle,
+  .vehicleDetailsTitle,
+  .pricingDetailsTitle,
+  .specialRequestTitle,
+  .importantInfoTitle {
+    color: #0f5fc4 !important;
+    border-bottom-color: #e4e7ec !important;
+  }
+
+  .specialRequestCard {
+    background: #f7faff !important;
+    border-color: #eaf1fb !important;
+    color: #14213d !important;
+  }
+
+  .importantInfoList li {
+    color: #667085 !important;
+  }
+
+  .importantInfoList li::before {
+    background: #98a2b3 !important;
+  }
+
+  .invoiceClosingNote,
+  .invoiceClosingSignoff span {
+    color: #667085 !important;
+  }
+
+  .invoiceClosingSignoff strong {
+    color: #0f5fc4 !important;
+  }
+
+  .invoiceFooterCard {
+    background: #0f5fc4 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .invoiceFooterTitle,
+  .invoiceFooterSubtitle,
+  .invoiceFooterContact {
+    color: #ffffff !important;
+  }
+
+  .invoiceFooterDivider {
+    background: rgba(255, 255, 255, 0.28) !important;
+  }
+
+  .pricingDetailsHeader {
+    border-bottom-color: #e4e7ec !important;
+  }
+
+  .pricingCurrencyBadge {
+    background: #eaf1fb !important;
+    color: #0f5fc4 !important;
+  }
+
+  .pricingTable thead tr {
+    background: #eaf1fb !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .pricingTable th {
+    color: #0f5fc4 !important;
+  }
+
+  .pricingTable td,
+  .pricingItemName,
+  .pricingTotalCell,
+  .pricingSubtotal {
+    color: #14213d !important;
+  }
+
+  .pricingBreakdown {
+    color: #667085 !important;
+  }
+
+  .pricingTotalBar {
+    background: #0f5fc4 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .pricingTotalLabel,
+  .pricingTotalAmount {
+    color: #ffffff !important;
+  }
+
+  .pricingTotalNote {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .cancelPolicyCard {
+    background: #fff6e0 !important;
+    border: 1px solid #f0d58a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cancelPolicyTitle,
+  .cancelPolicyBody,
+  .cancelPolicyBody p,
+  .cancelPolicyBody strong {
+    color: #14213d !important;
+  }
+
+  .guestTable thead tr {
+    background: #eaf1fb !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .guestTable th {
+    color: #0f5fc4 !important;
+  }
+
+  .guestTable td,
+  .guestNameCell,
+  .guestContactCell span {
+    color: #14213d !important;
+  }
+
+  .guestTable td {
+    border-bottom-color: #eaf1fb !important;
+  }
+
+  .sectionHeader,
+  .sectionIconWrap,
+  .confirmedBadge,
+  .paidBadge,
+  .cancelledBadge,
+  .tentativeBadge,
+  .pendingBadge,
+  .stayBadge,
+  .excursionCityHeader,
+  .arrowLine {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sectionHeader {
+    color: #e31c23 !important;
+    border-bottom: 1.5px solid #e31c23 !important;
+    background: #fff !important;
+  }
+
+  .sectionIconWrap {
+    background: #e31c23 !important;
+    color: #fff !important;
+  }
+
+  .premiumTable thead tr {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #fcf8f7 !important;
+  }
+
+  .confirmedBadge,
+  .paidBadge {
+    background: #16a34a !important;
+    color: #ffffff !important;
+  }
+
+  .cancelledBadge,
+  .nonRefundBadge {
+    background: #e31c23 !important;
+    color: #fff !important;
+  }
+
+  .stayBadge,
+  .excursionCityHeader {
+    background: #e31c23 !important;
+    color: #fff !important;
+  }
+
+  .actionRow {
+    display: none !important;
+  }
+
+  .watermark {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    rotate: -10deg !important;
+    width: 300px !important;
+    height: 300px !important;
+    opacity: 0.08 !important;
+    z-index: 1 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 0.75rem 0.75rem 1.5rem;
+  }
+
+  .confirmationWrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .voucherCard {
+    --pad-x: 1rem;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .brandHeader {
+    padding: 1rem var(--pad-x) 0;
+  }
+
+  .brandHeaderTop {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding-bottom: 0.95rem;
+  }
+
+  .brandHeaderBottom {
+    flex-direction: column;
+    text-align: left;
+    align-items: stretch;
+    gap: 0.35rem;
+  }
+
+  .brandIdentity,
+  .brandContact {
+    width: 100%;
+  }
+
+  .brandContact {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .brandContactPill {
+    flex: 1 1 0;
+    justify-content: flex-start;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 6px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brandContactPill span:last-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mainSubtitle,
+  .voucherFooterAddress {
+    text-align: center;
+    align-items: center;
+  }
+
+  .brandLogo {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .brandTagline {
+    letter-spacing: 1.4px;
+  }
+
+  .mainTitle { font-size: 0.95rem; }
+
+  .invoiceHero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem var(--pad-x) 1.15rem;
+    gap: 1rem;
+  }
+
+  .invoiceHeroLeft {
+    width: 100%;
+  }
+
+  .invoiceHeroTitle {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 0.85rem;
+  }
+
+  .invoiceMetaRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+    width: 100%;
+    gap: 10px 12px;
+  }
+
+  .invoiceMetaItem {
+    min-width: 0;
+  }
+
+  .invoiceMetaValue {
+    word-break: break-word;
+  }
+
+  .billedToCard {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+  }
+
+  .transferDetailsSection,
+  .guestDetailsSection,
+  .vehicleDetailsSection,
+  .pricingDetailsSection,
+  .cancelPolicySection,
+  .specialRequestSection,
+  .importantInfoSection {
+    padding: 0.15rem var(--pad-x) 1.15rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .transferDetailsList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+    width: 100%;
+  }
+
+  .transferDetailsRow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .transferDetailsLabel,
+  .transferDetailsValue {
+    flex: none;
+    max-width: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  .cancelPolicyCard,
+  .specialRequestCard {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .invoiceClosingRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .invoiceClosingNote {
+    max-width: none;
+    width: 100%;
+  }
+
+  .invoiceClosingSignoff {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .invoiceFooterCard {
+    width: auto;
+    margin: 0.2rem var(--pad-x) 1.15rem;
+    padding: 16px;
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+
+  .invoiceFooterContacts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+    width: 100%;
+  }
+
+  .invoiceFooterContact {
+    width: auto;
+    min-width: 0;
+  }
+
+  .pricingDetailsHeader {
+    width: 100%;
+  }
+
+  .vehicleFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+
+  .pricingTable {
+    table-layout: auto;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .pricingTable thead {
+    display: none;
+  }
+
+  .pricingTable,
+  .pricingTable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .pricingTable tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
+    border-bottom: 1px solid #eaf1fb;
+  }
+
+  .pricingTable tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .pricingTable td {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+    flex: 1 1 calc(50% - 12px);
+    min-width: 120px;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+    border-bottom: none;
+    text-align: left !important;
+    box-sizing: border-box;
+  }
+
+  .pricingTable td::before {
+    content: attr(data-label);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 17.4px;
+    color: #0f5fc4;
+  }
+
+  .pricingColItem,
+  .pricingItemName {
+    flex: 1 1 calc(48% - 12px);
+    min-width: 140px;
+  }
+
+  .pricingColQty {
+    flex: 0 1 70px;
+    min-width: 56px;
+  }
+
+  .pricingColUnit,
+  .pricingColTotal,
+  .pricingTotalCell {
+    flex: 1 1 calc(24% - 12px);
+    min-width: 100px;
+  }
+
+  .pricingColItem,
+  .pricingColQty,
+  .pricingColUnit,
+  .pricingColTotal,
+  .pricingItemName,
+  .pricingTotalCell {
+    width: auto;
+    text-align: left !important;
+  }
+
+  .pricingSummary {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .pricingBreakdown,
+  .pricingSubtotal {
+    width: 100%;
+    text-align: left;
+  }
+
+  .pricingTotalBar {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-left: 0;
+    gap: 16px;
+    box-sizing: border-box;
+  }
+
+  .pricingTotalAmount {
+    font-size: 18px;
+  }
+
+  .pricingTable td.pricingTotalCell {
+    font-weight: 700;
+  }
+
+  .guestTable {
+    table-layout: auto;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .guestTable thead {
+    display: none;
+  }
+
+  .guestTable,
+  .guestTable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .guestTable tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
+    border-bottom: 1px solid #eaf1fb;
+  }
+
+  .guestTable tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .guestTable td {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+    flex: 1 1 calc(33.333% - 12px);
+    min-width: 96px;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+    border-bottom: none;
+    text-align: left !important;
+    box-sizing: border-box;
+  }
+
+  .guestTable td::before {
+    content: attr(data-label);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 17.4px;
+    color: #0f5fc4;
+  }
+
+  .guestColIndex {
+    flex: 0 0 52px;
+    min-width: 52px;
+    order: 1;
+  }
+
+  .guestColGender {
+    flex: 1 1 calc(33.333% - 12px);
+    min-width: 90px;
+    order: 2;
+  }
+
+  .guestColCountry {
+    flex: 1 1 calc(33.333% - 12px);
+    min-width: 90px;
+    order: 3;
+  }
+
+  .guestColName,
+  .guestNameCell {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 140px;
+    order: 4;
+  }
+
+  .guestColContact,
+  .guestContactCell {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 140px;
+    order: 5;
+  }
+
+  .guestColIndex,
+  .guestColName,
+  .guestColContact,
+  .guestColGender,
+  .guestColCountry,
+  .guestNameCell,
+  .guestContactCell {
+    width: auto;
+    text-align: left !important;
+  }
+
+  .guestContactCell span {
+    text-align: left;
+  }
+
+  .voucherBandInner {
+    padding: 1.15rem var(--pad-x);
+  }
+
+  .voucherDetailsRow {
+    flex-direction: column;
+  }
+
+  .voucherDetailsRight {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .packageInfoGrid {
+    grid-template-columns: 1fr;
+    padding: 1rem var(--pad-x);
+  }
+
+  .packageInfoDates {
+    flex-direction: column;
+  }
+
+  .dateBox { width: 100%; }
+
+  .kvGrid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem 0;
+    padding: 1rem var(--pad-x);
+  }
+
+  .kvList {
+    grid-template-columns: 1fr;
+    gap: 0.15rem 0;
+    padding: 1rem var(--pad-x);
+  }
+
+  .kvLabel { margin-top: 0.45rem; }
+
+  .kvGrid .kvLabel {
+    margin-top: 0;
+  }
+
+  .guestList,
+  .segmentsWrapper,
+  .policyList,
+  .importantList,
+  .visaCard {
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+  }
+
+  .guestRow {
+    grid-template-columns: 36px 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .routeGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .routeStationRight {
+    text-align: center;
+    align-items: center;
+  }
+
+  .routeArrow {
+    padding: 0;
+    transform: rotate(90deg);
+  }
+
+  .excursionsCityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .voucherFooterTop,
+  .voucherFooterBottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .voucherFooterMeta {
+    justify-content: center;
+  }
+
+  .actionRow {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .btnPrimary,
+  .btnGold,
+  .btnHome {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .guestTableWrap,
+  .pricingTableWrap {
+    width: 100%;
+    overflow-x: visible;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .pageWrapper {
+    padding: 0.5rem 0.5rem 1.25rem;
+  }
+
+  .voucherCard {
+    --pad-x: 0.85rem;
+    border-radius: 10px;
+  }
+
+  .airlineRow{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .stayBadge{
+    margin-left: 0;
+  }
+
+  .invoiceMetaRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 8px;
+  }
+
+  .invoiceMetaLabel {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .invoiceMetaValue {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .invoiceHeroTitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .guestTable td::before,
+  .pricingTable td::before,
+  .vehicleFieldLabel {
+    font-size: 11px;
+  }
+
+  .transferDetailsList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 10px;
+  }
+
+  .vehicleFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+
+  .guestColName,
+  .guestNameCell,
+  .guestColContact,
+  .guestContactCell {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 120px;
+  }
+
+  .pricingColItem,
+  .pricingItemName,
+  .pricingColQty,
+  .pricingColUnit,
+  .pricingColTotal,
+  .pricingTotalCell {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 110px;
+  }
+
+  .invoiceFooterContacts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.headerAddress {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e31c23;
+  line-height: 1.4;
+}
+
+.generatedOn {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.invRefBadge {
+  display: inline-flex;
+  align-items: center;
+  background: #e31c23;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.nightsHint {
+  margin-left: auto;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tableWrap {
+  padding: 1rem var(--pad-x) 1.2rem;
+}
+
+.totalsWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+  padding: 0.4rem var(--pad-x) 1.4rem;
+}
+
+.totalRow {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.totalPill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  background: #e31c23;
+  color: #fff;
+  border-radius: 16px;
+  padding: 0.7rem 1.4rem;
+  min-width: 240px;
+  box-shadow: 0 8px 18px rgba(227, 28, 35, 0.28);
+}
+
+.totalPillLabel {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.totalPillAmount {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.totalPillNote {
+  font-size: 0.68rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.errormessagecontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.errormessagebox {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  padding: 52px 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  border-top: 5px solid #e31c23;
+}
+
+.erroricon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #fef2f2;
+  color: #e31c23;
+  margin-bottom: 24px;
+}
+
+.errortitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 12px;
+}
+
+.errordescription {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.errorhomebutton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e31c23;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.errorhomebutton:hover {
+  background: #c41820;
+  color: #ffffff !important;
+}
+
+@media print {
+  .totalPill,
+  .invRefBadge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #e31c23 !important;
+    color: #fff !important;
+  }
+
+  .pricingTotalBar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: #0f5fc4 !important;
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerAddress,
+  .generatedOn {
+    text-align: center;
+  }
+
+  .totalsWrap {
+    align-items: stretch;
+  }
+
+  .totalPill {
+    width: 100%;
+    min-width: 0;
+    border-radius: 16px;
+  }
+
+  .nightsHint {
+    margin-left: 0;
+  }
+}
+
+.brandLogoImg {
+  width: auto;
+  height: 42px;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+}
