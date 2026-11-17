@@ -775,152 +775,8 @@
   color: #667085;
 }
 
-/* ─── Print ─── */
-@media print {
-  @page {
-    size: A4;
-    margin: 10mm 12mm;
-  }
-
-  .pageWrapper {
-    background: #fff !important;
-    padding: 0 !important;
-  }
-
-  .confirmationWrapper {
-    max-width: 100% !important;
-  }
-
-  .voucherCard {
-    --pad-x: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-  }
-
-  .brandHeader,
-  .voucherHero,
-  .sectionBlock,
-  .cancelPolicySection {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .metaStrip,
-  .invoiceFooterCard {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .actionRow {
-    display: none !important;
-  }
-
-  .brandHeader,
-  .brandHeaderDivider,
-  .brandContactPill,
-  .statusPillSuccess,
-  .statusPillPending,
-  .statusPillCancelled,
-  .qrCard,
-  .metaStrip,
-  .metaCellAccent,
-  .dataTable thead tr,
-  .infoChip,
-  .cancelPolicyCard,
-  .invoiceFooterCard {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  .brandLogo,
-  .voucherHeroEyebrow,
-  .voucherHeroTitle,
-  .sectionTitle {
-    color: #0f5fc4 !important;
-  }
-
-  .brandHeaderDivider,
-  .metaCellAccent,
-  .invoiceFooterCard {
-    background: #0f5fc4 !important;
-  }
-
-  .statusPillSuccess {
-    background: #e3f6ea !important;
-    color: #1b7a3d !important;
-  }
-
-  .dataTable thead tr,
-  .infoChip,
-  .qrCard,
-  .brandContactPill {
-    background: #eaf1fb !important;
-  }
-
-  .cancelPolicyCard {
-    background: #fff6e0 !important;
-    border-color: #f0d58a !important;
-  }
-
-  .voucherHero {
-    display: flex !important;
-    flex-direction: row !important;
-  }
-
-  .metaStrip {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-
-  .infoChips {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-
-  .routeCard {
-    display: grid !important;
-    grid-template-columns: 1fr auto 1fr !important;
-  }
-
-  .dataTable,
-  .dataTable thead,
-  .dataTable tbody,
-  .dataTable tr,
-  .dataTable th,
-  .dataTable td {
-    display: table !important;
-  }
-
-  .dataTable {
-    width: 100% !important;
-    border-collapse: collapse !important;
-  }
-
-  .dataTable thead {
-    display: table-header-group !important;
-  }
-
-  .dataTable tbody {
-    display: table-row-group !important;
-  }
-
-  .dataTable tr {
-    display: table-row !important;
-  }
-
-  .dataTable th,
-  .dataTable td {
-    display: table-cell !important;
-  }
-
-  .dataTable td::before {
-    content: none !important;
-  }
-}
-
-/* ─── Mobile ─── */
-@media (max-width: 768px) {
+/* ─── Mobile (screen only — never override print) ─── */
+@media screen and (max-width: 768px) {
   .pageWrapper {
     padding: 0.75rem 0.75rem 1.5rem;
   }
@@ -1109,7 +965,7 @@
   }
 }
 
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) {
   .pageWrapper {
     padding: 0.5rem 0.5rem 1.25rem;
   }
@@ -1144,4 +1000,302 @@
   max-width: 200px;
   object-fit: contain;
   display: block;
+}
+
+/* ─── Print (must stay last so layout never collapses) ─── */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 12mm;
+  }
+
+  .pageWrapper {
+    background: #fff !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .confirmationWrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .voucherCard {
+    --pad-x: 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .watermark {
+    display: none !important;
+  }
+
+  .actionRow {
+    display: none !important;
+  }
+
+  .brandHeader,
+  .voucherHero,
+  .sectionBlock,
+  .cancelPolicySection {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .metaStrip,
+  .invoiceFooterCard {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .brandHeaderTop {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .brandContact {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    width: auto !important;
+  }
+
+  .brandContactPill {
+    width: auto !important;
+    flex: none !important;
+    white-space: nowrap !important;
+  }
+
+  /* Hero: title left + QR right (desktop layout) */
+  .voucherHero {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+
+  .voucherHeroLeft {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  .voucherHeroEyebrow,
+  .voucherHeroTitle,
+  .voucherHeroText {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  .voucherHeroTitle {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+  }
+
+  .voucherHeroText {
+    max-width: 460px !important;
+  }
+
+  .qrCard {
+    flex: 0 0 120px !important;
+    width: 120px !important;
+    max-width: 120px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .qrCodeWrap {
+    width: 96px !important;
+    height: 96px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .metaStrip {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    border: 1px solid #d9e6f7 !important;
+  }
+
+  .metaCell {
+    border-right: 1px solid #d9e6f7 !important;
+    border-bottom: none !important;
+  }
+
+  .metaCell:last-child {
+    border-right: none !important;
+  }
+
+  .infoChips {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .routeCard {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    text-align: initial !important;
+  }
+
+  .routeSideRight {
+    text-align: right !important;
+  }
+
+  .routeCenter {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .invoiceFooterContacts {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    grid-template-columns: none !important;
+  }
+
+  /* Force real table layout (undo mobile card stacking) */
+  .tableWrap {
+    overflow: visible !important;
+  }
+
+  .dataTable {
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+  }
+
+  .dataTable thead {
+    display: table-header-group !important;
+  }
+
+  .dataTable tbody {
+    display: table-row-group !important;
+  }
+
+  .dataTable tr {
+    display: table-row !important;
+    width: auto !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    display: table-cell !important;
+    flex: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 10px 12px !important;
+    border-bottom: 1px solid #eaf1fb !important;
+  }
+
+  .dataTable td::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  .colIndex {
+    width: 48px !important;
+  }
+
+  .colNarrow {
+    width: 90px !important;
+  }
+
+  .brandHeader,
+  .voucherHero,
+  .metaStrip,
+  .sectionBlock,
+  .cancelPolicySection,
+  .routeCard,
+  .cancelPolicyCard,
+  .invoiceFooterCard,
+  .dataTable tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .brandHeader,
+  .brandHeaderDivider,
+  .brandContactPill,
+  .statusPillSuccess,
+  .statusPillPending,
+  .statusPillCancelled,
+  .qrCard,
+  .metaStrip,
+  .metaCellAccent,
+  .dataTable thead tr,
+  .infoChip,
+  .cancelPolicyCard,
+  .invoiceFooterCard {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .brandLogo,
+  .voucherHeroEyebrow,
+  .voucherHeroTitle,
+  .sectionTitle {
+    color: #0f5fc4 !important;
+  }
+
+  .brandHeaderDivider,
+  .metaCellAccent,
+  .invoiceFooterCard {
+    background: #0f5fc4 !important;
+  }
+
+  .metaCellAccent .metaLabel,
+  .metaCellAccent .metaValue,
+  .invoiceFooterTitle,
+  .invoiceFooterSubtitle,
+  .invoiceFooterContact {
+    color: #ffffff !important;
+  }
+
+  .statusPillSuccess {
+    background: #e3f6ea !important;
+    color: #1b7a3d !important;
+  }
+
+  .statusPillPending {
+    background: #fff4dd !important;
+    color: #c27a00 !important;
+  }
+
+  .statusPillCancelled {
+    background: #fdecea !important;
+    color: #b42318 !important;
+  }
+
+  .dataTable thead tr,
+  .infoChip,
+  .qrCard,
+  .brandContactPill {
+    background: #eaf1fb !important;
+  }
+
+  .cancelPolicyCard {
+    background: #fff6e0 !important;
+    border-color: #f0d58a !important;
+  }
 }

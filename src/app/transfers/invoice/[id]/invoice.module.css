@@ -2158,12 +2158,28 @@
   }
 
   .invoiceClosingRow {
+    display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
     justify-content: space-between !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+  }
+
+  .invoiceClosingNote {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 360px !important;
+    width: auto !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
 
   .invoiceClosingSignoff {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
     align-items: flex-end !important;
     text-align: right !important;
   }
@@ -2475,8 +2491,8 @@
   }
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
+/* ─── Responsive (screen only — never override print) ─── */
+@media screen and (max-width: 768px) {
   .pageWrapper {
     padding: 0.75rem 0.75rem 1.5rem;
   }
@@ -3014,7 +3030,7 @@
 }
 
 
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) {
   .pageWrapper {
     padding: 0.5rem 0.5rem 1.25rem;
   }
@@ -3264,7 +3280,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .headerAddress,
   .generatedOn {
     text-align: center;
