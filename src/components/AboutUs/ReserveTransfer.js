@@ -32,7 +32,7 @@ export default function ReserveTransfer() {
           </p>
 
           <div className={styles.actions}>
-            <Link href="/transfers" className={styles.primaryBtn}>
+            <Link href="/" className={styles.primaryBtn}>
               Search transfers
               <span className={styles.arrow} aria-hidden="true">→</span>
             </Link>

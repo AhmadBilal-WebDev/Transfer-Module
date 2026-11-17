@@ -122,7 +122,7 @@ export default function RoyalaneStandard() {
 
                 <div className={styles.quoteFooterDesktop}>
                   <p className={`${styles.price} ${playfair.className}`}>GBP £50.26</p>
-                  <Link href="/transfers" className={styles.detailBtn}>
+                  <Link href="/" className={styles.detailBtn}>
                     View Detail
                   </Link>
                 </div>
