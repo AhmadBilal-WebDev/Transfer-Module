@@ -16,7 +16,7 @@ const quickLinks = [
 
 const travelServices = [
   { label: 'Blogs', href: '/blogs' },
-  { label: 'Destination', href: '/holiday-packages' },
+  { label: 'My Booking', href: '/login' },
 ];
 
 const supportLinks = [
