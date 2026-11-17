@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
         </Script> */}
       </head>
       <body id="scrool">
-        <DisableInspect />
+        {/* <DisableInspect /> */}
         <SpeedInsights />
         <Analytics />
         <VipCookieConsent />

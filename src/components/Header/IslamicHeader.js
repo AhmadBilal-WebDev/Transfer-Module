@@ -77,10 +77,12 @@ export default function IslamicHeader() {
     const isDashboardRoute = DASHBOARD_PREFIXES.some(
         (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
     );
+    const isHome = pathname === '/';
 
     const headerClass = [
         styles.islamicHeader,
         inter.className,
+        isHome ? styles.islamicHeaderHome : '',
         isScrolled ? styles.islamicHeaderScrolled : '',
         isMobileMenuOpen ? styles.islamicHeaderMenuOpen : '',
     ].filter(Boolean).join(' ');
@@ -91,7 +93,12 @@ export default function IslamicHeader() {
                 <nav className={styles.islamicNavbar} aria-label="Main navigation">
                     <div className={styles.islamicNavbarInner}>
                         <Link className={styles.islamicNavbarBrand} href="/" onClick={closeMobileMenu} aria-label="Royalane home">
-                            <BrandLogo className={styles.brandLogo} width={168} height={40} priority />
+                            <BrandLogo
+                                className={styles.brandLogo}
+                                width={isHome ? 200 : 168}
+                                height={isHome ? 48 : 40}
+                                priority
+                            />
                         </Link>
 
                         {/* Desktop Menu — centered nav */}

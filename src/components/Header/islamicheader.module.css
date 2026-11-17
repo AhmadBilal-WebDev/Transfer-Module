@@ -830,3 +830,170 @@
   object-fit: contain;
   display: block;
 }
+
+/* ===================================
+   HOME ONLY — transparent hero header
+   =================================== */
+.islamicHeaderHome {
+    --vh-bg: transparent;
+    --vh-text: #ffffff;
+    --vh-muted: rgba(255, 255, 255, 0.92);
+    --vh-line: rgba(255, 255, 255, 0.18);
+    --vh-pad-x: clamp(18px, 4vw, 48px);
+
+    /* Overlay hero, scroll away with page — not sticky */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    z-index: 200;
+}
+
+.islamicHeaderHome.islamicHeaderScrolled {
+    /* Keep non-sticky on home; no solid bar on scroll */
+    position: absolute;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.islamicHeaderHome.islamicHeaderMenuOpen {
+    background: transparent;
+}
+
+.islamicHeaderHome .brandLogo {
+    height: 48px;
+    max-width: min(200px, 48vw);
+    filter: brightness(0) invert(1);
+}
+
+.islamicHeaderHome .islamicNavMenu {
+    gap: 2px;
+    padding: 5px;
+    border-radius: 999px;
+    background: rgba(8, 14, 28, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.islamicHeaderHome .islamicNavLink {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 10px 16px !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+}
+
+.islamicHeaderHome .islamicNavLink:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.islamicHeaderHome .islamicNavLinkActive {
+    color: #111111 !important;
+    background: #ffffff !important;
+    font-weight: 600;
+}
+
+.islamicHeaderHome .islamicNavLinkActive:hover {
+    color: #111111 !important;
+    background: #ffffff !important;
+}
+
+.islamicHeaderHome .islamicNavActions {
+    gap: 12px;
+}
+
+.islamicHeaderHome .islamicCurrencySelect {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffffff' d='M1.4 0.6L6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 10px 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.islamicHeaderHome .islamicCurrencySelect:hover {
+    background-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.islamicHeaderHome .islamicCurrencySelect:focus {
+    border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.islamicHeaderHome .islamicCurrencySelect option {
+    color: #111111;
+    background: #ffffff;
+}
+
+.islamicHeaderHome .islamicSignIn {
+    color: #ffffff !important;
+}
+
+.islamicHeaderHome .islamicSignIn:hover {
+    color: #ffffff !important;
+    opacity: 0.85;
+}
+
+.islamicHeaderHome .islamicBookBtn {
+    background: #ffffff;
+    color: #111111 !important;
+    border: 1px solid #ffffff;
+    box-shadow: none;
+    font-weight: 600;
+}
+
+.islamicHeaderHome .islamicBookBtn:hover {
+    background: #f3f4f6;
+    color: #111111 !important;
+    border-color: #f3f4f6;
+    transform: translateY(-1px);
+}
+
+.islamicHeaderHome .islamicMobileToggle {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.islamicHeaderHome .islamicMobileToggle span {
+    background: #ffffff;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .islamicHeaderHome .islamicNavLink {
+        font-size: 13px;
+        padding: 9px 12px !important;
+    }
+
+    .islamicHeaderHome .islamicBookBtn {
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 991px) {
+    .islamicHeaderHome {
+        --vh-pad-x: clamp(14px, 4vw, 24px);
+    }
+
+    .islamicHeaderHome .islamicNavMenu {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .islamicHeaderHome .brandLogo {
+        height: 38px;
+        max-width: min(168px, 50vw);
+    }
+}
