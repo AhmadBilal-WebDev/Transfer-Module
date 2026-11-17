@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { MdEmail } from 'react-icons/md';
 import { IoWarning } from 'react-icons/io5';
 import { FaShieldAlt } from 'react-icons/fa';
 import { FiArrowLeft, FiArrowRight, FiLock } from 'react-icons/fi';
 import { plusJakarta } from '@/lib/fonts';
 import BrandLogo from '@/components/BrandLogo';
+import { isOtpSessionValid } from '@/lib/otpSession';
 import styles from './login.module.css';
 
 const CITIES = ['Makkah', 'Madinah', 'Riyadh', 'Jeddah'];
@@ -21,6 +22,7 @@ export default function LoginPage() {
   const [success, setSuccess] = useState('');
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { data: session, status } = useSession();
   const sessionExpired = searchParams.get('expired') === '1';
 
   useEffect(() => {
@@ -30,6 +32,14 @@ export default function LoginPage() {
       signOut({ redirect: false });
     }
   }, []);
+
+  // Still verified within the 1-hour window → skip login and open bookings.
+  useEffect(() => {
+    if (sessionExpired) return;
+    if (status === 'authenticated' && isOtpSessionValid(session)) {
+      router.replace('/dashboard');
+    }
+  }, [session, status, sessionExpired, router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

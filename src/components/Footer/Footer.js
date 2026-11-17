@@ -16,7 +16,7 @@ const quickLinks = [
 
 const travelServices = [
   { label: 'Blogs', href: '/blogs' },
-  { label: 'My Booking', href: '/login' },
+  { label: 'My Booking', href: '/dashboard' },
 ];
 
 const supportLinks = [
@@ -45,14 +45,14 @@ export default function Footer() {
                 <p className={styles.tagline}>Explore · Discover · Travel</p>
               </div>
 
-              <button
+              {/* <button
                 type="button"
                 className={styles.scrollTop}
                 onClick={scrollToTop}
                 aria-label="Back to top"
               >
                 <FaArrowUp aria-hidden="true" />
-              </button>
+              </button> */}
             </div>
 
             <div className={styles.socialIcons}>

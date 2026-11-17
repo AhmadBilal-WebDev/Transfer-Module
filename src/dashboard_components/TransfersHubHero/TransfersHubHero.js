@@ -73,8 +73,8 @@ export default function TransfersHubHero({ session, nextPickup }) {
     <section className={`${styles.hero} ${plusJakarta.className}`} aria-label="Transfers hub">
       <div className={styles.copy}>
         <p className={styles.eyebrow}>Your transfers hub</p>
-        <h1 className={styles.title}>Welcome back, {userName}</h1>
-        {userEmail ? <p className={styles.email}>{userEmail}</p> : null}
+        <h1 className={styles.title}>Welcome back, {userEmail}</h1>
+        {/* {userEmail ? <p className={styles.email}>{userEmail}</p> : null} */}
         <p className={styles.subtitle}>
           Track pickups, drivers and payments for every ride you&apos;ve booked with Royalane.
         </p>

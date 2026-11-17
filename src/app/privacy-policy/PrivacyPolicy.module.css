@@ -207,8 +207,7 @@
 }
 
 .sidebar {
-  position: sticky;
-  top: 24px;
+  position: static;
   display: flex;
   flex-direction: column;
   gap: 16px;

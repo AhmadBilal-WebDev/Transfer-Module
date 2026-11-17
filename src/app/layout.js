@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
               <MantineProvider>
                 <RoyalaneBootLoader />
                 <NextTopLoader color="#1f63d6" height={3} crawl={true} showSpinner={false} />
-                <Notifications position="top-right" zIndex={10001} />
+                <Notifications position="top-right" zIndex={13000} />
                 <LayoutVisibility>{children}</LayoutVisibility>
               </MantineProvider>
             </PackageCategoriesProvider>

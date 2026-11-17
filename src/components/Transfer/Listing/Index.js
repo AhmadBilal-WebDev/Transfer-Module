@@ -24,7 +24,6 @@ import styles from "./TransferFilters.module.css";
 const MOBILE_FILTERS = [
   { id: "price", label: "Price" },
   { id: "name", label: "Name" },
-  { id: "sort", label: "Sort By" },
   { id: "category", label: "Category" },
   { id: "transmission", label: "Transmission" },
   { id: "capacity", label: "Capacity" },
@@ -34,7 +33,6 @@ const MOBILE_FILTERS = [
 const DRAWER_TITLES = {
   price: "Price Range",
   name: "Search by Name",
-  sort: "Sort Results",
   category: "Vehicle Category",
   transmission: "Transmission Type",
   capacity: "Passenger Capacity",
@@ -56,12 +54,15 @@ function TransferResultCount({ totalRawTransfers = 0 }) {
 
   return (
     <div className="transfer-results-header transfer-results-header--full" aria-live="polite">
-      <p className={`transfer-results-header__eyebrow ${inter.className}`}>
-        Verified Executive Chauffeurs
-      </p>
-      <h2 className={`transfer-results-header__title ${playfair.className}`}>
-        {titleText}
-      </h2>
+      <div className="transfer-results-header__copy">
+        <p className={`transfer-results-header__eyebrow ${inter.className}`}>
+          Verified Executive Chauffeurs
+        </p>
+        <h2 className={`transfer-results-header__title ${playfair.className}`}>
+          {titleText}
+        </h2>
+      </div>
+      <SortOption variant="header" />
     </div>
   );
 }
@@ -111,7 +112,6 @@ export default function Index({ searchParams, totalRawTransfers = 0 }) {
     transfers,
     resetFilters,
     search,
-    sort,
     vehicleCategory,
     transmissionType,
     passengerCapacity,
@@ -174,7 +174,6 @@ export default function Index({ searchParams, totalRawTransfers = 0 }) {
   const isFilterActive = {
     price: isPriceActive,
     name: Boolean(search),
-    sort: sort !== "price-asc",
     category: vehicleCategory.length > 0,
     transmission: transmissionType.length > 0,
     capacity: passengerCapacity.length > 0,
@@ -227,7 +226,6 @@ export default function Index({ searchParams, totalRawTransfers = 0 }) {
               </div> */}
 
               <SearchBar />
-              <SortOption />
               <VehicleCategoryFilter />
               <TransmissionFilter />
               <PassengerCapacityFilter />
@@ -259,7 +257,6 @@ export default function Index({ searchParams, totalRawTransfers = 0 }) {
             >
               {id === "price" && <PriceRange />}
               {id === "name" && <SearchBar />}
-              {id === "sort" && <SortOption />}
               {id === "category" && <VehicleCategoryFilter />}
               {id === "transmission" && hasTransmissionOptions && <TransmissionFilter />}
               {id === "capacity" && <PassengerCapacityFilter />}

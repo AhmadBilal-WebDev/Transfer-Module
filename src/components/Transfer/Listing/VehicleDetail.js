@@ -488,7 +488,6 @@ export default function VehicleDetail({
                         <div className={styles.heroScrim} aria-hidden="true" />
 
                         <div className={styles.heroTop}>
-                            {!isMobile && <span className={styles.escHint}>Esc</span>}
                             <button
                                 type="button"
                                 onClick={handleCloseModal}

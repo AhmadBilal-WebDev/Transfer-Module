@@ -18,13 +18,18 @@
     right: auto;
     width: 100%;
     max-width: 100%;
-    z-index: 100;
+    z-index: 200;
     background: var(--vh-bg);
     border-bottom: 1px solid var(--vh-line);
     box-sizing: border-box;
     transition: box-shadow 0.25s ease;
     padding-right: 0 !important;
     margin-right: 0 !important;
+}
+
+/* Keep drawer above sticky dashboard nav (stacking context). */
+.islamicHeaderMenuOpen {
+    z-index: 10050;
 }
 
 .islamicHeaderScrolled {

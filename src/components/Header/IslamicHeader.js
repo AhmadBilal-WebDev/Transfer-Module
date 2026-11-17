@@ -175,7 +175,7 @@ export default function IslamicHeader() {
                                     Sign in
                                 </Link> */}
                                 {!isDashboardRoute && (
-                                    <Link href="/login" className={styles.islamicBookBtn}>
+                                    <Link href="/dashboard" className={styles.islamicBookBtn}>
                                         My Bookings
                                     </Link>
                                 )}
@@ -279,7 +279,7 @@ export default function IslamicHeader() {
                         </div>
                     )}
                     {!isDashboardRoute && (
-                        <Link href="/login" className={styles.islamicMobileCallBtn} onClick={closeMobileMenu}>
+                        <Link href="/dashboard" className={styles.islamicMobileCallBtn} onClick={closeMobileMenu}>
                             My Bookings
                             <FaArrowRight size={12} />
                         </Link>

@@ -18,21 +18,6 @@ import { CgCalendar } from "react-icons/cg";
 import { plusJakarta } from "@/lib/fonts";
 import { useCurrency } from "@/util/currency";
 
-const CURRENCY_NAMES = {
-  SAR: "Saudi riyal",
-  GBP: "British pound",
-  USD: "US dollar",
-  EUR: "Euro",
-  AED: "UAE dirham",
-  PKR: "Pakistani rupee",
-};
-
-function currencyLabel(code) {
-  if (!code) return "";
-  const name = CURRENCY_NAMES[code];
-  return name ? `${code} — ${name}` : code;
-}
-
 function getBookingPickup(booking) {
   return (
     booking?.pickup_location ||
@@ -127,6 +112,7 @@ export default function MakePaymentsPage() {
   const [date, setDate] = useState(null);
   const [preview, setPreview] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [successSummary, setSuccessSummary] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookingids, setBookingIds] = useState([]);
@@ -146,7 +132,7 @@ export default function MakePaymentsPage() {
         .sort()
         .map((code) => ({
           value: code,
-          label: currencyLabel(code),
+          label: code,
         })),
     [rates],
   );
@@ -253,6 +239,13 @@ export default function MakePaymentsPage() {
       }
 
       if (response.ok) {
+        setSuccessSummary({
+          invoice: bookingref || selectedInvoiceLabel || "—",
+          transactionId,
+          currency,
+          amount: paymentAmount,
+          date: date ? moment(date).format("MMM DD, YYYY") : "—",
+        });
         setSubmitted(true);
         resetFormFields();
         fetchinvoice();
@@ -357,26 +350,62 @@ export default function MakePaymentsPage() {
 
   return (
     <div className={`royalane-pay-page ${plusJakarta.className}`}>
-      <div className="royalane-pay-hero">
-        <p className="royalane-pay-eyebrow">Billing</p>
-        <h1 className="royalane-pay-title">Make a payment</h1>
-        <p className="royalane-pay-subtitle">
-          Submit your bank transfer details and a receipt. We&apos;ll confirm it
-          against your transfer booking.
-        </p>
-      </div>
+      {!submitted ? (
+        <div className="royalane-pay-hero">
+          <p className="royalane-pay-eyebrow">Billing</p>
+          <h1 className="royalane-pay-title">Make a payment</h1>
+          <p className="royalane-pay-subtitle">
+            Submit your bank transfer details and a receipt. We&apos;ll confirm it
+            against your transfer booking.
+          </p>
+        </div>
+      ) : null}
 
       {submitted ? (
-        <div className="royalane-pay-success">
-          <FaCheckCircle size={52} className="royalane-pay-success-icon" />
-          <h3>Payment Submitted!</h3>
-          <p>Your payment details have been received and are under review.</p>
+        <div className="royalane-pay-success" role="status" aria-live="polite">
+          <div className="royalane-pay-success-badge" aria-hidden="true">
+            <FaCheckCircle size={28} />
+          </div>
+          <h3>Payment submitted</h3>
+          <p>
+            Your payment details have been received and are under review. You can
+            track status anytime from My payments.
+          </p>
+
+          {successSummary ? (
+            <dl className="royalane-pay-success-summary">
+              <div>
+                <dt>Invoice</dt>
+                <dd>{successSummary.invoice}</dd>
+              </div>
+              <div>
+                <dt>Transaction ID</dt>
+                <dd>{successSummary.transactionId}</dd>
+              </div>
+              <div>
+                <dt>Amount</dt>
+                <dd>
+                  {successSummary.currency}{" "}
+                  {Number(successSummary.amount).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </dd>
+              </div>
+              <div>
+                <dt>Payment date</dt>
+                <dd>{successSummary.date}</dd>
+              </div>
+            </dl>
+          ) : null}
+
           <div className="royalane-pay-success-actions">
             <button
               type="button"
               className="royalane-pay-submit"
               onClick={() => {
                 setSubmitted(false);
+                setSuccessSummary(null);
                 resetFormFields();
               }}
             >

@@ -8,7 +8,7 @@ import { IoCardOutline, IoAdd, IoGridOutline } from 'react-icons/io5';
 import { plusJakarta } from '@/lib/fonts';
 
 const NAV_ITEMS = [
-  { href: '/transfer-bookings', label: 'Overview', icon: IoGridOutline },
+  { href: '/dashboard', label: 'Overview', icon: IoGridOutline },
   { href: '/my-payments', label: 'My payments', icon: IoCardOutline },
   { href: '/make-payments', label: 'Make a payment', icon: IoAdd },
 ];
@@ -18,7 +18,7 @@ export default function SideBar() {
 
   const handleLogout = async () => {
     localStorage.removeItem('otp_verification');
-    await signOut({ callbackUrl: '/login' });
+    await signOut({ callbackUrl: '/' });
   };
 
   return (

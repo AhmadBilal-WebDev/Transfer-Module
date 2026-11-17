@@ -8,6 +8,7 @@ import { IoWarning, IoMailOutline, IoTimeOutline } from 'react-icons/io5';
 import { FiArrowLeft } from 'react-icons/fi';
 import { plusJakarta } from '@/lib/fonts';
 import BrandLogo from '@/components/BrandLogo';
+import { isOtpSessionValid } from '@/lib/otpSession';
 import styles from '../login/login.module.css';
 
 const RESEND_COOLDOWN = 60;
@@ -72,6 +73,12 @@ export default function VerifyOtpPage() {
     }
   }, [status, emailFromQuery, router]);
 
+  useEffect(() => {
+    if (status === 'authenticated' && isOtpSessionValid(session)) {
+      router.replace(searchParams.get('redirect') || '/dashboard');
+    }
+  }, [status, session, router, searchParams]);
+
   const sendOtp = useCallback(async () => {
     if (!email) return;
     setSending(true);
@@ -133,7 +140,7 @@ export default function VerifyOtpPage() {
     } catch {
       // Session cookie from signIn is enough; update is a safety stamp for the 1h gate.
     }
-    router.push(searchParams.get('redirect') || '/transfer-bookings');
+    router.push(searchParams.get('redirect') || '/dashboard');
   };
 
   useEffect(() => {

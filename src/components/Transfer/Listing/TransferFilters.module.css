@@ -202,6 +202,75 @@
   font-size: 12px;
 }
 
+/* Sort — results header */
+.headerSort {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-bottom: 2px;
+}
+
+.headerSortLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.headerSortSelectWrap {
+  position: relative;
+  min-width: 190px;
+}
+
+.headerSortSelect {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 40px;
+  padding: 8px 36px 8px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.headerSortSelect:focus {
+  outline: none;
+  border-color: rgba(1, 75, 149, 0.45);
+  box-shadow: 0 0 0 3px rgba(1, 75, 149, 0.12);
+}
+
+.headerSortIcon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #014b95;
+  pointer-events: none;
+  display: inline-flex;
+  font-size: 12px;
+}
+
+@media (max-width: 575px) {
+  .headerSort {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .headerSortSelectWrap {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
 /* Transmission / type pills */
 .pillGroup {
   display: flex;

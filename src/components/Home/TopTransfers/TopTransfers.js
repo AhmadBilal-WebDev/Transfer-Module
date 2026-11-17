@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { GoPerson } from 'react-icons/go';
 import { PiSuitcaseRolling } from 'react-icons/pi';
+import { IoArrowForward } from 'react-icons/io5';
 import styles from './TopTransfers.module.css';
 import PriceDisplay from '@/components/Currency/PriceDisplay';
 import VehicleDetail from '@/components/Transfer/Listing/VehicleDetail';
@@ -27,6 +28,13 @@ const SEARCH_PAYLOAD = {
   toLng: '39.6024496',
   transferType: 'one-way',
 };
+
+function formatRoutePlace(value) {
+  const text = String(value || '').trim();
+  if (!text) return '';
+  const short = text.split(',')[0]?.trim() || text;
+  return short;
+}
 
 function TransferCardSkeleton() {
   return (
@@ -50,12 +58,14 @@ function TransferCardSkeleton() {
   );
 }
 
-function TransferCard({ transfer, onViewDetail }) {
+function TransferCard({ transfer, onViewDetail, pickupLocation, dropoffLocation }) {
   const name = transfer.vehicle_details?.name;
   const category = transfer.vehicle_details?.category;
   const pax = transfer.vehicle_details?.passenger_capacity;
   const bags = transfer.vehicle_details?.luggage_capacity;
   const similar = transfer.vehicle_details?.similar_vehicles;
+  const pickup = formatRoutePlace(pickupLocation);
+  const dropoff = formatRoutePlace(dropoffLocation);
 
   return (
     <article className={styles.card}>
@@ -83,6 +93,14 @@ function TransferCard({ transfer, onViewDetail }) {
       <div className={styles.cardBody}>
         <h3 className={`${styles.vehicleName} ${playfair.className}`}>{name}</h3>
         {similar && <p className={styles.vehicleAlt}>{similar}</p>}
+
+        {(pickup || dropoff) && (
+          <p className={styles.routeRow} title={`${pickup} to ${dropoff}`}>
+            <span className={styles.routePlace}>{pickup || '—'}</span>
+            <IoArrowForward className={styles.routeArrow} aria-hidden="true" />
+            <span className={styles.routePlace}>{dropoff || '—'}</span>
+          </p>
+        )}
 
         <div className={styles.metaRow}>
           {pax != null && pax !== '' && (
@@ -284,6 +302,8 @@ export default function TopTransfers() {
                 key={transfer.id}
                 transfer={transfer}
                 onViewDetail={handleViewDetail}
+                pickupLocation={SEARCH_PAYLOAD.pickupLocation}
+                dropoffLocation={SEARCH_PAYLOAD.dropoffLocation}
               />
             ))
           )}

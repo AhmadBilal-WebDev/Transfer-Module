@@ -17,7 +17,7 @@ export default function layout({ children }) {
       <OtpGuard>
         <SideBar />
         <div className="main">
-          <div className="content mx-3 my-3">
+          <div className="content">
             <ProfileProvider>
               {children}
             </ProfileProvider>

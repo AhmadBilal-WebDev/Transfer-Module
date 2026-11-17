@@ -3237,6 +3237,16 @@ a {
 .transfer-results-header--full {
     width: 100%;
     margin: 0 0 1.15rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+    flex-wrap: wrap;
+}
+
+.transfer-results-header__copy {
+    min-width: 0;
+    flex: 1 1 240px;
 }
 
 .transfer-results-header__eyebrow {
@@ -3269,6 +3279,11 @@ a {
 }
 
 @media (max-width: 575px) {
+    .transfer-results-header--full {
+        align-items: stretch;
+        gap: 0.85rem;
+    }
+
     .transfer-results-header__eyebrow {
         font-size: 10px;
         line-height: 13px;
@@ -4089,9 +4104,9 @@ a {
 
 /* Main Loader — Royalane */
 
-/* Keep toast above sticky header without blocking page clicks */
+/* Keep toast above sticky header/modals (LocationMapModal is 11000) */
 .mantine-Notifications-root {
-  z-index: 10001 !important;
+  z-index: 13000 !important;
   top: 88px !important;
   pointer-events: none !important;
 }

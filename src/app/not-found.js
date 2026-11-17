@@ -1,23 +1,32 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-export default function NotFound() {
-  return (
-    <div className='px-3 '>
-      <div style={{minHeight:'75vh'}} className='row align-items-center justify-content-center p-5'>
-        <div className='col-12 col-xl-10 col-xxl-8'>
-          <div className='text-center '>
-            <Image src="https://prium.github.io/phoenix/v1.24.0/assets/img/spot-illustrations/404.png" width={300} height={350} alt='logo' className='mb-4 h-auto' quality={100} />
-            <h2 className='text-body-secondary fw-bolder mb-3'>Page Missing!</h2>
-            <p className='text-body mb-5'>But no worries! Our ostrich is looking everywhere <br /> while you wait safely. </p>
-            <Link href="/" className='btn btn-lg btn-success' >Go Home</Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+import { playfair, inter } from '@/lib/fonts'
+import styles from './not-found.module.css'
 
 export const metadata = {
-  title: '404 Not Found'
+  title: '404 — Page Not Found | Royalane',
+}
+
+export default function NotFound() {
+  return (
+    <main className={`${styles.page} ${inter.className}`}>
+      <div className={styles.card}>
+        <p className={styles.eyebrow}>Error 404</p>
+        <h1 className={`${styles.title} ${playfair.className}`}>
+          This page took a wrong turn.
+        </h1>
+        <p className={styles.text}>
+          The link may be broken or the page may have moved. Head home or book a
+          transfer to continue your journey.
+        </p>
+        <div className={styles.actions}>
+          <Link href="/" className={styles.primaryBtn}>
+            Back to Home
+          </Link>
+          {/* <Link href="/transfers" className={styles.secondaryBtn}>
+            Book a Transfer
+          </Link> */}
+        </div>
+      </div>
+    </main>
+  )
 }
