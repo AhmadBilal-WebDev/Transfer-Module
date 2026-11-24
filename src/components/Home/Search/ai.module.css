@@ -383,6 +383,14 @@
     min-height: 48px;
   }
 
+  /* iPhone / Safari: no Web Speech API — keep search input full width */
+  .aiSearchRowNoMic {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "input"
+      "search";
+  }
+
   .aiTryRow {
     margin-top: 12px;
     gap: 8px;

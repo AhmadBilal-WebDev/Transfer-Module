@@ -14,8 +14,8 @@ export default function RoyalaneLoaderMark({ exiting = false }) {
                 <div className="royalane-main-loader__logo-wrap">
                     <BrandLogo
                         className="royalane-main-loader__logo"
-                        width={280}
-                        height={68}
+                        width={320}
+                        height={82}
                         priority
                         alt="Royalane"
                     />

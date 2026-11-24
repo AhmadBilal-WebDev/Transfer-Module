@@ -33,6 +33,12 @@ export default function AiSearch({ categoryList }) {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [recentSearches, setRecentSearches] = useState([]);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  // Avoid SSR/client mismatch: SpeechRecognition only exists in the browser
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   // Load recent searches from localStorage
   useEffect(() => {
@@ -45,6 +51,8 @@ export default function AiSearch({ categoryList }) {
       }
     }
   }, []);
+
+  const showMic = hasMounted && browserSupportsSpeechRecognition;
 
   const handleSuggestionClick = (suggestion) => {
     setMessage(suggestion);
@@ -94,11 +102,8 @@ export default function AiSearch({ categoryList }) {
     }
   };
 
-  if (!browserSupportsSpeechRecognition) {
-    return null;
-  }
-
   const startListening = () => {
+    if (!showMic) return;
     if (response?.type === 'unknown' && response?.missing_fields?.length !== 0) {
       resetTranscript(); // Clear transcript before new recording
     }
@@ -106,26 +111,29 @@ export default function AiSearch({ categoryList }) {
   };
 
   const stopListening = () => {
+    if (!showMic) return;
     SpeechRecognition.stopListening();
   };
 
   // Update message when transcript changes and listening stops
   useEffect(() => {
+    if (!showMic) return;
     if (!listening && transcript) {
       // Replace with new transcript (each input is fresh)
       setMessage(transcript);
     }
-  }, [listening, transcript]);
+  }, [showMic, listening, transcript]);
 
   // Auto-submit after message is updated from speech
   useEffect(() => {
+    if (!showMic) return;
     if (!listening && transcript && message.includes(transcript)) {
       const timer = setTimeout(() => {
         handleSubmit();
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [message, listening, transcript]);
+  }, [showMic, message, listening, transcript]);
 
   const tryChips = recentSearches.length > 0
     ? recentSearches.slice(0, 3)
@@ -187,7 +195,9 @@ export default function AiSearch({ categoryList }) {
         );
       })()}
 
-      <div className={styles.aiSearchRow}>
+      <div
+        className={`${styles.aiSearchRow}${showMic ? '' : ` ${styles.aiSearchRowNoMic}`}`}
+      >
         <span className={styles.aiSparkBtn} aria-hidden="true">
           <LuSparkle />
         </span>
@@ -203,16 +213,18 @@ export default function AiSearch({ categoryList }) {
           aria-label="Describe your trip"
         />
 
-        <button
-          type="button"
-          onClick={listening ? stopListening : startListening}
-          className={`${styles.aiMicBtn} ${listening ? styles.listening : ''}`}
-          title={listening ? 'Stop Recording' : 'Voice Input'}
-          aria-label={listening ? 'Stop Recording' : 'Voice Input'}
-        >
-          <BiMicrophone size={18} />
-          {listening && <span className={styles.listeningPulse}></span>}
-        </button>
+        {showMic && (
+          <button
+            type="button"
+            onClick={listening ? stopListening : startListening}
+            className={`${styles.aiMicBtn} ${listening ? styles.listening : ''}`}
+            title={listening ? 'Stop Recording' : 'Voice Input'}
+            aria-label={listening ? 'Stop Recording' : 'Voice Input'}
+          >
+            <BiMicrophone size={18} />
+            {listening && <span className={styles.listeningPulse}></span>}
+          </button>
+        )}
 
         <button
           type="button"

@@ -4163,8 +4163,8 @@ a {
 
 .royalane-main-loader__logo {
     width: auto !important;
-    height: clamp(44px, 9vw, 68px) !important;
-    max-width: min(100%, 280px) !important;
+    height: clamp(52px, 10vw, 82px) !important;
+    max-width: min(100%, 320px) !important;
     object-fit: contain;
     display: block;
 }
@@ -4387,8 +4387,8 @@ a {
     }
 
     .royalane-main-loader__logo {
-        height: 48px !important;
-        max-width: min(100%, 220px) !important;
+        height: 58px !important;
+        max-width: min(100%, 260px) !important;
     }
 
     .royalane-main-loader__track {

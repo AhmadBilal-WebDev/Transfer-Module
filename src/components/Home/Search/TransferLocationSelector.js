@@ -6,6 +6,7 @@ import { FaMapMarkerAlt, FaTimes, FaSearch, FaGlobeAmericas, FaCheck } from 'rea
 import styles from './HotelLocationSelector.module.css';
 import compactStyles from './TransferLocationSelector.module.css';
 import MobileTransferLocationSelector from './MobileTransferLocationSelector';
+import { getScrollY, setScrollY } from '@/util/useLockBodyScroll';
 
 export default function TransferLocationSelector({
     value,
@@ -25,8 +26,10 @@ export default function TransferLocationSelector({
     const [isLoading, setIsLoading] = useState(false);
     const [mobileModalOpen, setMobileModalOpen] = useState(false);
     const [confirmedSelection, setConfirmedSelection] = useState(null);
+    const [lockScrollY, setLockScrollY] = useState(null);
     const inputRef = useRef(null);
     const searchTimeout = useRef(null);
+    const touchScrollYRef = useRef(null);
 
     // Popular destinations for transfers
     const popularDestinations = [
@@ -680,11 +683,19 @@ export default function TransferLocationSelector({
         <>
             <div
                 className={`${compact ? '' : 'form-floating '}w-100 position-relative`}
+                onTouchStart={() => {
+                    // Capture before iOS scrolls the field into view
+                    touchScrollYRef.current = getScrollY();
+                }}
                 onClick={() => {
                     // Blur any focused control (date pickers, etc.) so iOS does not scroll the sheet
                     if (typeof document !== 'undefined' && document.activeElement?.blur) {
                         document.activeElement.blur();
                     }
+                    const y = touchScrollYRef.current ?? getScrollY();
+                    touchScrollYRef.current = null;
+                    setLockScrollY(y);
+                    setScrollY(y);
                     setMobileModalOpen(true);
                 }}
             >
@@ -729,6 +740,7 @@ export default function TransferLocationSelector({
                 selectedValue={value}
                 recentSearches={recentSearches}
                 label={placeholder || label}
+                lockScrollY={lockScrollY}
             />
         </>
     );

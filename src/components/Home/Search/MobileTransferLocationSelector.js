@@ -2,6 +2,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { FaMapMarkerAlt, FaTimes, FaCheck, FaSearch } from 'react-icons/fa';
+import {
+    useLockBodyScroll,
+    isIOSDevice,
+    waitForKeyboardClose,
+} from '@/util/useLockBodyScroll';
 import styles from './MobileHotelLocationSelector.module.css';
 
 export default function MobileTransferLocationSelector({
@@ -11,7 +16,8 @@ export default function MobileTransferLocationSelector({
     selectedValue,
     selectedPlaceId = null,
     recentSearches = [],
-    label = 'Select Location'
+    label = 'Select Location',
+    lockScrollY = null,
 }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [predictions, setPredictions] = useState([]);
@@ -20,80 +26,38 @@ export default function MobileTransferLocationSelector({
     const modalRef = useRef(null);
     const listRef = useRef(null);
     const inputRef = useRef(null);
-    const scrollYRef = useRef(0);
     const selectingRef = useRef(false);
     const optionsRef = useRef([]);
 
-    // Hard-lock page scroll while modal is open (same pattern as MobileAirportSelector)
+    useLockBodyScroll(isOpen, { allowScrollRef: listRef, lockScrollY });
+
+    // Auto-focus only on non-iOS — iPhone keyboard open/close is what jumps the page scroll
     useEffect(() => {
-        if (!isOpen) return;
-
-        const scrollY = window.scrollY || window.pageYOffset || 0;
-        scrollYRef.current = scrollY;
-
-        const { body, documentElement: html } = document;
-        const prev = {
-            bodyOverflow: body.style.overflow,
-            bodyPosition: body.style.position,
-            bodyTop: body.style.top,
-            bodyLeft: body.style.left,
-            bodyRight: body.style.right,
-            bodyWidth: body.style.width,
-            bodyTouchAction: body.style.touchAction,
-            bodyOverscroll: body.style.overscrollBehavior,
-            htmlOverflow: html.style.overflow,
-            htmlOverscroll: html.style.overscrollBehavior,
-        };
-
-        body.style.overflow = 'hidden';
-        body.style.position = 'fixed';
-        body.style.top = `-${scrollY}px`;
-        body.style.left = '0';
-        body.style.right = '0';
-        body.style.width = '100%';
-        body.style.touchAction = 'none';
-        body.style.overscrollBehavior = 'none';
-        html.style.overflow = 'hidden';
-        html.style.overscrollBehavior = 'none';
-
-        const preventBackgroundScroll = (e) => {
-            const list = listRef.current;
-            if (list && e.target instanceof Node && list.contains(e.target)) return;
-            e.preventDefault();
-        };
-
-        document.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
-
+        if (!isOpen || isIOSDevice()) return;
         const focusTimer = setTimeout(() => {
             inputRef.current?.focus({ preventScroll: true });
         }, 80);
-
-        return () => {
-            clearTimeout(focusTimer);
-            document.removeEventListener('touchmove', preventBackgroundScroll);
-
-            const y = scrollYRef.current;
-
-            body.style.overflow = prev.bodyOverflow;
-            body.style.position = prev.bodyPosition;
-            body.style.top = prev.bodyTop;
-            body.style.left = prev.bodyLeft;
-            body.style.right = prev.bodyRight;
-            body.style.width = prev.bodyWidth;
-            body.style.touchAction = prev.bodyTouchAction;
-            body.style.overscrollBehavior = prev.bodyOverscroll;
-            html.style.overflow = prev.htmlOverflow;
-            html.style.overscrollBehavior = prev.htmlOverscroll;
-
-            // One synchronous restore — avoids the top→down jerk
-            window.scrollTo(0, y);
-        };
+        return () => clearTimeout(focusTimer);
     }, [isOpen]);
 
     const handleInputFocus = () => {
-        // Keep page locked; do not scroll the document behind the modal
         inputRef.current?.focus({ preventScroll: true });
     };
+
+    const dismissKeyboardThen = useCallback(async (action) => {
+        inputRef.current?.blur();
+        if (typeof document !== 'undefined' && document.activeElement?.blur) {
+            document.activeElement.blur();
+        }
+
+        if (isIOSDevice()) {
+            await waitForKeyboardClose(750);
+        } else {
+            await new Promise((resolve) => setTimeout(resolve, 60));
+        }
+
+        action();
+    }, []);
 
     const searchPlaces = useCallback(async (query) => {
         if (!query || query.length < 2) {
@@ -139,19 +103,18 @@ export default function MobileTransferLocationSelector({
         if (selectingRef.current || !location) return;
         selectingRef.current = true;
 
-        // Blur first so keyboard starts closing before unlock
-        inputRef.current?.blur();
-
         setSearchQuery('');
         setPredictions([]);
-        onSelect(location);
-    }, [onSelect]);
+
+        // Wait for iOS keyboard to finish closing BEFORE unlocking body scroll
+        dismissKeyboardThen(() => onSelect(location));
+    }, [onSelect, dismissKeyboardThen]);
 
     const handleClose = useCallback(() => {
         setSearchQuery('');
         setPredictions([]);
-        onClose();
-    }, [onClose]);
+        dismissKeyboardThen(() => onClose());
+    }, [onClose, dismissKeyboardThen]);
 
     useEffect(() => {
         if (isOpen) selectingRef.current = false;

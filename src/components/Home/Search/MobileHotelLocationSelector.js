@@ -1,7 +1,12 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FaMapMarkerAlt, FaTimes, FaCheck, FaSearch } from 'react-icons/fa';
+import {
+    useLockBodyScroll,
+    isIOSDevice,
+    waitForKeyboardClose,
+} from '@/util/useLockBodyScroll';
 import styles from './MobileHotelLocationSelector.module.css';
 
 export default function MobileHotelLocationSelector({ 
@@ -16,22 +21,9 @@ export default function MobileHotelLocationSelector({
     const [searchQuery, setSearchQuery] = useState('');
     const [predictions, setPredictions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const listRef = useRef(null);
 
-    // Same simple body lock as MobileAirportSelector (works on iPhone)
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-            document.body.style.height = '100vh';
-        } else {
-            document.body.style.overflow = '';
-            document.body.style.height = '';
-        }
-
-        return () => {
-            document.body.style.overflow = '';
-            document.body.style.height = '';
-        };
-    }, [isOpen]);
+    useLockBodyScroll(isOpen, { allowScrollRef: listRef });
 
     const searchPlaces = async (query) => {
         if (!query || query.length < 2) {
@@ -74,16 +66,28 @@ export default function MobileHotelLocationSelector({
         return () => clearTimeout(timeout);
     }, [searchQuery]);
 
+    const dismissThen = async (action) => {
+        if (typeof document !== 'undefined' && document.activeElement?.blur) {
+            document.activeElement.blur();
+        }
+        if (isIOSDevice()) {
+            await waitForKeyboardClose(750);
+        } else {
+            await new Promise((r) => setTimeout(r, 60));
+        }
+        action();
+    };
+
     const handleSelect = (location) => {
-        onSelect(location);
         setSearchQuery('');
         setPredictions([]);
+        dismissThen(() => onSelect(location));
     };
 
     const handleClose = () => {
         setSearchQuery('');
         setPredictions([]);
-        onClose();
+        dismissThen(() => onClose());
     };
 
     if (!isOpen) return null;
@@ -127,7 +131,7 @@ export default function MobileHotelLocationSelector({
                 </div>
             </div>
 
-            <div className={styles.locationListContainer}>
+            <div className={styles.locationListContainer} ref={listRef}>
                 {searchQuery && predictions.length > 0 && (
                     <div className={styles.section}>
                         <div className={styles.sectionHeader}>

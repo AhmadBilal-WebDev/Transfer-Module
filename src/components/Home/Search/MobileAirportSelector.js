@@ -1,8 +1,13 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FaPlane, FaTimes, FaCheck, FaSearch } from 'react-icons/fa';
 import { AirportList } from "@/util/AirportList";
+import {
+    useLockBodyScroll,
+    isIOSDevice,
+    waitForKeyboardClose,
+} from '@/util/useLockBodyScroll';
 import styles from './MobileAirportSelector.module.css';
 
 export default function MobileAirportSelector({ 
@@ -18,69 +23,7 @@ export default function MobileAirportSelector({
     const [searchQuery, setSearchQuery] = useState('');
     const listRef = useRef(null);
 
-    // Hard-lock page scroll on iOS while modal is open (list inside still scrolls)
-    useEffect(() => {
-        if (!isOpen) return;
-
-        const scrollY = window.scrollY || window.pageYOffset || 0;
-        const { body, documentElement: html } = document;
-        const prev = {
-            bodyOverflow: body.style.overflow,
-            bodyPosition: body.style.position,
-            bodyTop: body.style.top,
-            bodyLeft: body.style.left,
-            bodyRight: body.style.right,
-            bodyWidth: body.style.width,
-            bodyHeight: body.style.height,
-            bodyTouchAction: body.style.touchAction,
-            bodyOverscroll: body.style.overscrollBehavior,
-            htmlOverflow: html.style.overflow,
-            htmlOverscroll: html.style.overscrollBehavior,
-        };
-
-        body.style.overflow = 'hidden';
-        body.style.position = 'fixed';
-        body.style.top = `-${scrollY}px`;
-        body.style.left = '0';
-        body.style.right = '0';
-        body.style.width = '100%';
-        body.style.height = '100%';
-        body.style.touchAction = 'none';
-        body.style.overscrollBehavior = 'none';
-        html.style.overflow = 'hidden';
-        html.style.overscrollBehavior = 'none';
-
-        const isInsideList = (target) => {
-            const list = listRef.current;
-            return list && target instanceof Node && list.contains(target);
-        };
-
-        const onTouchMove = (event) => {
-            if (isInsideList(event.target)) return;
-            event.preventDefault();
-        };
-
-        // Block rubber-band / background scroll outside the airport list
-        document.addEventListener('touchmove', onTouchMove, { passive: false });
-
-        return () => {
-            document.removeEventListener('touchmove', onTouchMove);
-
-            body.style.overflow = prev.bodyOverflow;
-            body.style.position = prev.bodyPosition;
-            body.style.top = prev.bodyTop;
-            body.style.left = prev.bodyLeft;
-            body.style.right = prev.bodyRight;
-            body.style.width = prev.bodyWidth;
-            body.style.height = prev.bodyHeight;
-            body.style.touchAction = prev.bodyTouchAction;
-            body.style.overscrollBehavior = prev.bodyOverscroll;
-            html.style.overflow = prev.htmlOverflow;
-            html.style.overscrollBehavior = prev.htmlOverscroll;
-
-            window.scrollTo(0, scrollY);
-        };
-    }, [isOpen]);
+    useLockBodyScroll(isOpen, { allowScrollRef: listRef });
 
     // Filter airports based on search query and organize by country
     const filterAirports = (airports, query, selectedCode = null) => {
@@ -167,14 +110,26 @@ export default function MobileAirportSelector({
     const groupedAirports = getAirportsToDisplay();
     const totalAirports = groupedAirports.reduce((sum, group) => sum + group.airports.length, 0);
 
+    const dismissThen = async (action) => {
+        if (typeof document !== 'undefined' && document.activeElement?.blur) {
+            document.activeElement.blur();
+        }
+        if (isIOSDevice()) {
+            await waitForKeyboardClose(750);
+        } else {
+            await new Promise((r) => setTimeout(r, 60));
+        }
+        action();
+    };
+
     const handleSelect = (airportCode) => {
-        onSelect(airportCode);
         setSearchQuery('');
+        dismissThen(() => onSelect(airportCode));
     };
 
     const handleClose = () => {
         setSearchQuery('');
-        onClose();
+        dismissThen(() => onClose());
     };
 
     if (!isOpen) return null;

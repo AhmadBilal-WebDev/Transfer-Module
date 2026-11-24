@@ -124,14 +124,15 @@
 .filterInput :global(.mantine-Input-input) {
   border: none !important;
   border-radius: 9.32px !important;
-  min-height: 36px !important;
+  min-height: 42px !important;
   height: auto !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   padding-right: 12px !important;
   /* Leave room for leftSection search icon */
   padding-left: 36px !important;
-  font-size: 13px !important;
+  /* 16px+ prevents iOS Safari auto-zoom on focus */
+  font-size: 16px !important;
   font-weight: 500 !important;
   color: #1e293b !important;
   background: #f1f4f7 !important;
