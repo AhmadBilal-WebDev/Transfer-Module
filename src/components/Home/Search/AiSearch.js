@@ -6,12 +6,11 @@ import { LuSparkle } from 'react-icons/lu';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaCheck, FaSearch } from 'react-icons/fa';
 import styles from './ai.module.css';
-import HotelAiSearch from '../AiSearchesRes/HotelAiSearch';
-import FlightAiSearch from '../AiSearchesRes/FlightAirSearch';
-import UmrahGetawayAiSearch from '../AiSearchesRes/UmrahGetawayAiSearch';
 import TransferAiSearch from '../AiSearchesRes/TransferAiSearch';
-import Link from 'next/link';
 import SpeechRecognition, { useSpeechRecognition, } from "react-speech-recognition";
+
+const TRANSFERS_ONLY_MESSAGE =
+  'AI search currently supports transfers only — airport pickups, drop-offs, and city rides. Please describe a transfer route (for example: Jeddah airport to Makkah hotel tomorrow at 9am).';
 
 const TRY_SUGGESTIONS = [
   'Heathrow → Central London',
@@ -34,7 +33,6 @@ export default function AiSearch({ categoryList }) {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [recentSearches, setRecentSearches] = useState([]);
-  const [destinationList, setDestinationList] = useState([]);
 
   // Load recent searches from localStorage
   useEffect(() => {
@@ -81,9 +79,6 @@ export default function AiSearch({ categoryList }) {
       }
 
       const data = await res.json();
-      if (data.type === "activities" && data.missing_fields.length === 0) {
-        await GetDestinations();
-      }
       setResponse(data);
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.');
@@ -99,31 +94,6 @@ export default function AiSearch({ categoryList }) {
     }
   };
 
-  const GetDestinations = async () => {
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/destinations`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            // 'ngrok-skip-browser-warning': 'true',
-          },
-        }
-      );
-      const data = await response.json();
-      if (data.Success === true) {
-        const NewList = data.Content.destinations.map((item) => ({ id: item.id, value: item.city_slug, label: item.city }));
-        const uniqueList = [
-          ...new Map(NewList.map((item) => [item.value, item])).values(),
-        ];
-        setDestinationList(uniqueList);
-      }
-    } catch (error) {
-      console.error('Error fetching destinations:', error);
-      setDestinationList([]);
-    }
-  };
-     
   if (!browserSupportsSpeechRecognition) {
     return null;
   }
@@ -180,93 +150,42 @@ export default function AiSearch({ categoryList }) {
         </div>
       )}
 
-      {response && !isLoading && (
-        <>
-          {response.type === 'hotel' && (!response.missing_fields || !response.missing_fields.some(field => field.type === 'city' || field.message?.toLowerCase().includes('city'))) ? (
-            <HotelAiSearch searchResponse={response} />
-          ) : (response.type === 'flight' && response.missing_fields.length === 0) ? (
-            <FlightAiSearch searchResponse={response} />
-          ) : (response.type === 'umrah_getaway' && response.missing_fields.length === 0) ? (
-            <UmrahGetawayAiSearch searchResponse={response} />
-          ) : (response.type === 'umrah_getaway' && response.missing_fields.length === 0) ? (
-            <UmrahGetawayAiSearch searchResponse={response} />
-          ) : (response.type === 'transfers' && response.missing_fields.length === 0) ? (
-            <TransferAiSearch searchResponse={response} />
-          ) : (response.type === 'guided_packages' && response.missing_fields.length === 0 && categoryList) ? (
+      {response && !isLoading && (() => {
+        const isTransfers = response.type === 'transfers';
+        const missingFields = Array.isArray(response.missing_fields)
+          ? response.missing_fields
+          : [];
+
+        if (isTransfers && missingFields.length === 0) {
+          return <TransferAiSearch searchResponse={response} />;
+        }
+
+        if (isTransfers) {
+          return (
             <div className={styles.aiResponseBox}>
               <div className={styles.aiResponseHeader}>
                 <RiRobot2Line size={20} />
-                <span className='ms-2'>Select Package Category</span>
+                <span className="ms-2">AI</span>
               </div>
               <div className={styles.aiResponseContent}>
-                <p className='mb-3'>Kindly select the package category you wish to explore:</p>
-                <div className='d-flex flex-wrap gap-2'>
-                  {categoryList.map((category, index) => (
-                    <Link key={index} href={`/packages?category_slug=${category.slug}&date=${response?.departureDate}`}>
-                      <button type="button" className={styles.aiSuggestionChip}>
-                        <LuSparkle className='me-1' />
-                        {category.name}
-                      </button>
-                    </Link>
-                  ))}
-                  <Link href={`/packages?date=${response?.departureDate}`}>
-                    <button type="button" className={styles.aiSuggestionChip}>
-                      <LuSparkle className='me-1' />
-                      All
-                    </button>
-                  </Link>
-                </div>
+                <p className="mb-2">{response?.missing_message}</p>
               </div>
             </div>
-          ) : (response.type === 'activities' && response.missing_fields.length === 0 && destinationList) ? (
-            <div className={styles.aiResponseBox}>
-              <div className={styles.aiResponseHeader}>
-                <RiRobot2Line size={20} />
-                <span className='ms-2'>Select Destination</span>
-              </div>
-              <div className={styles.aiResponseContent}>
-                <p className='mb-3'>Please select your preferred destination:</p>
-                <div className='d-flex flex-wrap gap-2'>
-                  {destinationList.map((destination, index) => (
-                    <Link key={index} href={`/activities?city=${destination.value}&date=${response?.activityDate}`}>
-                      <button type="button" className={styles.aiSuggestionChip}>
-                        <LuSparkle className='me-1' />
-                        {destination.label}
-                      </button>
-                    </Link>
-                  ))}
-                  <Link href={`/activities?date=${response?.activityDate}`}>
-                    <button type="button" className={styles.aiSuggestionChip}>
-                      <LuSparkle className='me-1' />
-                      All
-                    </button>
-                  </Link>
-                </div>
-              </div>
+          );
+        }
+
+        return (
+          <div className={styles.aiResponseBox}>
+            <div className={styles.aiResponseHeader}>
+              <RiRobot2Line size={20} />
+              <span className="ms-2">Transfers only</span>
             </div>
-          ) : response.missing_fields && response.missing_fields.length > 0 ? (
-            <div className={styles.aiResponseBox}>
-              <div className={styles.aiResponseHeader}>
-                <RiRobot2Line size={20} />
-                <span className='ms-2'>AI</span>
-              </div>
-              <div className={styles.aiResponseContent}>
-                <p className='mb-2'>{response?.missing_message}</p>
-              </div>
+            <div className={styles.aiResponseContent}>
+              <p className="mb-2">{TRANSFERS_ONLY_MESSAGE}</p>
             </div>
-          ) : (
-            <div className={styles.aiResponseBox}>
-              <div className={styles.aiResponseHeader}>
-                <RiRobot2Line size={20} />
-                <span className='ms-2'>AI Response</span>
-              </div>
-              <div className={styles.aiResponseContent}>
-                {typeof response === 'string' ? response : JSON.stringify(response, null, 2)}
-              </div>
-            </div>
-          )}
-        </>
-      )}
+          </div>
+        );
+      })()}
 
       <div className={styles.aiSearchRow}>
         <span className={styles.aiSparkBtn} aria-hidden="true">
