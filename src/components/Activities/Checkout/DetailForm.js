@@ -908,7 +908,7 @@ export default function DetailForm({ activityDetail }) {
                             <MdVerified aria-hidden="true" />
                             <span>
                                 After completing the bank transfer, please send the payment receipt to{' '}
-                                <strong>example@royalane.com</strong> with your booking reference.
+                                <strong>info@example.com</strong> with your booking reference.
                                 Your booking will be confirmed within <strong>24 hours</strong> of payment verification.
                             </span>
                         </div>

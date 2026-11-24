@@ -49,7 +49,7 @@ export default function AboutHero() {
             <div className={styles.mediaFrame}>
               <div className={styles.mediaClip}>
                 <Image
-                  src="/updatedImages/aboutUsBanner.jpg"
+                  src="/updatedImages/aboutUsBanner.png"
                   alt="Premier chauffeur service at the airport terminal"
                   fill
                   priority

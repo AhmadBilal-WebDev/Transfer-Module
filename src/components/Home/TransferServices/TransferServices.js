@@ -11,7 +11,7 @@ const SERVICES = [
     badge: 'Most popular',
     title: 'Airport Transfers',
     text: 'Flight tracking, meet & greet and 60 minutes of free waiting. Door to door, from arrivals to your hotel or home.',
-    image: '/updatedImages/everJornary.jpg',
+    image: '/updatedImages/everJornary.png',
     variant: 'hero',
   },
   {
@@ -19,7 +19,7 @@ const SERVICES = [
     badge: 'In town',
     title: 'City Rides',
     text: 'Point-to-point rides for meetings, shopping and dinners. Private, unrushed and always on time.',
-    image: '/updatedImages/cityRide.jpg',
+    image: '/updatedImages/cityRide.png',
     variant: 'image',
   },
   {

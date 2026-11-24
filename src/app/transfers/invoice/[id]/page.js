@@ -276,11 +276,11 @@ export default function Page() {
                     </span>
                     <span>+966 509 736777</span>
                   </a>
-                  <a href="mailto:example@royalane.com" className={styles.brandContactPill}>
+                  <a href="mailto:info@example.com" className={styles.brandContactPill}>
                     <span className={styles.brandContactIcon} aria-hidden="true">
                       <FaEnvelope />
                     </span>
-                    <span>example@royalane.com</span>
+                    <span>info@example.com</span>
                   </a>
                 </div>
               </div>
@@ -746,9 +746,9 @@ export default function Page() {
                   <FaPhoneAlt aria-hidden="true" />
                   <span>+966 509 736777</span>
                 </a>
-                <a href="mailto:example@royalane.com" className={styles.invoiceFooterContact}>
+                <a href="mailto:info@example.com" className={styles.invoiceFooterContact}>
                   <FaEnvelope aria-hidden="true" />
-                  <span>example@royalane.com</span>
+                  <span>info@example.com</span>
                 </a>
                 <a
                   href="https://www.royalane.com"

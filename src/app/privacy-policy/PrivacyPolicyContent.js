@@ -204,9 +204,9 @@ export default function PrivacyPolicyContent() {
             </span>
             <div className={styles.mobileDpoCopy}>
               <p className={styles.mobileDpoLabel}>Data Protection Officer</p>
-              <p className={styles.mobileDpoEmail}>example@royalane.com</p>
+              <p className={styles.mobileDpoEmail}>info@example.com</p>
             </div>
-            <a className={styles.mobileDpoBtn} href="mailto:example@royalane.com">
+            <a className={styles.mobileDpoBtn} href="mailto:info@example.com">
               Email DPO
             </a>
           </div>
@@ -251,8 +251,8 @@ export default function PrivacyPolicyContent() {
                   Direct inquiries regarding GDPR, DSAR access requests, or flight telemetry
                   deletion.
                 </p>
-                <a className={styles.dpoLink} href="mailto:example@royalane.com">
-                  example@royalane.com
+                <a className={styles.dpoLink} href="mailto:info@example.com">
+                  info@example.com
                   <HiOutlineExternalLink aria-hidden="true" />
                 </a>
               </div>
@@ -262,7 +262,7 @@ export default function PrivacyPolicyContent() {
               <div className={styles.assuranceCard}>
                 <div className={styles.assuranceThumb}>
                   <Image
-                    src="/updatedImages/aboutUsBanner.jpg"
+                    src="/updatedImages/aboutUsBanner.png"
                     alt="Royalane chauffeur transfer service"
                     fill
                     className={styles.assuranceThumbImg}
@@ -285,7 +285,7 @@ export default function PrivacyPolicyContent() {
                   </p>
                   <div className={styles.assuranceHeroImg}>
                     <Image
-                      src="/updatedImages/aboutUsBanner.jpg"
+                      src="/updatedImages/aboutUsBanner.png"
                       alt="Royalane private transfer at airport terminal"
                       fill
                       className={styles.assuranceThumbImg}
@@ -321,7 +321,7 @@ export default function PrivacyPolicyContent() {
                     Kingdom.
                     <br />
                     <strong>Primary Contact:</strong>{' '}
-                    <a href="mailto:example@royalane.com">example@royalane.com</a>
+                    <a href="mailto:info@example.com">info@example.com</a>
                   </div>
                   <div className={styles.entityBox}>
                     <p className={styles.entityBoxLabel}>Registered Entity &amp; Headquarters</p>
@@ -587,7 +587,7 @@ export default function PrivacyPolicyContent() {
                   <div className={styles.contactBox}>
                     <p>
                       <strong>Email:</strong>{' '}
-                      <a href="mailto:example@royalane.com">example@royalane.com</a>
+                      <a href="mailto:info@example.com">info@example.com</a>
                     </p>
                     <p>
                       <strong>Phone:</strong>{' '}

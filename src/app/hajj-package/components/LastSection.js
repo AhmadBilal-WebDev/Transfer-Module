@@ -49,7 +49,7 @@ function LastSection() {
 
                   <div>
                     <p className="mb-0 fw-semibold text-light">Email Us</p>
-                    <small className="text-light"><a href="mailto:example@royalane.com" className="text-light">example@royalane.com</a></small>
+                    <small className="text-light"><a href="mailto:info@example.com" className="text-light">info@example.com</a></small>
                   </div>
                 </div>
               </div>  

@@ -28,7 +28,7 @@ export default function DepartureCTA() {
         <div className={styles.banner}>
           <div className={styles.media}>
             <Image
-              src="/updatedImages/nextTrip.jpg"
+              src="/updatedImages/nextTrip2.png"
               alt="Luxury private transfer vehicle on city road"
               fill
               className={styles.mediaImage}

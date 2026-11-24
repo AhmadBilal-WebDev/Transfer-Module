@@ -183,7 +183,7 @@ export default function Page() {
                   </div>
                                 <div className={styles.brandContact}>
                                     <a href="tel:+966509736777" className={styles.brandPhone}>+966 509 736777</a>
-                                    <a href="mailto:example@royalane.com" className={styles.brandEmail}>example@royalane.com</a>
+                                    <a href="mailto:info@example.com" className={styles.brandEmail}>info@example.com</a>
                                 </div>
                             </div>
                             <div className={styles.brandHeaderDivider} />
@@ -496,7 +496,7 @@ export default function Page() {
                             <div className={styles.voucherFooterBottom}>
                                 <div className={styles.voucherFooterMeta}>
                                     <a href="tel:+966509736777">+966 509 736777</a>
-                                    <a href="mailto:example@royalane.com">example@royalane.com</a>
+                                    <a href="mailto:info@example.com">info@example.com</a>
                                 </div>
                                 <p className={styles.voucherFooterAddress}>
                                     ABC Street, XYZ Country

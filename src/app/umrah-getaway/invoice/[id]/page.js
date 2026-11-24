@@ -607,7 +607,7 @@ export default function Page() {
                                     </span>
                                     <span className={styles.invFooterItem}>
                                         <FaEnvelope size={13} className={styles.invFooterIcon} />
-                                        example@royalane.com
+                                        info@example.com
                                     </span>
                                 </div>
                                 <div className={styles.invFooterRight}>

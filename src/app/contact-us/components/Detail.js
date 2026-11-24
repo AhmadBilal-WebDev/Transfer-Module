@@ -20,7 +20,7 @@ const details = [
     index: '03',
     title: 'Email',
     lines: [
-      { label: 'General', text: 'example@royalane.com', href: 'mailto:example@royalane.com' },
+      { label: 'General', text: 'info@example.com', href: 'mailto:info@example.com' },
     ],
   },
   {

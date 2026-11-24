@@ -260,13 +260,13 @@ export default function Page() {
                     <span>+966 509 736777</span>
                   </a>
                   <a
-                    href="mailto:example@royalane.com"
+                    href="mailto:info@example.com"
                     className={styles.brandContactPill}
                   >
                     <span className={styles.brandContactIcon} aria-hidden="true">
                       <FaEnvelope />
                     </span>
-                    <span>example@royalane.com</span>
+                    <span>info@example.com</span>
                   </a>
                 </div>
               </div>
@@ -616,11 +616,11 @@ export default function Page() {
                   <span>+966 509 736777</span>
                 </a>
                 <a
-                  href="mailto:example@royalane.com"
+                  href="mailto:info@example.com"
                   className={styles.invoiceFooterContact}
                 >
                   <FaEnvelope aria-hidden="true" />
-                  <span>example@royalane.com</span>
+                  <span>info@example.com</span>
                 </a>
                 <a
                   href="https://www.royalane.com"

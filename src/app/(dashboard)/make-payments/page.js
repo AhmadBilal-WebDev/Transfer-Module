@@ -681,7 +681,7 @@ export default function MakePaymentsPage() {
               </span>
               <p>
                 Need help with a payment?{" "}
-                <a href="mailto:example@royalane.com">Contact support</a>
+                <a href="mailto:info@example.com">Contact support</a>
               </p>
             </div>
           </aside>

@@ -20,8 +20,8 @@ const channels = [
   {
     id: 'email',
     title: 'Email us',
-    value: 'example@royalane.com',
-    href: 'mailto:example@royalane.com',
+    value: 'info@example.com',
+    href: 'mailto:info@example.com',
     body: 'Inquiries regarding corporate master accounts, invoice settlement, and customized private fleet reservations.',
     cta: 'Send an email',
     badge: '< 8 Min Turnaround',

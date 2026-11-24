@@ -95,8 +95,8 @@ export default function IslamicHeader() {
                         <Link className={styles.islamicNavbarBrand} href="/" onClick={closeMobileMenu} aria-label="Royalane home">
                             <BrandLogo
                                 className={styles.brandLogo}
-                                width={isHome ? 200 : 168}
-                                height={isHome ? 48 : 40}
+                                width={isHome ? 260 : 230}
+                                height={isHome ? 62 : 54}
                                 priority
                             />
                         </Link>
@@ -212,7 +212,7 @@ export default function IslamicHeader() {
                     <div className={styles.islamicMobileMenuIntro}>
                         <p className={styles.islamicMobileMenuEyebrow}>Explore</p>
                         <Link className={styles.islamicMobileMenuLogo} href="/" onClick={closeMobileMenu} aria-label="Royalane home">
-                            <BrandLogo className={styles.brandLogoMobile} width={160} height={38} priority />
+                            <BrandLogo className={styles.brandLogoMobile} width={200} height={48} priority />
                         </Link>
                     </div>
                     <button

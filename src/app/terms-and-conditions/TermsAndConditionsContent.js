@@ -203,9 +203,9 @@ export default function TermsAndConditionsContent() {
             </span>
             <div className={styles.mobileDpoCopy}>
               <p className={styles.mobileDpoLabel}>Data Protection Officer</p>
-              <p className={styles.mobileDpoEmail}>example@royalane.com</p>
+              <p className={styles.mobileDpoEmail}>info@example.com</p>
             </div>
-            <a className={styles.mobileDpoBtn} href="mailto:example@royalane.com">
+            <a className={styles.mobileDpoBtn} href="mailto:info@example.com">
               Email DPO
             </a>
           </div>
@@ -249,8 +249,8 @@ export default function TermsAndConditionsContent() {
                 <p className={styles.dpoText}>
                   Direct inquiries regarding bookings, GDPR requests, or service terms.
                 </p>
-                <a className={styles.dpoLink} href="mailto:example@royalane.com">
-                  example@royalane.com
+                <a className={styles.dpoLink} href="mailto:info@example.com">
+                  info@example.com
                   <HiOutlineExternalLink aria-hidden="true" />
                 </a>
               </div>
@@ -260,7 +260,7 @@ export default function TermsAndConditionsContent() {
               <div className={styles.assuranceCard}>
                 <div className={styles.assuranceThumb}>
                   <Image
-                    src="/updatedImages/aboutUsBanner.jpg"
+                    src="/updatedImages/aboutUsBanner.png"
                     alt="Royalane chauffeur transfer service"
                     fill
                     className={styles.assuranceThumbImg}
@@ -282,7 +282,7 @@ export default function TermsAndConditionsContent() {
                   </p>
                   <div className={styles.assuranceHeroImg}>
                     <Image
-                      src="/updatedImages/aboutUsBanner.jpg"
+                      src="/updatedImages/aboutUsBanner.png"
                       alt="Royalane private transfer at airport terminal"
                       fill
                       className={styles.assuranceThumbImg}
@@ -314,7 +314,7 @@ export default function TermsAndConditionsContent() {
                     Kingdom.
                     <br />
                     <strong>Primary Contact:</strong>{' '}
-                    <a href="mailto:example@royalane.com">example@royalane.com</a>
+                    <a href="mailto:info@example.com">info@example.com</a>
                   </div>
                 </div>
               </article>
@@ -559,7 +559,7 @@ export default function TermsAndConditionsContent() {
                   <div className={styles.contactBox}>
                     <p>
                       <strong>Email:</strong>{' '}
-                      <a href="mailto:example@royalane.com">example@royalane.com</a>
+                      <a href="mailto:info@example.com">info@example.com</a>
                     </p>
                     <p>
                       <strong>Phone:</strong>{' '}

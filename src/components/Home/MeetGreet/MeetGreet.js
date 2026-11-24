@@ -45,7 +45,7 @@ export default function MeetGreet() {
           <div className={styles.mediaCol}>
             <div className={styles.mediaFrame}>
               <Image
-                src="/updatedImages/homepagecar.jpg"
+                src="/updatedImages/homepagecar.png"
                 alt="Guest boarding a chauffeur vehicle"
                 fill
                 className={styles.mediaImage}

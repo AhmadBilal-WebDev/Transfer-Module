@@ -62,7 +62,7 @@ export default function WhoWeAre() {
             <div className={styles.desktopMedia}>
               <div className={styles.mainShot}>
                 <Image
-                  src="/updatedImages/section2_img_2.jpg"
+                  src="/updatedImages/section2_img_2.png"
                   alt="Chauffeur meet and greet at the airport"
                   fill
                   className={styles.shotImage}
@@ -71,7 +71,7 @@ export default function WhoWeAre() {
               </div>
               <div className={styles.insetShot}>
                 <Image
-                  src="/updatedImages/section2_img_1.jpg"
+                  src="/updatedImages/section2_img_1.png"
                   alt="Passenger in a premium chauffeur vehicle"
                   fill
                   className={styles.shotImage}
@@ -82,7 +82,7 @@ export default function WhoWeAre() {
 
             <div className={styles.mobileMedia}>
               <Image
-                src="/updatedImages/section2_img_1.jpg"
+                src="/updatedImages/section2_img_2.png"
                 alt="Traveller greeted by chauffeur at arrivals"
                 fill
                 className={styles.mobileImage}
