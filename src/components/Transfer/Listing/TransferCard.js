@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import VehicleDetail from "./VehicleDetail";
 import { usePackageMode } from "@/components/Store/PackageModeHelper";
 import { useHolidayPackageStore } from "@/components/Store/HolidayPackageStore";
+import { useTransferList } from "./TransferListingContext";
 import PriceDisplay from "@/components/Currency/PriceDisplay";
 import { playfair, inter } from "@/lib/fonts";
 import styles from "./TransferCard.module.css";
@@ -119,6 +120,7 @@ export default function TransferCard({
 }) {
   const { setSelectedTransfer } = useTransferStore();
   const { selectedData } = useHolidayPackageStore();
+  const { allTransferCount = 0, resetFilters } = useTransferList() || {};
   const [vehicleQuantity, setVehicleQuantity] = useState(1);
   const router = useRouter();
   const { isPackageMode, isEditMode, handleTransferSelection } =
@@ -126,22 +128,38 @@ export default function TransferCard({
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [isSelecting, setIsSelecting] = useState(false);
 
-  if (
-    (!transfers || transfers.length === 0) &&
-    !(isPackageMode || isEditMode) &&
-    !selectedData?.transfer
-  ) {
+  const hasNoTransfers = !transfers || transfers.length === 0;
+  const hideEmptyForPackageSelection =
+    (isPackageMode || isEditMode) && Boolean(selectedData?.transfer);
+
+  if (hasNoTransfers && !hideEmptyForPackageSelection) {
+    const filteredOut = allTransferCount > 0;
+
     return (
       <div className={styles.emptyState} role="status" aria-live="polite">
         <div className={styles.emptyIcon} aria-hidden="true">
           <FaCar />
         </div>
-        <p className={`${styles.emptyEyebrow} ${inter.className}`}>No matches</p>
-        <h3 className={`${styles.emptyTitle} ${playfair.className}`}>No transfers found</h3>
-        <p className={`${styles.emptyText} ${inter.className}`}>
-          Nothing matches your current filters. Try a wider price range, another
-          vehicle type, or reset filters to see all available transfers.
+        <p className={`${styles.emptyEyebrow} ${inter.className}`}>
+          Verified Executive Chauffeurs
         </p>
+        <h3 className={`${styles.emptyTitle} ${playfair.className}`}>
+          No transfers found for your journey
+        </h3>
+        <p className={`${styles.emptyText} ${inter.className}`}>
+          {filteredOut
+            ? "Nothing matches your current filters. Try a wider price range, another vehicle type, or reset filters to see all available transfers."
+            : "We couldn’t find any vehicles for this route and time. Try different dates, times, or nearby locations."}
+        </p>
+        {filteredOut && typeof resetFilters === "function" && (
+          <button
+            type="button"
+            className={styles.emptyResetBtn}
+            onClick={() => resetFilters()}
+          >
+            Reset filters
+          </button>
+        )}
       </div>
     );
   }

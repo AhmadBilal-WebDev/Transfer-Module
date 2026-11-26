@@ -50,6 +50,8 @@ function TransferResultCount({ totalRawTransfers = 0 }) {
     } else {
       titleText = `${totalTransfers} transfer${totalTransfers !== 1 ? "s" : ""} found for your journey`;
     }
+  } else if (totalRawTransfers > 0) {
+    titleText = "No transfers match your filters";
   }
 
   return (

@@ -691,3 +691,20 @@
   line-height: 1.55;
   color: var(--empty-muted);
 }
+
+.emptyResetBtn {
+  margin-top: 1.1rem;
+  min-height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  background: #014b95;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.emptyResetBtn:hover {
+  background: #003d7a;
+}

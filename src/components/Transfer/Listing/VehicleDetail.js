@@ -383,19 +383,6 @@ export default function VehicleDetail({
         </div>
     );
 
-    const priceBlock = (totalCurrency || totalPrice != null) && (
-        <div className={styles.priceBlock}>
-            <span className={styles.priceFrom}>From</span>
-            <p className={`${styles.priceValue} ${playfair.className}`}>
-                {totalCurrency}{' '}
-                {unitPrice != null ? Number(unitPrice).toFixed(2) : '—'}
-            </p>
-            <span className={styles.priceNote}>
-                per vehicle · {formatTripType(selectedTransferDetail?.trip_type)}
-            </span>
-        </div>
-    );
-
     return (
         <Modal
             opened={showModal}
@@ -488,6 +475,9 @@ export default function VehicleDetail({
                         <div className={styles.heroScrim} aria-hidden="true" />
 
                         <div className={styles.heroTop}>
+                            {isMobile && (
+                                <div className={styles.heroBadgesTop}>{badges}</div>
+                            )}
                             <button
                                 type="button"
                                 onClick={handleCloseModal}
@@ -498,60 +488,44 @@ export default function VehicleDetail({
                             </button>
                         </div>
 
-                        {isMobile ? (
-                            <div className={styles.heroBadgesMobile}>{badges}</div>
-                        ) : (
-                            <div className={styles.heroContent}>
-                                <div className={styles.heroLeft}>
-                                    {badges}
-                                    <h2 className={`${styles.heroTitle} ${playfair.className}`}>
-                                        {vehicle?.name || 'Transfer Vehicle'}
-                                    </h2>
-                                    {vehicle?.vehicle_description && (
-                                        <p className={styles.heroSubtitle}>
-                                            {vehicle.vehicle_description}
-                                        </p>
-                                    )}
-                                </div>
-                                {(totalCurrency || totalPrice != null) && (
-                                    <div className={styles.heroPrice}>
-                                        FROM{' '}
-                                        <span className={styles.heroPriceStrong}>
-                                            {totalCurrency}{' '}
-                                            {unitPrice != null ? Number(unitPrice).toFixed(2) : '—'}
-                                        </span>
-                                        <br />
-                                        per vehicle · {formatTripType(selectedTransferDetail?.trip_type)}
-                                    </div>
-                                )}
+                        <div className={styles.heroContent}>
+                            <div className={styles.heroLeft}>
+                                {!isMobile && badges}
+                                <h2 className={`${styles.heroTitle} ${playfair.className}`}>
+                                    {vehicle?.name || 'Transfer Vehicle'}
+                                </h2>
                             </div>
-                        )}
+                            {(totalCurrency || totalPrice != null) && (
+                                <div className={styles.heroPrice}>
+                                    FROM{' '}
+                                    <span className={styles.heroPriceStrong}>
+                                        {totalCurrency}{' '}
+                                        {unitPrice != null ? Number(unitPrice).toFixed(2) : '—'}
+                                    </span>
+                                    <br />
+                                    per vehicle · {formatTripType(selectedTransferDetail?.trip_type)}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div className={styles.body}>
-                        {isMobile && (
-                            <section className={styles.mobileIntro}>
-                                <div className={styles.mobileIntroLeft}>
-                                    <h2 className={`${styles.mobileTitle} ${playfair.className}`}>
-                                        {vehicle?.name || 'Transfer Vehicle'}
-                                    </h2>
-                                    {vehicle?.vehicle_description && (
-                                        <p className={styles.mobileSubtitle}>
-                                            {vehicle.vehicle_description}
-                                        </p>
-                                    )}
+                        {vehicle?.vehicle_description && (
+                            <section className={styles.section}>
+                                <div className={styles.sectionHead}>
+                                    <h3 className={styles.sectionTitle}>Vehicle Details</h3>
                                 </div>
-                                {priceBlock}
+                                <p className={styles.vehicleDescription}>
+                                    {vehicle.vehicle_description}
+                                </p>
                             </section>
                         )}
 
                         {detailCards.length > 0 && (
                             <section className={styles.section}>
-                                {!isMobile && (
-                                    <div className={styles.sectionHead}>
-                                        <h3 className={styles.sectionTitle}>Service Details</h3>
-                                    </div>
-                                )}
+                                <div className={styles.sectionHead}>
+                                    <h3 className={styles.sectionTitle}>Service Details</h3>
+                                </div>
                                 <div className={styles.detailGrid}>
                                     {detailCards.map(({ key, icon: Icon, label, value, hint }) => (
                                         <div key={key} className={styles.detailCard}>
@@ -561,7 +535,7 @@ export default function VehicleDetail({
                                             <div className={styles.detailText}>
                                                 <span className={styles.detailLabel}>{label}</span>
                                                 <span className={styles.detailValue}>{value}</span>
-                                                {!isMobile && hint && (
+                                                {hint && (
                                                     <span className={styles.detailHint}>{hint}</span>
                                                 )}
                                             </div>
